@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Number.fs" />
+    <Compile Include="ShpToken.fs" />
+    <Compile Include="ShpTokenUtils.fs" />
+    <Compile Include="Shape.fs" />
+    <Compile Include="ShapeFile.fs" />
+    <Compile Include="ShpParseTable.fs" />
+    <Compile Include="ShpCompiler.fs" />
+    <Compile Include="RowType.fs" />
+    <Compile Include="ShapeDef.fs" />
+    <Compile Include="FileDef.fs" />
+    <Compile Include="ShapeDefsParseTable.fs" />
+    <Compile Include="ShapeDefsCompiler.fs" />
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FslexFsyacc" Version="1.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="8.0.401" />
+  </ItemGroup>
+
+</Project>

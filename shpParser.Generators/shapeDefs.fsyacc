@@ -1,0 +1,20 @@
+﻿%{
+%}
+
+shapeDefs :
+    | shapeDef { [s0] }
+    | shapeDef shapeDefs { s0::s1 }
+
+shapeDef :
+    | STARROW datarows { s0::s1 }
+
+datarows :
+    | (* empty *){[]}
+    | DATAROW datarows { s0::s1 }
+
+%%
+
+%type<string> STARROW DATAROW
+%type<string list> datarows shapeDef
+%type<string list list> shapeDefs
+
