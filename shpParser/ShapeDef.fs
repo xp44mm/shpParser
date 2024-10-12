@@ -2,16 +2,18 @@
 
 open System
 open System.Text.RegularExpressions
+
 type ShapeDef =
     {
-        shapenumber: int
+        shapenumber: uint16
         rows: string list
     }
+
     static member from (rows: string list) =
         let ss = 
             rows.Head.Split([|','|],2)
         {
-            shapenumber = Number.parse ss.[0]
+            shapenumber = Number.parseUint16 ss.[0]
             rows = ss.[1] :: rows.Tail
         }
 

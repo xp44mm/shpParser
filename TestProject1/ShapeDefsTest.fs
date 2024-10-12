@@ -76,7 +76,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
 
         let ls =
             y.shapes
-            |> List.filter(fun s -> s.shapenumber < 33 || s.shapenumber > 127)
+            |> List.filter(fun s -> s.shapenumber < 33us || s.shapenumber > 127us)
             |> List.sortBy(fun s -> s.shapenumber)
 
         let newfile =
@@ -94,7 +94,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
 
     [<Fact>]
     member this.Hanzi() =
-        let i = 0xB2E2
+        let i = 0xB2E2us
         let c = "测"
 
         let chars = GBK.hanzi(i)
@@ -119,7 +119,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
         let ls =
             y.shapes
             |> List.map(fun s -> s.shapenumber)
-            |> List.filter(fun n -> n > 127)
+            |> List.filter(fun n -> n > 127us)
             |> List.sort
             |> List.map(GBK.hanzi )
             |> List.chunkBySize 80
