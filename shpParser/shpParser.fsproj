@@ -18,11 +18,13 @@
     <Compile Include="FileDef.fs" />
     <Compile Include="ShapeDefsParseTable.fs" />
     <Compile Include="ShapeDefsCompiler.fs" />
+    <Compile Include="GBK.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FslexFsyacc" Version="1.5.4" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

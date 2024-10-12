@@ -24,7 +24,11 @@ type FileDef =
                     groups.Tail
                     |> List.map(ShapeDef.from)
             }
-                    
+
+    member this.getTitle(i:int) =
+        let rgx = Regex(@"^BIGFONT +[^,]+",RegexOptions.IgnoreCase)
+        rgx.Replace(this.title,$"BIGFONT {i}")
+
     member this.render() =
         [
             "*"+this.title
