@@ -9,13 +9,16 @@ type ShapeDef =
         rows: string list
     }
 
-    static member from (rows: string list) =
+    static member from(rows: string list) =
         let ss = 
             rows.Head.Split([|','|],2)
         {
             shapenumber = Number.parseUint16 ss.[0]
             rows = ss.[1] :: rows.Tail
         }
+
+    member this.removeComment() =
+        this.rows.Head.Split([|','|],2).[0]
 
     member this.render() =
         let h = $"*{this.shapenumber},{this.rows.Head}"

@@ -21,3 +21,10 @@ type Shape =
             comment = ss.[2]
             specbytes = specbytes
         }
+
+// 删除用全角的空格占位的字形
+//    shp.shapenumber = 41377us
+//    || shp.rows <> [
+//            "17"
+//            "3,13,2,14,8,(-64,-127),8,(127,0),14,8,(-64,-64),4,13,0"
+//        ]

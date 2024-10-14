@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="Dir.fs" />
     <Compile Include="ShpCompilerTest.fs" />
+    <Compile Include="ShapeDefTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
