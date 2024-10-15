@@ -19,6 +19,7 @@
     <Compile Include="ShapeDefsParseTable.fs" />
     <Compile Include="ShapeDefsCompiler.fs" />
     <Compile Include="GBK.fs" />
+    <Compile Include="ShapeByte.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 
