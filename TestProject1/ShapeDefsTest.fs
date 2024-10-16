@@ -35,11 +35,9 @@ type ShapeDefsTest(output:ITestOutputHelper) =
 
 
     [<Theory>]
-    [<InlineData("chin2")>]
-    [<InlineData("design")>]
-    [<InlineData("sbhz")>]
-    [<InlineData("xc01")>]
-    [<InlineData("xdx")>]
+    [<InlineData("hei")>]
+    [<InlineData("kai")>]
+
     member _.``format shp``(filename : string) =
         let y = getFileDef filename
 
@@ -234,6 +232,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
                     ]
                 }
             )
+
         output.WriteLine($"sb:{pp.Length}")
         let xdx =
             let filename = "xdx1"
@@ -245,7 +244,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
                 yield! xdx.shapes
             ]
             |> List.distinctBy (fun s -> s.shapenumber)
-            |> List.sortBy (fun s -> s.shapenumber)
+            |> List.sortBy(fun s -> s.shapenumber) //按照GBK排序
 
         let newfile =
             {

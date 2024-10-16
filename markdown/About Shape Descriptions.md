@@ -37,7 +37,7 @@ A simple shape specification byte contains vector length and direction encoded i
 
 Each vector length and direction code is a string of three characters. The first character must be a 0, which indicates to the program that the next two characters are interpreted as hexadecimal values. The second character specifies the length of the vector in units. Valid hexadecimal values range from 1 (one unit long) through F (15 units long). The third character specifies the direction of the vector. The following figure illustrates the direction codes.
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-92C61D7E-E649-4ED3-9469-894BA38BCA2A.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\direction.png)
 
 Vector direction codes
 
@@ -62,7 +62,7 @@ Specify rotation angle <current>: 0
 
 The resulting shape is shown in the following illustration.
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-C47B7938-50EE-4D5A-B010-A1305AF2F1DA.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\dbox.png)
 
 # Special Codes Reference
 
@@ -72,30 +72,41 @@ The second character of the three-character string (the vector length specificat
 
 Specification byte codes
 
-000 End of shape definition
+### 000
+
+End of shape definition
+
 Draw is activated at the start of each shape. When Draw mode is turned on (code 1), the vectors cause lines to be drawn. When Draw mode is turned off (code 2), the vectors move to a new location without drawing. 
 
-001 Activate Draw mode (pen down)
+### 001 
 
-002
+Activate Draw mode (pen down)
+
+### 002
 
 Deactivate Draw mode (pen up)
 
-003
+### 003
 
 Divide vector lengths by next byte
 
-The height specified with the SHAPE command is initially considered the length of a single orthogonal vector (direction 0, 4, 8, or C). Code 3 divides vector lengths by the next byte. Code 4 multiplies vector lengths by the next byte. Codes 3 and 4 are followed by a specification byte containing an integer scale factor (1 through 255).
-
-If you want the shape height to specify the size of the entire shape, and you use 10 vector lengths to draw it, you can use 3,10 to scale the height specification. The scale factor is cumulative within a shape; that is, multiplying by 2 and again by 6 results in a scale factor of 12. Usually, you should reverse the effect of your scale factors at the end of the shape, especially for subshapes and text font shapes. The program does not reset the scale factor for you.
-
-004
+### 004
 
 Multiply vector lengths by next byte
 
-005
+The height specified with the SHAPE command is initially considered the length of a single orthogonal vector (direction 0, 4, 8, or C). Code 3 divides vector lengths by the next byte. Code 4 multiplies vector lengths by the next byte. Codes 3 and 4 are followed by a specification byte containing an integer scale factor (1 through 255).
+
+If you want the shape height to specify the size of the entire shape, and you use 10 vector lengths to draw it, you can use `3,10` to scale the height specification. The scale factor is cumulative within a shape; that is, multiplying by 2 and again by 6 results in a scale factor of 12. Usually, you should reverse the effect of your scale factors at the end of the shape, especially for subshapes and text font shapes. The program does not reset the scale factor for you.
+
+
+
+### 005
 
 Push current location onto stack
+
+### 006
+
+Pop current location from stack
 
 You must pop everything you push. The position stack is only four locations deep. If the stack overflows because of too many pushes or too many missing pops, the following message is displayed when the shape is drawn.
 
@@ -109,11 +120,7 @@ Similarly, if you try to pop more locations than have been pushed onto the stack
 Position stack underflow in shape nnn
 ```
 
-006
-
-Pop current location from stack
-
-007
+### 007
 
 Draw subshape number given by next byte
 
@@ -121,9 +128,13 @@ For a non-Unicode font the specification byte following code 7 is a shape number
 
 The shape with that number (in the same shape file) is drawn at this time. Draw mode is not reset for the new shape. When the subshape is complete, drawing the current shape resumes.
 
-008
+### 008
 
 X-Y displacement given by next two bytes
+
+### 009
+
+Multiple X-Y displacements, terminated `(0,0)`
 
 Normal vector specification bytes draw only in the 16 predefined directions, and the longest length is 15. These restrictions help make shape definitions efficient but are sometimes limiting. Code 8 specifies the X-Y displacement given by the next two bytes. Code 8 must be followed by two specification bytes in the format:
 
@@ -147,17 +158,15 @@ You can use code 9 to draw a sequence of nonstandard vectors. Code 9 specifies a
 
 You must terminate the sequence of X-Y displacement pairs with a `(0,0)` pair in order for the program to recognize any Normal Vectors or special codes that follow.
 
-009
 
-Multiple X-Y displacements, terminated `(0,0)`
 
-00A
+### 00A
 
 Octant arc defined by next two bytes
 
 This is called an octant arc because it spans one or more 45-degree octants, starting and ending on an octant boundary. Octants are numbered counterclockwise from the 3 o'clock position, as shown in the following illustration.
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-569B68E5-76E9-4DED-A6DD-3628A6EDEEC0.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\octantarc.png)
 
 
 The arc specification is
@@ -174,10 +183,9 @@ The radius can be any value from 1 through 255. The second specification byte in
 
 This code draws a one-unit vector up and to the right, a clockwise arc from octant 3 (with a radius of one unit for two octants), and then a one-unit vector down and to the right, as shown in the following illustration.
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-38444908-BE90-4282-AC24-937119BAA5B5.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\octantarc3.png)
 
-
-00B
+### 00B
 
 Fractional arc defined by next five bytes
 
@@ -210,11 +218,15 @@ starting octant  = 1  because arc starts in the 45 degree octant
 ending octant    = 2  because arc ends in the 90 degree octant
 ```
 
-00C
+### 00C
 
 Arc defined by X-Y displacement and bulge
 
-They are similar to codes 8 and 9 in that you can use them to specify X-Y displacements. However, codes 00C and 00D draw arcs by applying a bulge factor to the displacement vector. Code 00C draws one arc segment, while code 00D draws multiple arc segments (polyarcs) until it is terminated by a (0,0) displacement.
+### 00D
+
+Multiple bulge-specified arcs
+
+They are similar to codes 8 and 9 in that you can use them to specify X-Y displacements. However, codes 00C and 00D draw arcs by applying a bulge factor to the displacement vector. Code 00C draws one arc segment, while code 00D draws multiple arc segments (polyarcs) until it is terminated by a `(0,0)` displacement.
 
 Code 00C must be followed by three bytes describing the arc:
 
@@ -230,12 +242,12 @@ Both the X and Y displacement and the bulge, which specifies the curvature of th
 
 . The sign is negative if the arc from the current location to the new location is clockwise.
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-C0BCC33A-9129-439D-9641-58765C7F8E89.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\bulge.png)
 
 
 A semicircle has bulge 127 (or -127) and is the greatest arc that can be represented as a single-arc segment using these codes (use two consecutive arc segments for larger arcs). A bulge specification of 0 is valid and represents a straight-line segment. However, using code 8 for a straight-line segment saves a byte in the shape description.
 
-The polyarc code (00D, or 13) is followed by 0 or by more arc segment triples, and is terminated by a (0,0) displacement. Note that no bulge is specified after the final displacement. For example, the letter S might be defined by the following sequence:
+The polyarc code (00D, or 13) is followed by 0 or by more arc segment triples, and is terminated by a (0,0) displacement. Note that no bulge is specified after the final displacement. For example, the letter `S` might be defined by the following sequence:
 
 ```
 13,(0,5,127),(0,5,-127),(0,0)
@@ -245,11 +257,9 @@ Zero bulge segments are useful within polyarcs to represent straight segments; t
 
 The number -128 cannot be used in arc segment and polyarc definitions.
 
-00D
 
-Multiple bulge-specified arcs
 
-00E
+### 00E
 
 Process next command only if vertical text
 
@@ -263,4 +273,51 @@ In horizontal text, the start point for each character is the left end of the ba
 14,8,(-4,-3),0
 ```
 
-![img](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/images/GUID-51333DB8-1D1E-4564-807D-EABBC7914275.png)
+![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\verticaltext.png)
+
+# About Text Font Descriptions
+
+Text fonts are files of shape definitions with shape numbers corresponding to an ASCII code for each character.
+
+Codes 1 through 31 are for control characters, only one of which is used in a text font:
+
+- 10 (LF)
+
+  The line feed (LF) must drop down one line without drawing. This is used for repeated TEXT commands, to place succeeding lines below the first one.
+
+  ```
+  *10,5,lf
+  2,8,(0,-10),0
+  ```
+
+  You can modify the spacing of lines by adjusting the downward movement specified by the LF shape definition.
+
+Text fonts must include a special shape number 0 that conveys information about the font itself. The format has the following syntax:
+
+```
+*0,4,font-name
+above,below,modes,0
+```
+
+The *above* value specifies the number of vector lengths above the baseline that the uppercase letters extend, and *below* indicates how far the lowercase letters descend below the baseline. The baseline is similar in concept to the lines on writing paper. These values define the basic character size and are used as scale factors for the height specified for the text object.
+
+The *modes* byte should be 0 for a horizontally oriented font and 2 for a dual-orientation (horizontal or vertical) font. The special 00E (14) command code is honored only when *modes* is set to 2.
+
+The standard fonts supplied with the program include a few additional characters required for dimensioning.
+
+**%%d** Degree symbol (°)
+
+**%%p** Plus/minus tolerance symbol (±)
+
+**%%c** Circle diameter dimensioning symbol
+
+You can use these and other %%*nnn* control sequences to specify a character.
+
+**Note:** The program draws text characters by their ASCII codes (shape numbers) and not by name. To save memory, specify the shape name portion of each text shape definition in lowercase as shown in the following example. (Lowercase names are not saved in memory.)
+
+```
+*65,11,uca
+024,043,04d,02c,2,047,1,040,2,02e,0
+```
+
+Because the shape name *uca* contains lowercase letters, the program does not save the name in memory. However, you can use the name for reference when editing the font definition file. In this example, *uca* stands for uppercase A.

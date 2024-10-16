@@ -13,6 +13,7 @@
     <Compile Include="ShpParseTableTest.fs" />
     <None Include="shapeDefs.fsyacc" />
     <Compile Include="ShapeDefsParseTableTest.fs" />
+    <None Include="spec.fsyacc" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

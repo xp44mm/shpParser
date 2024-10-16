@@ -11,3 +11,7 @@ let parseUint16 (s:string) =
     | '0' -> Convert.ToUInt16(s,16)
     | _ -> uint16 s
 
+let parseSign (s:string) =
+    match s.[0] with
+    | '-' -> - parse s.[1..]
+    | _ -> parse s

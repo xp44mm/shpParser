@@ -13,6 +13,7 @@
     <Compile Include="ShpCompilerTest.fs" />
     <Compile Include="ShapeDefTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />
+    <Compile Include="ShpFileDefTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
