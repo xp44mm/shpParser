@@ -14,6 +14,7 @@
     <Compile Include="ShapeDefTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />
     <Compile Include="ShpFileDefTest.fs" />
+    <Compile Include="Specifications.fs" />
     <Compile Include="SpecificationTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

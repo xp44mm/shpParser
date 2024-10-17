@@ -42,3 +42,29 @@ type SpecificationTest (output:ITestOutputHelper) =
         let y1 = SpecificationUtils.getSpecifications (y)
         for spec in y1 do
         output.WriteLine(spec.render())
+        let bytes = 
+            y1 |> List.collect(fun sp -> sp.getBytes())
+        Should.equal bytes y
+
+    // 计算当前坐标位置
+    [<Theory>]
+    [<InlineData("tssd")>] // shape 0 1 代码需要研究
+    [<InlineData("intecad")>] //比例12两侧的代码可以删除
+    [<InlineData("chin2")>] //计算当前坐标，不必从头开始移动
+    [<InlineData("design")>] //位移零,重复提笔落笔
+    [<InlineData("SBHZ")>] 
+    [<InlineData("XDX")>] //没有14，模式2改为0,重复提笔落笔
+    member this.``from lines`` (x:string) =
+        output.WriteLine x
+        let y = 
+            Specifications.mp.[x]
+            |> SpecificationUtils.getIntListFromLines
+
+        output.WriteLine(stringify y)
+
+        let y1 = SpecificationUtils.getSpecifications (y)
+        for spec in y1 do
+        output.WriteLine(spec.render())
+        let bytes = 
+            y1 |> List.collect(fun sp -> sp.getBytes())
+        Should.equal bytes y

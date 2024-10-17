@@ -17,7 +17,7 @@ type Specification =
     | Displacement of sbyte*sbyte                  // 008
     | ManyDisplacements of (sbyte*sbyte) list      // 009
     | OctantArc of byte*sbyte                      // 00A
-    | FractionalArc of sbyte*sbyte*byte*byte*sbyte // 00B
+    | FractionalArc of sbyte*sbyte*uint16*sbyte // 00B
     | BulgeArc of sbyte*sbyte*sbyte                // 00C
     | ManyBulgeArc of (sbyte*sbyte*sbyte) list     // 00D
     | VerticalText of Specification                // 00E
@@ -70,11 +70,11 @@ type Specification =
         | 0xB ->
             let a = sbyte t.[0]
             let b = sbyte t.[1]
-            let c = byte t.[2]
-            let d = byte t.[3]
+            let r = uint16(t.[2]*256+t.[3])
+
             let e = sbyte t.[4]
             let tt = t.[5..]
-            FractionalArc (a,b,c,d,e),tt
+            FractionalArc (a,b,r,e),tt
         | 0xC ->
             let a = sbyte t.[0]
             let b = sbyte t.[1]
@@ -100,38 +100,6 @@ type Specification =
         | _ ->
             Vector (byte h), t
 
-    /// 定义形用的字节数
-    member this.defbytes =
-        match this with
-        | EndOfShape
-        | PenDown
-        | PenUp
-        | Push
-        | Pop
-        | Vector _
-            -> 1us
-        | Divide _
-        | Multiply _
-        | Subshape _
-            -> 2us
-
-        | Displacement _
-        | OctantArc _
-            -> 3us
-
-        | BulgeArc _
-            -> 4us
-        | FractionalArc _
-            -> 6us
-
-        | ManyDisplacements ls
-            -> 3us + uint16 ls.Length * 2us
-        | ManyBulgeArc ls
-            -> 3us + uint16 ls.Length * 3us
-
-        | VerticalText spec
-            -> 1us + spec.defbytes
-
     member this.scale(i:float) =
         match this with
         | Displacement (x,y) ->
@@ -150,19 +118,13 @@ type Specification =
             let r = byte (float r * i)
             OctantArc (r,sc)
 
-        | FractionalArc (so,eo,hr,r,sc) ->
+        | FractionalArc (so,eo,r,sc) ->
             let so = sbyte (float so * i)
             let eo = sbyte (float eo * i)
-            let hr,r =
-                match
-                    float (int hr*256+int r) * i
-                    |> uint16
-                    |> BitConverter.GetBytes
-                with
-                | [|r|] -> 0uy,r
-                | [|hr;r|] -> hr,r
-                | arr -> failwith $"数组长度必须01而不是{arr.Length}"
-            FractionalArc (so,eo,hr,r,sc)
+            let r =
+                float r * i
+                |> uint16
+            FractionalArc (so,eo,r,sc)
         | BulgeArc (x,y,h) ->
             let x = sbyte (float x * i)
             let y = sbyte (float y * i)
@@ -198,7 +160,7 @@ type Specification =
 
     member this.render() =
         let printS16 (sc:sbyte) =
-            let clock,sc = if sc > 0y then "",sc else "-",-sc
+            let clock,sc = if sc < 0y then "-",-sc else "",sc
             $"{clock}0%X{sc})"
 
         match this with
@@ -219,11 +181,11 @@ type Specification =
             $"ManyDisplacements[{s}]"
         | OctantArc (r,sc) -> 
             $"OctantArc({r},{printS16 sc})"
-        | FractionalArc (s,c,hr,r,sc) ->
-            let r = int hr*256+int r
+        | FractionalArc (s,c,r,sc) ->
+            //let r = int hr*256+int r
             $"FractionalArc({s},{c},{r},{printS16 sc})"
         | BulgeArc (x,y,h) -> $"BulgeArc({x},{y},{h})"
-        | ManyBulgeArc ls -> 
+        | ManyBulgeArc ls ->
             let ls =
                 ls
                 |> List.map(fun (x,y,h) -> $"({x},{y},{h})")
@@ -232,6 +194,44 @@ type Specification =
         | VerticalText spec -> "VerticalText " + spec.render()
         | Vector x -> $"Vector 0%X{x}"
 
+    member this.getBytes() =
+        match this with
+        | EndOfShape -> [0]
+        | PenDown -> [1]
+        | PenUp -> [2]
+        | Divide x -> [3;int x]
+        | Multiply x -> [4;int x]
+        | Push -> [5]
+        | Pop -> [6]
+        | Subshape x -> [7;int x]
+        | Displacement (x,y) -> [8;int x;int y]
+        | ManyDisplacements ls -> 
+            [
+                9
+                for (x,y) in ls do
+                    int x;int y
+                0;0
+                ]
+        | OctantArc (r,sc) -> [10;int r;int sc]
+        | FractionalArc (s,c,r,sc) ->
+            let r = int r
+            [
+                11;int s; int c;
+                r / 256
+                r % 256
+                int sc
+                ]
+        | BulgeArc (x,y,h) -> [12;int x;int y;int h]
+        | ManyBulgeArc ls -> [
+            13
+            for (x,y,h) in ls do int x;int y;int h
+            0;0
+            ]
+        | VerticalText spec -> [14;yield! spec.getBytes()]
+        | Vector x -> [int x]
+
+    /// 定义形用的字节数
+    member this.defbytes = this.getBytes().Length
 
 // 删除用全角的空格占位的字形
 //    shp.shapenumber = 41377us
@@ -239,3 +239,4 @@ type Specification =
 //            "17"
 //            "3,13,2,14,8,(-64,-127),8,(127,0),14,8,(-64,-64),4,13,0"
 //        ]
+
