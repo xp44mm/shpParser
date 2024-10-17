@@ -34,7 +34,7 @@ type ShpFileDef =
                 pairs0 
                 |> List.exactlyOne
                 |> snd
-                |> SpecificationUtils.getIntList
+                |> SpecificationUtils.getIntListFromLines
             shapes = 
                 pairs 
                 |> List.map ShapeDefinition.from

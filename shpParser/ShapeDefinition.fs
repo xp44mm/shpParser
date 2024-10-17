@@ -15,16 +15,16 @@ type ShapeDefinition =
             number = number
             specifications = 
                 rows
-                |> SpecificationUtils.getIntList
+                |> SpecificationUtils.getIntListFromLines
                 |> SpecificationUtils.getSpecifications
         }
 
     member this.Hanzi = 
         GBK.hanzi this.number
-
-    member this.bytes = 
+    /// 定义形用的字节数
+    member this.defbytes = 
         this.specifications 
-        |> List.map(fun spec -> spec.bytes)
+        |> List.map(fun spec -> spec.defbytes)
         |> List.sum
 
     //member this.render() =
