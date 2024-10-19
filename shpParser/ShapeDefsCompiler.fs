@@ -31,6 +31,7 @@ let parse(lines:string seq) =
 
     lines
     |> Seq.map(RowType.from)
+
     //|> Seq.map(fun tok -> // trace
     //    tokens <- tok :: tokens
     //    tok

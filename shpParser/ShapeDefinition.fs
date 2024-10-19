@@ -24,7 +24,7 @@ type ShapeDefinition =
     /// 定义形用的字节数
     member this.defbytes = 
         this.specifications 
-        |> List.map(fun spec -> spec.defbytes)
+        |> List.map(fun spec -> spec.getBytes().Length)
         |> List.sum
 
     //member this.render() =

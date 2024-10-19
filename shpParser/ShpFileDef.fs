@@ -3,6 +3,12 @@
 open System
 open System.Text.RegularExpressions
 
+open System.Threading.Tasks
+open System.Reactive
+//open System.Reactive.Observable.Aliases
+open System.Reactive.Linq
+open type System.Linq.ParallelEnumerable
+
 type ShpFileDef =
     {
         title: Title
@@ -17,7 +23,7 @@ type ShpFileDef =
             | BigFont _ -> groups.Tail
             | NoTitle -> groups
 
-        let pairs0, pairs =
+        let pairs =
             groups
             |> List.map(fun rows ->
                 let number = 
@@ -25,19 +31,29 @@ type ShpFileDef =
                     |> Number.parseUint16
                 number,rows.Tail
             )
-            |> List.partition(fun (a,b) -> a = 0us)
 
+        let ns, pairs =
+            match pairs with
+            | (n,ns) :: t when n = 0us ->
+                    ns,t
+            | _ -> failwith "没有*0,特殊形"
 
         {
             title = title
-            font = 
-                pairs0 
-                |> List.exactlyOne
-                |> snd
-                |> SpecificationUtils.getIntListFromLines
+            font =                  
+                SpecificationUtils.getIntListFromLines ns
             shapes = 
-                pairs 
-                |> List.map ShapeDefinition.from
+                pairs
+                //    .AsParallel()
+                //    .Select(ShapeDefinition.from)
+                //|> Seq.toList
+
+                //|> List.map ShapeDefinition.from
+                    .ToObservable()
+                    .SelectMany(fun x -> task { return ShapeDefinition.from x })
+                    
+                    .ToEnumerable()
+                |> Seq.toList
         }
 
     //member this.render() =

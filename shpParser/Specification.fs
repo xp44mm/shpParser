@@ -17,7 +17,7 @@ type Specification =
     | Displacement of sbyte*sbyte                  // 008
     | ManyDisplacements of (sbyte*sbyte) list      // 009
     | OctantArc of byte*sbyte                      // 00A
-    | FractionalArc of sbyte*sbyte*uint16*sbyte // 00B
+    | FractionalArc of byte*byte*uint16*sbyte // 00B
     | BulgeArc of sbyte*sbyte*sbyte                // 00C
     | ManyBulgeArc of (sbyte*sbyte*sbyte) list     // 00D
     | VerticalText of Specification                // 00E
@@ -68,8 +68,8 @@ type Specification =
             let y = sbyte t.Tail.Head
             OctantArc (x,y) ,t.Tail.Tail
         | 0xB ->
-            let a = sbyte t.[0]
-            let b = sbyte t.[1]
+            let a = byte t.[0]
+            let b = byte t.[1]
             let r = uint16(t.[2]*256+t.[3])
 
             let e = sbyte t.[4]
@@ -119,8 +119,6 @@ type Specification =
             OctantArc (r,sc)
 
         | FractionalArc (so,eo,r,sc) ->
-            let so = sbyte (float so * i)
-            let eo = sbyte (float eo * i)
             let r =
                 float r * i
                 |> uint16
@@ -182,7 +180,6 @@ type Specification =
         | OctantArc (r,sc) -> 
             $"OctantArc({r},{printS16 sc})"
         | FractionalArc (s,c,r,sc) ->
-            //let r = int hr*256+int r
             $"FractionalArc({s},{c},{r},{printS16 sc})"
         | BulgeArc (x,y,h) -> $"BulgeArc({x},{y},{h})"
         | ManyBulgeArc ls ->
@@ -230,8 +227,8 @@ type Specification =
         | VerticalText spec -> [14;yield! spec.getBytes()]
         | Vector x -> [int x]
 
-    /// 定义形用的字节数
-    member this.defbytes = this.getBytes().Length
+    ///// 定义形用的字节数
+    //member this.defbytes = this.getBytes().Length
 
 // 删除用全角的空格占位的字形
 //    shp.shapenumber = 41377us
