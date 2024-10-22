@@ -12,13 +12,6 @@ open FSharp.Idioms.Literal
 open FSharp.Idioms
 
 type SpecificationTest (output:ITestOutputHelper) =
-    //let getShpFileDef (filename : string) =
-    //    let path = Path.Combine(Dir.solutionPath, "SHP", filename+".SHP")
-    //    let lines = File.ReadAllLines(path, Encoding.UTF8)
-
-    //    lines
-    //    |> ShapeDefsCompiler.parse
-    //    |> ShpFileDef.from
 
     [<Theory>]
     [<InlineData("014,010,01C,018,012,0")>]
@@ -34,7 +27,7 @@ type SpecificationTest (output:ITestOutputHelper) =
         output.WriteLine x
         let y = 
             x
-            |> SpecificationUtils.splitIntList
+            |> Number.splitIntList
             |> List.ofArray
 
         output.WriteLine(stringify y)
@@ -63,7 +56,7 @@ type SpecificationTest (output:ITestOutputHelper) =
         output.WriteLine x
         let bytes0 = 
             Specifications.mp.[x]
-            |> SpecificationUtils.getIntListFromLines
+            |> Number.getIntListFromLines
 
         output.WriteLine(stringify bytes0)
 
@@ -74,3 +67,21 @@ type SpecificationTest (output:ITestOutputHelper) =
         let bytes = 
             y1 |> List.collect(fun sp -> sp.getBytes())
         Should.equal bytes bytes0
+            
+    [<Theory>]
+    [<InlineData("41377")>]
+    [<InlineData("41378")>]
+    [<InlineData("empty")>]
+    member this.``distinctPen`` (shpnumber:string) =
+        let specs = 
+            Specifications.design.[shpnumber]
+            |> Number.getIntListFromLines
+            |> SpecificationUtils.getSpecifications
+            |> SpecificationUtils.distinctPen
+
+        for spec in specs do
+            output.WriteLine(spec.render())
+
+        let bytes = 
+            specs |> List.collect(fun sp -> sp.getBytes())
+        output.WriteLine(stringify bytes)

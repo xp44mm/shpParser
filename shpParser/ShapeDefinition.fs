@@ -15,7 +15,7 @@ type ShapeDefinition =
             number = number
             specifications = 
                 rows
-                |> SpecificationUtils.getIntListFromLines
+                |> Number.getIntListFromLines
                 |> SpecificationUtils.getSpecifications
         }
 

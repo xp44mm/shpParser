@@ -41,7 +41,7 @@ type ShpFileDef =
         {
             title = title
             font =                  
-                SpecificationUtils.getIntListFromLines ns
+                Number.getIntListFromLines ns
             shapes = 
                 pairs
                 //    .AsParallel()

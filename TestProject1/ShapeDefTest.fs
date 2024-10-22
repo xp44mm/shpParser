@@ -53,6 +53,7 @@ type ShapeDefTest(output:ITestOutputHelper) =
     [<InlineData(43169us,'ā')>]
     [<InlineData(43205us,'ㄅ')>]
     [<InlineData(43205us,'德')>]
+    [<InlineData(41433us,'≠')>]
 
     member this.Hanzi(i:uint16,c:char) =
 

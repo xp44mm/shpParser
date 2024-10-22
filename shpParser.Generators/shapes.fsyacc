@@ -1,0 +1,20 @@
+%{
+%}
+
+shapes :
+    | shape { [s0] }
+    | shape shapes { s0::s1 }
+
+shape :
+    | "*" lines { s1 }
+
+lines :
+    | LINE { [s0] }
+    | LINE lines { s0::s1 }
+
+%%
+
+%type<string> LINE
+%type<string list> lines shape
+%type<string list list> shapes
+
