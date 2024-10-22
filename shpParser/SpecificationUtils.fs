@@ -13,7 +13,6 @@ let getSpecifications (ls:int list) =
         | _ -> Some(Specification.from state)
     )
 
-
 let renderSpecifications (shpnum) (specifications:Specification list) =
     let hanzi = GBK.hanzi shpnum
     [
@@ -130,6 +129,7 @@ let trimTssd (specifications:Specification list) =
     |> removeTail
     |> Option.defaultValue []
 
+/// remove divide multiply
 let trimXdx (specifications:Specification list) =
 
     //去掉头
@@ -214,6 +214,7 @@ let trim (filename:string) =
     | IgnoreCase "XDX" -> trimXdx
     | _ -> id
 
+
 let scaleFactors (filename:string) =
     match filename with
     | IgnoreCase "chin2" ->
@@ -245,3 +246,33 @@ let splitLine (line: string) =
     if line.[0] = '*' then
         [None; Some(line.[1..])]
     else [Some line]
+
+let renderShape (ranges) h w (mp:Map<uint16,string>) =
+    [
+        BigFont.renderShape ranges
+        Shape0.renderShape h w
+        for KeyValue(num,res) in mp do
+            res
+    ]
+    |> String.concat "\r\n"
+
+let trimPushPop (specifications:Specification list) =
+    //去掉头
+    let rec removeHead(specifications) =
+        match specifications with
+        | Push :: t -> t
+        | _ -> Pop :: specifications
+
+    //去掉尾部提笔移动到末尾的指令
+    let removeTail(specifications1) =
+        match List.rev specifications1 with
+        | EndOfShape :: Displacement(_,0y) :: PenUp :: Pop :: specifications2 ->
+            specifications2
+            |> List.rev
+            |> Some
+        | _ -> None
+
+    specifications
+    |> removeHead
+    |> removeTail
+    |> Option.defaultValue []

@@ -40,6 +40,10 @@ type GroupType =
             | number ->
                 let specs =
                     bytes
-                    |> SpecificationUtils.getSpecifications
+                    |> List.unfold(fun state ->
+                        match state with
+                        | [] -> None
+                        | _ -> Some(Specification.from state)
+                    )
                 ShapeDef(number,specs)
 

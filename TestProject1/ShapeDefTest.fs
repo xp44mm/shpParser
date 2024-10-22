@@ -31,21 +31,6 @@ type ShapeDefTest(output:ITestOutputHelper) =
         output.WriteLine(stringify y)
 
     [<Theory>]
-    [<InlineData("129,砀")>]
-    [<InlineData("145,磔")>]
-    [<InlineData("89,罡")>]
-    [<InlineData("97,钶")>]
-    member _.``removeComment``(firstline : string) =
-        let def = {
-            shapenumber = 0us
-            rows = [firstline]
-        }
-        let y = def.removeComment()
-        let e = firstline.[0..firstline.Length-3]
-
-        Should.equal e y
-
-    [<Theory>]
     [<InlineData(0us,'\000')>]
     [<InlineData(10us,'\n')>]
     [<InlineData(32us,' ')>]

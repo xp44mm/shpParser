@@ -10,9 +10,7 @@
 
   <ItemGroup>
     <Compile Include="Dir.fs" />
-    <Compile Include="ShpCompilerTest.fs" />
     <Compile Include="ShapeDefTest.fs" />
-    <Compile Include="ShpFileDefTest.fs" />
     <Compile Include="Specifications.fs" />
     <Compile Include="SpecificationTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />

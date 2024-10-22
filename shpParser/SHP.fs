@@ -32,16 +32,27 @@ let renderSHP (num:uint16) (bytes:int list) =
     ]
     |> String.concat "\r\n"
 
-let fileSHP (ranges) (fontHeight) (dict:Dictionary<uint16,_>) =
+let fileSHP (ranges:int list) (fontHeight) (fontWidth) (dict:Dictionary<uint16,int list>) =
     [
-        BigFont.renderTitle dict.Count ranges
-        Shape0.renderFont fontHeight
+        BigFont.render dict.Count ranges
+        Shape0.render fontHeight fontWidth
+
         for shpnum,bytes in 
-            dict 
-            |> Seq.map(fun (KeyValue(shpnum,bytes)) -> shpnum,bytes)
+            dict
+            |> Seq.map(fun (KeyValue(shpnum,bytes)) -> shpnum, bytes)
             |> Seq.sortBy fst
             do
             renderSHP shpnum bytes
+        ""
+    ]
+    |> String.concat "\r\n"
+
+let render (title:string) (font:string) (mp:Map<uint16,string>) =
+    [
+        title
+        font
+        for KeyValue(num, shapeDef) in mp do
+            shapeDef
         ""
     ]
     |> String.concat "\r\n"

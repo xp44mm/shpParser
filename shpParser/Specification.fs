@@ -142,7 +142,7 @@ type Specification =
             $"{clock}0%X{sc})"
 
         match this with
-        | EndOfShape -> "End"
+        | EndOfShape -> "EndOfShape"
         | PenDown -> "PenDown"
         | PenUp -> "PenUp"
         | Divide x -> $"Divide {x}"
@@ -284,7 +284,7 @@ type Specification =
         | ManyBulgeArc _
             -> this
 
-    member this.eliminateManyDisp() = 
+    member this.dissolveManyDisp() = 
         match this with
         | ManyDisplacements ls  ->
             ls

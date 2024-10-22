@@ -11,28 +11,11 @@
     <Compile Include="Number.fs" />
     <Compile Include="GBK.fs" />
     <Compile Include="Specification.fs" />
-    <Compile Include="SpecificationUtils.fs" />
     <Compile Include="BigFont.fs" />
     <Compile Include="Shape0.fs" />
     <Compile Include="GroupType.fs" />
+    <Compile Include="SpecificationUtils.fs" />
     <Compile Include="SHP.fs" />
-    <Compile Include="ShpToken.fs" />
-    <Compile Include="ShpTokenUtils.fs" />
-    <Compile Include="Shape.fs" />
-    <Compile Include="ShapeFile.fs" />
-    <Compile Include="ShpParseTable.fs" />
-    <Compile Include="ShpCompiler.fs" />
-    <Compile Include="RowType.fs" />
-    <Compile Include="ShapeRow.fs" />
-    <Compile Include="ShapeDef.fs" />
-    <Compile Include="FileDef.fs" />
-    <Compile Include="ShapeDefsParseTable.fs" />
-    <Compile Include="ShapeDefsCompiler.fs" />
-    <Compile Include="BigFontFile.fs" />
-    <Compile Include="ShapeDefinition.fs" />
-    <Compile Include="Title.fs" />
-    <Compile Include="ShpFileDef.fs" />
-    <Compile Include="Library.fs" />
   </ItemGroup>
 
   <ItemGroup>

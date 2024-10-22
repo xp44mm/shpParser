@@ -24,340 +24,7 @@ type ShapeDefsTest(output:ITestOutputHelper) =
         let lines = File.ReadAllLines(path)
 
         lines
-        |> ShapeDefsCompiler.parse
-
-    [<Theory>]
-    [<InlineData("scale/chin2")>]
-    [<InlineData("scale/design")>]
-    [<InlineData("scale/SBHZ")>]
-    [<InlineData("scale/tssdchn")>]
-    [<InlineData("scale/XDX")>]
-    member _.``print spec``(filename : string) =
-        let (title,font,shapes) = getFileDef filename
-        let ranges = BigFont.getRanges title
-        let fontHeight = Shape0.getFontHeight font
-
-        let path =
-            //let filename = Path.GetFileNameWithoutExtension(filename)
-            Path.Combine(Dir.solutionPath, filename+".shape")
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<_,_>()
-        let observer = {
-            new IObserver<uint16*_> with
-                member this.OnNext(x) =
-                    let n,specs = x
-                    dict.Add(n,specs)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    let outp = SpecificationUtils.fileShape ranges fontHeight dict
-                    File.WriteAllText(path, outp, Encoding.UTF8)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {
-                let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-                    // |> 此处增删改查
-
-                return n,specs
-                })
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-    [<Theory>]
-    [<InlineData("SHX/chin2")>]
-    [<InlineData("SHX/design")>]
-    [<InlineData("SHX/SBHZ")>]
-    [<InlineData("SHX/tssdchn")>]
-    [<InlineData("SHX/XDX")>]
-    member _.``print modes0 from shx``(filename : string) =
-        let title,font,shapes = getFileDef filename
-        let ranges = BigFont.getRanges title
-        let fontHeight = Shape0.getFontHeight font
-
-        let path =
-            let filename = Path.GetFileNameWithoutExtension(filename)
-            Path.Combine(Dir.solutionPath, "modes0", filename+".SHP")
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<_,_>()
-        let observer = {
-            new IObserver<uint16*_> with
-                member this.OnNext(x) =
-                    let n,bytes = x
-                    dict.Add(n,bytes)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    let outp = SHP.fileSHP ranges fontHeight dict
-                    File.WriteAllText(path, outp, Encoding.ASCII)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {
-                let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-                    // |> 此处增删改查
-                    |> List.filter(fun spec ->
-                        match spec with
-                        | VerticalText _ -> false
-                        | _ -> true
-                    )
-
-                let bytes =
-                    specs
-                    |> List.collect(fun spec -> spec.getBytes())
-
-                return n,bytes
-                })
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-    [<Theory>]
-    [<InlineData("modes0/chin2")>]
-    [<InlineData("modes0/design")>]
-    [<InlineData("modes0/SBHZ")>]
-    [<InlineData("modes0/tssdchn")>]
-    [<InlineData("modes0/XDX")>]
-    member _.``convert to dissolve``(filename: string) =
-        let title,font,shapes = getFileDef filename
-        let ranges = BigFont.getRanges title
-        let fontHeight = Shape0.getFontHeight font
-
-        let path =
-            let filename = Path.GetFileNameWithoutExtension(filename)
-            Path.Combine(Dir.solutionPath, "dissolve", filename+".SHP")
-
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<_,_>()
-        let observer = {
-            new IObserver<uint16*_> with
-                member this.OnNext(x) =
-                    let n,bytes = x
-                    dict.Add(n,bytes)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    let newdict = 
-                        SpecificationUtils.dissolve dict // dissolve subshape
-                        |> Map.fromInterface
-                        |> Map.map(fun i specs -> 
-                            specs 
-                            |> List.collect (fun spec -> spec.getBytes()))
-                        |> Map.filter(fun i _ -> i > 127us) // remove ascii
-                        |> Dictionary
-
-                    let outp = SHP.fileSHP ranges fontHeight newdict
-                    File.WriteAllText(path, outp, Encoding.ASCII)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {
-                let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-
-                return n,specs
-                })
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-    [<Theory>]
-    [<InlineData("dissolve/chin2")>]
-    [<InlineData("dissolve/design")>]
-    [<InlineData("dissolve/SBHZ")>]
-    [<InlineData("dissolve/tssdchn")>]
-    [<InlineData("dissolve/XDX")>]
-    member _.``trim from dissolve``(filename:string) =
-        let name = Path.GetFileNameWithoutExtension(filename)
-        let title,font,shapes = getFileDef filename
-        let ranges = BigFont.getRanges title
-        let fontHeight = Shape0.getFontHeight font
-            
-        let path =
-            Path.Combine(Dir.solutionPath, "trim", name+".SHP")
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<uint16,int list>()
-        let observer = {
-            new IObserver<uint16*int list> with
-                member this.OnNext(x) =
-                    let n,bytes = x
-                    dict.Add(n,bytes)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    let outp = SHP.fileSHP ranges fontHeight dict
-                    File.WriteAllText(path, outp, Encoding.ASCII)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {                
-                let bytes =
-                //let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-                
-                    // |> 此处增删改查
-                    |> match name with
-                       | "chin2" -> SpecificationUtils.trimChin2
-                       | "design" -> SpecificationUtils.trimDesign
-                       | "SBHZ" -> SpecificationUtils.trimSbhz
-                       | "tssdchn" -> SpecificationUtils.trimTssd
-                       | "XDX" -> SpecificationUtils.trimXdx
-                       | _ -> id
-                    //specs
-                    |> List.collect(fun spec -> spec.getBytes())
-                return n,bytes
-                })
-            .Where(fun(n,bytes) -> bytes.IsEmpty |> not || n = 41377us)
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-    [<Theory>]
-    [<InlineData("trim/chin2")>]
-    [<InlineData("trim/design")>]
-    [<InlineData("trim/SBHZ")>]
-    [<InlineData("trim/tssdchn")>]
-    [<InlineData("trim/XDX")>]
-    member _.``pen from trim``(filename:string) =
-        let name = Path.GetFileNameWithoutExtension(filename)
-        let title,font,shapes = getFileDef filename
-        let ranges = BigFont.getRanges title
-        let fontHeight = Shape0.getFontHeight font
-            
-        let path =
-            Path.Combine(Dir.solutionPath, "pen", name+".SHP")
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<uint16,int list>()
-        let observer = {
-            new IObserver<uint16*int list> with
-                member this.OnNext(x) =
-                    let n,bytes = x
-                    dict.Add(n,bytes)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    let outp = SHP.fileSHP ranges fontHeight dict
-                    File.WriteAllText(path, outp, Encoding.ASCII)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {                
-                let bytes =
-                //let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-                
-                    // 此处增删改查
-                    |> SpecificationUtils.distinctPen
-                    //specs
-                    |> List.collect(fun spec -> spec.getBytes())
-                return n,bytes
-                })
-            .Where(fun(n,bytes) -> bytes.IsEmpty |> not || n = 41377us)
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-    [<Theory>]
-    [<InlineData("pen/chin2")>]
-    [<InlineData("pen/design")>]
-    [<InlineData("pen/SBHZ")>]
-    [<InlineData("pen/tssdchn")>]
-    [<InlineData("pen/XDX")>]
-    member _.``scale from pen``(filename:string) =
-        let fnm = Path.GetFileNameWithoutExtension(filename)
-        let i = SpecificationUtils.scaleFactors fnm
-        let path = Path.Combine(Dir.solutionPath, "scale", fnm+".SHP")
-
-        let fontHeight = 
-            //SpecificationUtils.getFontHeight font
-            127y
-
-        let fontWidth =
-            if fnm == "design" then 100y else 127y
-            
-        let title,font,shapes = getFileDef filename
-        let ranges = BigFont.getRanges title
-
-
-        let tcs = TaskCompletionSource()
-        let dict = Dictionary<uint16,int list>()
-        let observer = {
-            new IObserver<uint16*int list> with
-                member this.OnNext(x) =
-                    let n,bytes = x
-                    dict.Add(n,bytes)
-                member this.OnError err = ()
-                member this.OnCompleted() =
-                    // todo: font 0,5
-                    let outp = SHP.fileSHP ranges (int fontHeight) dict
-                    File.WriteAllText(path, outp, Encoding.ASCII)
-                    output.WriteLine("生成新文件:")
-                    output.WriteLine(path)
-                    tcs.SetResult()
-        }
-
-        shapes
-            .ToObservable()
-            .SelectMany(fun (n,lines) -> task {                
-                let specs =
-                    lines.Tail
-                    |> Number.getIntListFromLines
-                    |> SpecificationUtils.getSpecifications
-                    // |> 此处增删改查
-                    |> List.map(fun spec -> spec.scale i)
-
-                let bytes =
-                    specs 
-                    |> List.collect(fun spec -> spec.getBytes())
-                    |> SpecificationUtils.fromStartToEndBytes fontWidth
-                return n,bytes
-                })
-            .Synchronize()
-            .Subscribe(observer)
-        |> ignore
-
-        tcs.Task
-
-
-
+        |> ShapesCompiler.parse
 
     //[<Theory>]
     //[<InlineData("Hei")>]
@@ -398,6 +65,181 @@ type ShapeDefsTest(output:ITestOutputHelper) =
     //    File.WriteAllText(path, outp, Encoding.UTF8)
     //    output.WriteLine("生成新文件:")
     //    output.WriteLine(path)
+
+
+
+    //[<Theory>]
+    //[<InlineData("dissolve/chin2")>]
+    //[<InlineData("dissolve/design")>]
+    //[<InlineData("dissolve/SBHZ")>]
+    //[<InlineData("dissolve/tssdchn")>]
+    //[<InlineData("dissolve/XDX")>]
+    //member _.``trim from dissolve``(filename:string) =
+    //    let name = Path.GetFileNameWithoutExtension(filename)
+    //    let title,font,shapes = getFileDef filename
+    //    let ranges = []
+    //    let fontHeight = Shape0.getFontHeight font
+            
+    //    let path =
+    //        Path.Combine(Dir.solutionPath, "trim", name+".SHP")
+    //    let tcs = TaskCompletionSource()
+    //    let dict = Dictionary<uint16,int list>()
+    //    let observer = {
+    //        new IObserver<uint16*int list> with
+    //            member this.OnNext(x) =
+    //                let n,bytes = x
+    //                dict.Add(n,bytes)
+    //            member this.OnError err = ()
+    //            member this.OnCompleted() =
+    //                let outp = SHP.fileSHP ranges fontHeight dict
+    //                File.WriteAllText(path, outp, Encoding.ASCII)
+    //                output.WriteLine("生成新文件:")
+    //                output.WriteLine(path)
+    //                tcs.SetResult()
+    //    }
+
+    //    shapes
+    //        .ToObservable()
+    //        .SelectMany(fun (n,lines) -> task {                
+    //            let bytes =
+    //            //let specs =
+    //                lines.Tail
+    //                |> Number.getIntListFromLines
+    //                |> SpecificationUtils.getSpecifications
+                
+    //                // |> 此处增删改查
+    //                |> match name with
+    //                   | "chin2" -> SpecificationUtils.trimChin2
+    //                   | "design" -> SpecificationUtils.trimDesign
+    //                   | "SBHZ" -> SpecificationUtils.trimSbhz
+    //                   | "tssdchn" -> SpecificationUtils.trimTssd
+    //                   | "XDX" -> SpecificationUtils.trimXdx
+    //                   | _ -> id
+    //                //specs
+    //                |> List.collect(fun spec -> spec.getBytes())
+    //            return n,bytes
+    //            })
+    //        .Where(fun(n,bytes) -> bytes.IsEmpty |> not || n = 41377us)
+    //        .Synchronize()
+    //        .Subscribe(observer)
+    //    |> ignore
+
+    //    tcs.Task
+
+    //[<Theory>]
+    //[<InlineData("trim/chin2")>]
+    //[<InlineData("trim/design")>]
+    //[<InlineData("trim/SBHZ")>]
+    //[<InlineData("trim/tssdchn")>]
+    //[<InlineData("trim/XDX")>]
+    //member _.``pen from trim``(filename:string) =
+    //    let name = Path.GetFileNameWithoutExtension(filename)
+    //    let title,font,shapes = getFileDef filename
+    //    let ranges = []
+    //    let fontHeight = Shape0.getFontHeight font
+            
+    //    let path =
+    //        Path.Combine(Dir.solutionPath, "pen", name+".SHP")
+    //    let tcs = TaskCompletionSource()
+    //    let dict = Dictionary<uint16,int list>()
+    //    let observer = {
+    //        new IObserver<uint16*int list> with
+    //            member this.OnNext(x) =
+    //                let n,bytes = x
+    //                dict.Add(n,bytes)
+    //            member this.OnError err = ()
+    //            member this.OnCompleted() =
+    //                let outp = SHP.fileSHP ranges fontHeight dict
+    //                File.WriteAllText(path, outp, Encoding.ASCII)
+    //                output.WriteLine("生成新文件:")
+    //                output.WriteLine(path)
+    //                tcs.SetResult()
+    //    }
+
+    //    shapes
+    //        .ToObservable()
+    //        .SelectMany(fun (n,lines) -> task {                
+    //            let bytes =
+    //            //let specs =
+    //                lines.Tail
+    //                |> Number.getIntListFromLines
+    //                |> SpecificationUtils.getSpecifications
+                
+    //                // 此处增删改查
+    //                |> SpecificationUtils.distinctPen
+    //                //specs
+    //                |> List.collect(fun spec -> spec.getBytes())
+    //            return n,bytes
+    //            })
+    //        .Where(fun(n,bytes) -> bytes.IsEmpty |> not || n = 41377us)
+    //        .Synchronize()
+    //        .Subscribe(observer)
+    //    |> ignore
+
+    //    tcs.Task
+
+    //[<Theory>]
+    //[<InlineData("pen/chin2")>]
+    //[<InlineData("pen/design")>]
+    //[<InlineData("pen/SBHZ")>]
+    //[<InlineData("pen/tssdchn")>]
+    //[<InlineData("pen/XDX")>]
+    //member _.``scale from pen``(filename:string) =
+    //    let fnm = Path.GetFileNameWithoutExtension(filename)
+    //    let i = SpecificationUtils.scaleFactors fnm
+    //    let path = Path.Combine(Dir.solutionPath, "scale", fnm+".SHP")
+
+    //    let fontHeight = 
+    //        //SpecificationUtils.getFontHeight font
+    //        127y
+
+    //    let fontWidth =
+    //        if fnm == "design" then 100y else 127y
+            
+    //    let title,font,shapes = getFileDef filename
+    //    let ranges = []
+
+
+    //    let tcs = TaskCompletionSource()
+    //    let dict = Dictionary<uint16,int list>()
+    //    let observer = {
+    //        new IObserver<uint16*int list> with
+    //            member this.OnNext(x) =
+    //                let n,bytes = x
+    //                dict.Add(n,bytes)
+    //            member this.OnError err = ()
+    //            member this.OnCompleted() =
+    //                // todo: font 0,5
+    //                let outp = SHP.fileSHP ranges (int fontHeight) dict
+    //                File.WriteAllText(path, outp, Encoding.ASCII)
+    //                output.WriteLine("生成新文件:")
+    //                output.WriteLine(path)
+    //                tcs.SetResult()
+    //    }
+
+    //    shapes
+    //        .ToObservable()
+    //        .SelectMany(fun (n,lines) -> task {                
+    //            let specs =
+    //                lines.Tail
+    //                |> Number.getIntListFromLines
+    //                |> SpecificationUtils.getSpecifications
+    //                // |> 此处增删改查
+    //                |> List.map(fun spec -> spec.scale i)
+
+    //            let bytes =
+    //                specs 
+    //                |> List.collect(fun spec -> spec.getBytes())
+    //                |> SpecificationUtils.fromStartToEndBytes fontWidth
+    //            return n,bytes
+    //            })
+    //        .Synchronize()
+    //        .Subscribe(observer)
+    //    |> ignore
+
+    //    tcs.Task
+
+
 
 
 
