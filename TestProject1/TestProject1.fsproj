@@ -15,6 +15,7 @@
     <Compile Include="SpecificationTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />
     <Compile Include="ShapesCompilerTest.fs" />
+    <Compile Include="OctantTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

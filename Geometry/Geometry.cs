@@ -194,12 +194,12 @@ namespace Utils.Geometry
         {
             return ((Multiply(l.e, p, l.s) == 0) && (((p.X - l.s.X) * (p.X - l.e.X) <= 0) && ((p.Y - l.s.Y) * (p.Y - l.e.Y) <= 0)));
         }
- 
+
         /// <summary>
         /// 返回点p以点o为圆心逆时针旋转alpha(单位：弧度)后所在的位置
         /// </summary>
         /// <param name="o"></param>
-        /// <param name="alpha"></param>
+        /// <param name="alpha">(单位：弧度)</param>
         /// <param name="p"></param>
         /// <returns></returns>
         public static Point2D Rotate(Point2D o, double alpha, Point2D p)
@@ -254,15 +254,16 @@ namespace Utils.Geometry
             if (dsx * dey - dsy * dex > 0) return fi;      // 说明矢量os 在矢量 oe的顺时针方向 
             return -fi;
         }
- 
+
         /*****************************\ 
         *                             * 
         *      线段及直线的基本运算   * 
         *                             * 
         \*****************************/
- 
+
         /* 判断点与线段的关系,用途很广泛 
-        本函数是根据下面的公式写的，P是点C到线段AB所在直线的垂足 
+        本函数是根据下面的公式写的，P是点C到线段AB所在直线的垂足
+        set r = relation 
                         AC dot AB 
                 r =     --------- 
                          ||AB||^2 
@@ -273,9 +274,15 @@ namespace Utils.Geometry
                 r=0      P = A 
                 r=1      P = B 
                 r<0   P is on the backward extension of AB 
-          r>1      P is on the forward extension of AB 
-                0<r<1  P is interior to AB 
+                r>1   P is on the forward extension of AB 
+                0<r<1 P is interior to AB 
         */
+        /// <summary>
+        /// 判断点与线段的关系
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="l"></param>
+        /// <returns></returns>
         public static double Relation(Point2D p, LINESEG l)
         {
             LINESEG tl = new LINESEG();
@@ -300,7 +307,7 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        ///  求点p到线段l的最短距离,并返回线段上距该点最近的点np 
+        /// 求点p到线段l的最短距离,并返回线段上距该点最近的点np 
         /// 注意：np是线段l上到点p最近的点，不一定是垂足
         /// </summary>
         /// <param name="p"></param>
@@ -337,7 +344,6 @@ namespace Utils.Geometry
  
         /// <summary>
         ///  计算点到折线集的最近距离,并返回最近点. 
-        ///  注意：调用的是ptolineseg()函数
         /// </summary>
         /// <param name="vcount"></param>
         /// <param name="pointset"></param>
@@ -357,6 +363,7 @@ namespace Utils.Geometry
                 l.s = pointset[i];
  
                 l.e = pointset[i + 1];
+                // 注意：调用的是ptolineseg()函数
                 td = PtoLinesegDist(p, l, ref tq);
                 if (td < cd)
                 {
@@ -369,7 +376,7 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 判断圆是否在多边形内.ptolineseg()函数的应用2
+        /// 判断圆是否在多边形内.
         /// </summary>
         /// <param name="vcount"></param>
         /// <param name="center"></param>
@@ -382,6 +389,7 @@ namespace Utils.Geometry
             double d;
             q.X = 0;
             q.Y = 0;
+            // ptolineseg()函数的应用2
             d = PtoPointSet(vcount, polygon, center, ref q);
             if (d < radius || Math.Abs(d - radius) < EP)
                 return true;
@@ -390,7 +398,8 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 返回两个矢量l1和l2的夹角的余弦(-1 --- 1)注意：如果想从余弦求夹角的话，注意反余弦函数的定义域是从 0到pi
+        /// 返回两个矢量l1和l2的夹角的余弦(-1 --- 1)
+        /// 注意：如果想从余弦求夹角的话，注意反余弦函数的定义域是从 0到pi
         /// </summary>
         /// <param name="l1"></param>
         /// <param name="l2"></param>
@@ -401,7 +410,7 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 返回线段l1与l2之间的夹角 单位：弧度 范围(-pi，pi)
+        /// 返回线段l1与l2之间的夹角，单位：弧度 范围(-pi，pi)
         /// </summary>
         /// <param name="l1"></param>
         /// <param name="l2"></param>
@@ -421,15 +430,16 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 如果线段u和v相交(包括相交在端点处)时，返回true .
-        /// 判断P1P2跨立Q1Q2的依据是：( P1 - Q1 ) × ( Q2 - Q1 ) * ( Q2 - Q1 ) × ( P2 - Q1 ) >= 0。
-        /// 判断Q1Q2跨立P1P2的依据是：( Q1 - P1 ) × ( P2 - P1 ) * ( P2 - P1 ) × ( Q2 - P1 ) >= 0。
+        /// 如果线段u和v相交(包括相交在端点处)时，返回true
         /// </summary>
         /// <param name="u"></param>
         /// <param name="v"></param>
         /// <returns></returns>
         public static bool Intersect(LINESEG u, LINESEG v)
         {
+        /// 判断P1P2跨立Q1Q2的依据是：( P1 - Q1 ) × ( Q2 - Q1 ) * ( Q2 - Q1 ) × ( P2 - Q1 ) >= 0。
+        /// 判断Q1Q2跨立P1P2的依据是：( Q1 - P1 ) × ( P2 - P1 ) * ( P2 - P1 ) × ( Q2 - P1 ) >= 0。
+        /// ? p q 与u s 如何对应
             return ((Math.Max(u.s.X, u.e.X) >= Math.Min(v.s.X, v.e.X)) &&   //排斥实验 
               (Math.Max(v.s.X, v.e.X) >= Math.Min(u.s.X, u.e.X)) &&
               (Math.Max(u.s.Y, u.e.Y) >= Math.Min(v.s.Y, v.e.Y)) &&
@@ -439,7 +449,7 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// (线段u和v相交)&&(交点不是双方的端点) 时返回true
+        /// (线段u和v相交)&&(交点不是双方的端点) 时，返回true
         /// </summary>
         /// <param name="u"></param>
         /// <param name="v"></param>
@@ -454,13 +464,14 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 线段v所在直线与线段u相交时返回true；方法：判断线段u是否跨立线段v
+        /// 线段v所在直线与线段u相交时返回true
         /// </summary>
         /// <param name="u"></param>
         /// <param name="v"></param>
         /// <returns></returns>
         public static bool Intersect_l(LINESEG u, LINESEG v)
         {
+            // 方法：判断线段u是否跨立线段v
             return Multiply(u.s, v.e, v.s) * Multiply(v.e, u.e, v.s) >= 0;
         }
  
@@ -500,7 +511,7 @@ namespace Utils.Geometry
         }
  
         /// <summary>
-        /// 返回直线的倾斜角alpha ( 0 - pi)
+        /// 返回直线的倾斜角alpha ( 0 ~ pi )
         /// </summary>
         /// <param name="l"></param>
         /// <returns></returns>
@@ -587,7 +598,7 @@ namespace Utils.Geometry
         /// 输入的多边形是简单多边形，返回true.
         /// 要 求：输入顶点序列按逆时针排序 .
         /// 说 明：简单多边形定义： 
-        /// 1：循环排序中相邻线段对的交是他们之间共有的单个点 .
+        /// 1：循环排序中相邻线段对(pair)的交是他们之间共有的单个点 .
         /// 2：不相邻的线段不相交 .
         /// 本程序默认第一个条件已经满足 .
         /// </summary>
@@ -719,12 +730,6 @@ namespace Utils.Geometry
             return Multiply(v, b, a) > 0;
         }
  
-        /********************************************************************************************   
-        射线法判断点q与多边形polygon的位置关系，要求polygon为简单多边形，顶点逆时针排列 
-           如果点在多边形内：   返回0 
-           如果点在多边形边上： 返回1 
-           如果点在多边形外： 返回2 
-        *********************************************************************************************/
         /// <summary>
         /// 射线法判断点q与多边形polygon的位置关系，要求polygon为简单多边形，顶点逆时针排列
         /// 如果点在多边形内：返回0
@@ -912,11 +917,12 @@ namespace Utils.Geometry
         }
  
         /*********************************************************************************************  
-         判断线段是否在简单多边形内(注意：如果多边形是凸多边形，下面的算法可以化简) 
-            必要条件一：线段的两个端点都在多边形内； 
-         必要条件二：线段和多边形的所有边都不内交； 
+         判断线段是否在简单多边形内
+         (注意：如果多边形是凸多边形，下面的算法可以化简) 
+           必要条件一：线段的两个端点都在多边形内； 
+           必要条件二：线段和多边形的所有边都不内交； 
          用途： 1. 判断折线是否在简单多边形内 
-           2. 判断简单多边形是否在另一个简单多边形内 
+               2. 判断简单多边形是否在另一个简单多边形内 
         **********************************************************************************************/
         /// <summary>
         /// 判断线段是否在简单多边形内
@@ -982,12 +988,12 @@ namespace Utils.Geometry
  
         /*********************************************************************************************  
         求任意简单多边形polygon的重心 
-        需要调用下面几个函数： 
-         void AddPosPart(); 增加右边区域的面积 
-         void AddNegPart(); 增加左边区域的面积 
-         void AddRegion(); 增加区域面积 
+        需要调用下面几个函数：
+         void AddPosPart(); 增加右边区域的面积
+         void AddNegPart(); 增加左边区域的面积
+         void AddRegion(); 增加区域面积
         在使用该程序时，如果把xtr,ytr,wtr,xtl,ytl,wtl设成全局变量就可以使这些函数的形式得到化简,
-        但要注意函数的声明和调用要做相应变化 
+        但要注意函数的声明和调用要做相应变化
         **********************************************************************************************/
         /// <summary>
         /// 增加右边区域的面积
@@ -1274,22 +1280,20 @@ namespace Utils.Geometry
         * 圆的基本运算           * 
         *          * 
         \*************************/
-        /******************************************************************************
-        返回值 ： 点p在圆内(包括边界)时，返回true 
-        用途 ： 因为圆为凸集，所以判断点集，折线，多边形是否在圆内时，
-         只需要逐一判断点是否在圆内即可。 
-        *******************************************************************************/
+
+        /// 返回值 ： 点p在圆内(包括边界)时，返回true 
+        /// 用途 ：
+        /// 因为圆为凸集，所以判断点集，折线，多边形是否在圆内时，只需要逐一判断点是否在圆内即可。 
         public static bool Point_In_Circle(Point2D o, double r, Point2D p)
         {
             double d2 = (p.X - o.X) * (p.X - o.X) + (p.Y - o.Y) * (p.Y - o.Y);
             double r2 = r * r;
             return d2 < r2 || Math.Abs(d2 - r2) < EP;
         }
-        /******************************************************************************
-        用 途 ：求不共线的三点确定一个圆 
-        输 入 ：三个点p1,p2,p3 
-        返回值 ：如果三点共线，返回false；反之，返回true。圆心由q返回，半径由r返回 
-        *******************************************************************************/
+
+        ///用 途 ：求不共线的三点确定一个圆 
+        ///输 入 ：三个点p1,p2,p3 
+        ///返回值 ：如果三点共线，返回false；反之，返回true。圆心由q返回，半径由r返回 
         public static bool Cocircle(Point2D p1, Point2D p2, Point2D p3, ref Point2D q, ref double r)
         {
             double x12 = p2.X - p1.X;
@@ -1306,11 +1310,7 @@ namespace Utils.Geometry
             r = Dist(p1, q);
             return true;
         }
-        public static int Line_Circle(LINE l, Point2D o, double r, ref Point2D p1, ref Point2D p2)
-        {
-            return 1;
-        }
- 
+         
         /**************************\ 
         *        * 
         * 矩形的基本运算          * 
@@ -1325,7 +1325,8 @@ namespace Utils.Geometry
         3.判断圆是否在矩形中 
         圆在矩形中的充要条件是：圆心在矩形中且圆的半径小于等于圆心到矩形四边的距离的最小值。 
         */
-        // 已知矩形的三个顶点(a,b,c)，计算第四个顶点d的坐标. 注意：已知的三个顶点可以是无序的 
+
+        /// 已知矩形的三个顶点(a,b,c)，计算第四个顶点d的坐标. 注意：已知的三个顶点可以是无序的 
         public static Point2D Rect4th(Point2D a, Point2D b, Point2D c)
         {
             Point2D d = new Point2D();
@@ -1372,7 +1373,9 @@ namespace Utils.Geometry
         16.线段与圆的关系 
         17.求多边形的核监视摄象机 
         18.求点集中不相交点对 railwai 
-        *//* 
+        */
+
+        /* 
         寻找包含点集的最小矩形 
         原理：该矩形至少一条边与点集的凸壳的某条边共线 
         First take the convex hull of the points. Let the resulting convex 
@@ -1387,7 +1390,9 @@ namespace Utils.Geometry
         time (after hull computation). See the "Rotating Calipers Homepage" 
         http://www.cs.mcgill.ca/~orm/rotcal.frame.html for a description 
         and applet. 
-        *//* 
+        */
+
+        /* 
         折线的化简 伪码如下： 
         Input: tol = the approximation tolerance 
         L = {V0,V1, ,Vn-1} is any n-vertex polyline 
@@ -1406,20 +1411,20 @@ namespace Utils.Geometry
         } 
         Output: W = {W0,W1, ,Wk-1} = the k-vertex simplified polyline 
         */
+
           /********************\ 
           *        * 
           * 补充    * 
           *     * 
           \********************/
  
-        //两圆关系： 
-        /* 两圆： 
-        相离： return 1； 
-        外切： return 2； 
-        相交： return 3； 
-        内切： return 4； 
-        内含： return 5； 
-        */
+        ///两圆关系： 
+        ///两圆： 
+        ///相离： return 1； 
+        ///外切： return 2； 
+        ///相交： return 3； 
+        ///内切： return 4； 
+        ///内含： return 5； 
         public static int CircleRelation(Point2D p1, double r1, Point2D p2, double r2)
         {
             double d = Math.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y));
@@ -1436,9 +1441,9 @@ namespace Utils.Geometry
                 return 3;
             return 0; // indicate an error! 
         }
-        //判断圆是否在矩形内：
-        // 判定圆是否在矩形内，是就返回true（设矩形水平，且其四个顶点由左上开始按顺时针排列） 
-        // 调用Ptoldist函数，在第4页 
+        ///判断圆是否在矩形内：
+        /// 判定圆是否在矩形内，是就返回true（设矩形水平，且其四个顶点由左上开始按顺时针排列） 
+        /// 调用Ptoldist函数，在第4页 
         public static bool CircleRecRelation(Point2D pc, double r, Point2D pr1, Point2D pr2, Point2D pr3, Point2D pr4)
         {
             if (pr1.X < pc.X && pc.X < pr2.X && pr3.Y < pc.Y && pc.Y < pr2.Y)
@@ -1452,26 +1457,26 @@ namespace Utils.Geometry
             }
             return false;
         }
-        //点到平面的距离： 
-        //点到平面的距离,平面用一般式表示ax+by+cz+d=0 
+        ///点到平面的距离： 
+        ///点到平面的距离,平面用一般式表示ax+by+cz+d=0 
         public static double P2planeDist(double x, double y, double z, double a, double b, double c, double d)
         {
             return Math.Abs(a * x + b * y + c * z + d) / Math.Sqrt(a * a + b * b + c * c);
         }
-        //点是否在直线同侧：
-        //两个点是否在直线同侧，是则返回true 
+        ///点是否在直线同侧：
+        ///两个点是否在直线同侧，是则返回true 
         public static bool SameSide(Point2D p1, Point2D p2, LINE line)
         {
             return (line.a * p1.X + line.b * p1.Y + line.c) *
             (line.a * p2.X + line.b * p2.Y + line.c) > 0;
         }
-        //镜面反射线：
-        // 已知入射线、镜面，求反射线。 
-        // a1,b1,c1为镜面直线方程(a1 x + b1 y + c1 = 0 ,下同)系数;  
-        //a2,b2,c2为入射光直线方程系数;  
-        //a,b,c为反射光直线方程系数. 
-        // 光是有方向的，使用时注意：入射光向量:<-b2,a2>；反射光向量:<b,-a>. 
-        // 不要忘记结果中可能会有"negative zeros" 
+        ///镜面反射线：
+        /// 已知入射线、镜面，求反射线。 
+        /// a1,b1,c1为镜面直线方程(a1 x + b1 y + c1 = 0 ,下同)系数;  
+        ///a2,b2,c2为入射光直线方程系数;  
+        ///a,b,c为反射光直线方程系数. 
+        /// 光是有方向的，使用时注意：入射光向量:<-b2,a2>；反射光向量:<b,-a>. 
+        /// 不要忘记结果中可能会有"negative zeros" 
         public static void Reflect(double a1, double b1, double c1, double a2, double b2, double c2, ref double a, ref double b, ref double c)
         {
             double n, m;
@@ -1492,8 +1497,9 @@ namespace Utils.Geometry
             b = -m;
             c = m * yy - xx * n;
         }
-        //矩形包含： 
-        // 矩形2（C，D）是否在1（A，B）内
+
+        ///矩形包含： 
+        /// 矩形2（C，D）是否在1（A，B）内
         public static bool R2inr1(double A, double B, double C, double D)
         {
             double X, Y, L, K, DMax;
@@ -1535,8 +1541,8 @@ namespace Utils.Geometry
                 }
             }
         }
-        //两圆交点： 
-        // 两圆已经相交（相切） 
+        ///两圆交点： 
+        /// 两圆已经相交（相切） 
         public static void C2Point(Point2D p1, double r1, Point2D p2, double r2, ref Point2D rp1, ref Point2D rp2)
         {
             double a, b, r;
@@ -1578,8 +1584,8 @@ namespace Utils.Geometry
             b = t;
         }
  
-        //两圆公共面积：
-        // 必须保证相交 
+        ///两圆公共面积：
+        /// 必须保证相交 
         public static double C2Area(Point2D p1, double r1, Point2D p2, double r2)
         {
             Point2D rp1 = new Point2D();
@@ -1617,8 +1623,8 @@ namespace Utils.Geometry
  
             return s;
         }
-        //圆和直线关系： 
-        //0----相离 1----相切 2----相交 
+        ///圆和直线关系： 
+        ///0----相离 1----相切 2----相交 
         public static int Clpoint(Point2D p, double r, double a, double b, double c, ref Point2D rp1, ref Point2D rp2)
         {
             int res = 0;
@@ -1690,7 +1696,7 @@ namespace Utils.Geometry
             rp2.Y += p.Y;
             return res;
         }
-        //内切圆： 
+        ///内切圆： 
         public static void Incircle(Point2D p1, Point2D p2, Point2D p3, ref Point2D rp, ref double r)
         {
             double dx31, dy31, dx21, dy21, d31, d21, a1, b1, c1;
@@ -1721,8 +1727,8 @@ namespace Utils.Geometry
             rp.Y = (c2 * a1 - c1 * a2) / (a1 * b2 - a2 * b1);
             r = Math.Abs(dy21 * rp.X - dx21 * rp.Y + dx21 * p1.Y - dy21 * p1.X) / d21;
         }
-        //求切点： 
-        // p---圆心坐标， r---圆半径， sp---圆外一点， rp1,rp2---切点坐标 
+        ///求切点： 
+        /// p---圆心坐标， r---圆半径， sp---圆外一点， rp1,rp2---切点坐标 
         public static void Cutpoint(Point2D p, double r, Point2D sp, ref Point2D rp1, ref Point2D rp2)
         {
             Point2D p2 = new Point2D();
@@ -1735,12 +1741,12 @@ namespace Utils.Geometry
             r2 = Math.Sqrt(dx2 * dx2 + dy2 * dy2);
             C2Point(p, r, p2, r2, ref rp1, ref rp2);
         }
-        //线段的左右旋： 
-        /* l2在l1的左/右方向（l1为基准线） 
-        返回 0 ： 重合； 
-        返回 1 ： 右旋； 
-        返回 –1 ： 左旋； 
-        */
+        ///线段的左右旋： 
+       /// l2在l1的左/右方向（l1为基准线） 
+       ///返回 0 ： 重合； 
+       ///返回 1 ： 右旋； 
+       ///返回 –1 ： 左旋； 
+       ///
         public static int Rotat(LINESEG l1, LINESEG l2)
         {
             double dx1, dx2, dy1, dy2;
@@ -1758,6 +1764,7 @@ namespace Utils.Geometry
             else
                 return 1;
         }
+
         /*
         公式： 
         球坐标公式： 

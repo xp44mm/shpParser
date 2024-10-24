@@ -136,40 +136,40 @@ type Specification =
         | VerticalText spec -> [14;yield! spec.getBytes()]
         | Vector x -> [int x]
 
-    member this.render() =
-        let printS16 (sc:sbyte) =
-            let clock,sc = if sc < 0y then "-",-sc else "",sc
-            $"{clock}0%X{sc})"
+    //member this.render() =
+    //    let printS16 (sc:sbyte) =
+    //        let clock,sc = if sc < 0y then "-",-sc else "",sc
+    //        $"{clock}0%X{sc})"
 
-        match this with
-        | EndOfShape -> "EndOfShape"
-        | PenDown -> "PenDown"
-        | PenUp -> "PenUp"
-        | Divide x -> $"Divide {x}"
-        | Multiply x -> $"Multiply {x}"
-        | Push -> "Push"
-        | Pop -> "Pop"
-        | Subshape x -> $"Subshape 0%X{x}"
-        | Displacement (x,y) -> $"Displacement({x},{y})"
-        | ManyDisplacements ls -> 
-            let s =
-                ls
-                |> List.map(fun (x,y)-> $"({x},{y})")
-                |> String.concat ";"
-            $"ManyDisplacements[{s}]"
-        | OctantArc (r,sc) -> 
-            $"OctantArc({r},{printS16 sc})"
-        | FractionalArc (s,c,r,sc) ->
-            $"FractionalArc({s},{c},{r},{printS16 sc})"
-        | BulgeArc (x,y,h) -> $"BulgeArc({x},{y},{h})"
-        | ManyBulgeArc ls ->
-            let ls =
-                ls
-                |> List.map(fun (x,y,h) -> $"({x},{y},{h})")
-                |> String.concat ";"
-            $"ManyBulgeArc[{ls}]"
-        | VerticalText spec -> "VerticalText " + spec.render()
-        | Vector x -> $"Vector 0%X{x}"
+    //    match this with
+    //    | EndOfShape -> "EndOfShape"
+    //    | PenDown -> "PenDown"
+    //    | PenUp -> "PenUp"
+    //    | Divide x -> $"Divide {x}"
+    //    | Multiply x -> $"Multiply {x}"
+    //    | Push -> "Push"
+    //    | Pop -> "Pop"
+    //    | Subshape x -> $"Subshape 0%X{x}"
+    //    | Displacement (x,y) -> $"Displacement({x},{y})"
+    //    | ManyDisplacements ls -> 
+    //        let s =
+    //            ls
+    //            |> List.map(fun (x,y)-> $"({x},{y})")
+    //            |> String.concat ";"
+    //        $"ManyDisplacements[{s}]"
+    //    | OctantArc (r,sc) -> 
+    //        $"OctantArc({r},{printS16 sc})"
+    //    | FractionalArc (s,c,r,sc) ->
+    //        $"FractionalArc({s},{c},{r},{printS16 sc})"
+    //    | BulgeArc (x,y,h) -> $"BulgeArc({x},{y},{h})"
+    //    | ManyBulgeArc ls ->
+    //        let ls =
+    //            ls
+    //            |> List.map(fun (x,y,h) -> $"({x},{y},{h})")
+    //            |> String.concat ";"
+    //        $"ManyBulgeArc[{ls}]"
+    //    | VerticalText spec -> "VerticalText " + spec.render()
+    //    | Vector x -> $"Vector 0%X{x}"
 
     member this.scale(i:float) =
         if i <= 0 then 

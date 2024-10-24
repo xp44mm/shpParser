@@ -10,11 +10,14 @@
     <Compile Include="ShapesCompiler.fs" />
     <Compile Include="Number.fs" />
     <Compile Include="GBK.fs" />
-    <Compile Include="Specification.fs" />
     <Compile Include="BigFont.fs" />
     <Compile Include="Shape0.fs" />
-    <Compile Include="GroupType.fs" />
+    <Compile Include="Specification.fs" />
     <Compile Include="SpecificationUtils.fs" />
+    <Compile Include="Octant.fs" />
+    <Compile Include="SpecificationRender.fs" />
+    <Compile Include="GroupType.fs" />
+    <Compile Include="BlobGroup.fs" />
     <Compile Include="SHP.fs" />
   </ItemGroup>
 

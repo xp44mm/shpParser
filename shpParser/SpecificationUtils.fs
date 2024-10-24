@@ -13,29 +13,6 @@ let getSpecifications (ls:int list) =
         | _ -> Some(Specification.from state)
     )
 
-let renderSpecifications (shpnum) (specifications:Specification list) =
-    let hanzi = GBK.hanzi shpnum
-    [
-        $"*{shpnum}" + if Char.IsControl hanzi then "" else $",{hanzi}"
-        for spec in specifications do
-            "  " + spec.render()
-    ]
-    |> String.concat "\r\n"
-
-let fileShape (ranges) (fontHeight) (dict:Dictionary<uint16,Specification list>) =
-    [
-        $"ranges={stringify ranges}"
-        $"fontHeight={fontHeight}"
-        for shpnum,specifications in 
-            dict 
-            |> Seq.map(fun (KeyValue(shpnum,specifications)) -> shpnum,specifications)
-            |> Seq.sortBy fst        
-            do
-            renderSpecifications shpnum specifications
-        ""
-    ]
-    |> String.concat "\r\n"
-
 let dissolve (dict:Dictionary<uint16,Specification list>) =
     let getlist (i:byte) =
         dict.[uint16 i]

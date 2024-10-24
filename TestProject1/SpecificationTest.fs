@@ -34,23 +34,15 @@ type SpecificationTest (output:ITestOutputHelper) =
 
         let y1 = SpecificationUtils.getSpecifications (y)
         for spec in y1 do
-        output.WriteLine(spec.render())
+        output.WriteLine(SpecificationRender.render spec)
         let bytes = 
             y1 |> List.collect(fun sp -> sp.getBytes())
         Should.equal bytes y
 
     // 计算当前坐标位置
     [<Theory>]
-    [<InlineData("tssd")>]
-    [<InlineData("intecad")>]
-    [<InlineData("chin2")>]
-    [<InlineData("design")>]
-    [<InlineData("SBHZ")>] 
-    [<InlineData("XDX")>]
-
-    [<InlineData("SPEC")>]
-    [<InlineData("SHP")>]
-    [<InlineData("SHX")>]
+    [<InlineData("?")>]
+    [<InlineData("dash")>]
 
     member this.``from lines`` (x:string) =
         output.WriteLine x
@@ -63,7 +55,7 @@ type SpecificationTest (output:ITestOutputHelper) =
         output.WriteLine($"defbytes:{bytes0.Length}")
         let y1 = SpecificationUtils.getSpecifications (bytes0)
         for spec in y1 do
-        output.WriteLine(spec.render())
+        output.WriteLine(SpecificationRender.render spec)
         let bytes = 
             y1 |> List.collect(fun sp -> sp.getBytes())
         Should.equal bytes bytes0
@@ -80,7 +72,7 @@ type SpecificationTest (output:ITestOutputHelper) =
             |> SpecificationUtils.distinctPen
 
         for spec in specs do
-            output.WriteLine(spec.render())
+            output.WriteLine(SpecificationRender.render spec)
 
         let bytes = 
             specs |> List.collect(fun sp -> sp.getBytes())

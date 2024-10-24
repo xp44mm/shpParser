@@ -99,7 +99,7 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
                 )
                 ///在此执行任何映射操作
                 .Select(fun (k,v) ->
-                    k, SpecificationUtils.renderSpecifications k v                    
+                    k, SpecificationRender.renderSpecifications k v                    
                 )
                 .Synchronize()
                 .Do(fun (k,v) -> dict.Add(k,v))

@@ -15,12 +15,6 @@ type GroupType =
     | Zero of int list
     | ShapeDef of uint16 * Specification list
 
-    member this.getKey() =
-        match this with
-        | BigFont _ -> -1
-        | Zero _ -> 0
-        | ShapeDef (i,_) -> int i
-
     static member from (lines:string list) =
         match lines with
         | [] -> failwith "请先过滤掉此种情况"

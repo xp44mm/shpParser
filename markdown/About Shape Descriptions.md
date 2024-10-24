@@ -175,7 +175,13 @@ The arc specification is
 10,radius,(-)0SC
 ```
 
-The radius can be any value from 1 through 255. The second specification byte indicates the direction of the arc (counterclockwise if positive, and clockwise if negative), its starting octant ( `S` , a value from 0 through 7), and the number of octants it spans ( `C` , a value from 0 through 7, in which 0 equals eight octants, or a full circle). You can use parentheses to improve readability. For example, consider the following fragment of a shape definition:
+The radius can be any value from 1 through 255. 
+
+The second specification byte indicates the direction of the arc (counterclockwise if positive, and clockwise if negative), 
+
+its starting octant ( `S` , a value from 0 through 7), and the number of octants it spans ( `C` , a value from 0 through 7, in which `0` equals eight octants, or a full circle). 
+
+You can use parentheses to improve readability. For example, consider the following fragment of a shape definition:
 
 ```
 ...012,10,(1,-032),01E,...
@@ -195,7 +201,9 @@ The definition uses five specification bytes.
 11,start_offset,end_offset,high_radius,radius,(-)0SC
 ```
 
-The `start_offset` and `end_offset` represent how far from an octant boundary the arc begins or ends. The `high_radius` represents the most significant eight bits of the radius; the high radius will be `0` unless the radius is greater than 255 units. Multiply the `high_radius` value by 256 and add that value to the radius value to generate an arc radius greater than 255. The radius and ending specification byte are the same as for the octant arc specification (code 00A, described previously).
+The `start_offset` and `end_offset` represent how far from an octant boundary the arc begins or ends. 
+
+The `high_radius` represents the most significant eight bits of the radius; the high radius will be `0` unless the radius is greater than 255 units. Multiply the `high_radius` value by 256 and add that value to the radius value to generate an arc radius greater than 255. The radius and ending specification byte are the same as for the octant arc specification (code 00A, described previously).
 
 You determine the start offset by calculating the difference in degrees between the starting octant's boundary (a multiple of 45 degrees) and the start of the arc. Then, you multiply this difference by 256 and divide by 45. If the arc starts on an octant boundary, its start offset is 0.
 
@@ -226,9 +234,9 @@ Arc defined by X-Y displacement and bulge
 
 Multiple bulge-specified arcs
 
-They are similar to codes 8 and 9 in that you can use them to specify X-Y displacements. However, codes 00C and 00D draw arcs by applying a bulge factor to the displacement vector. Code 00C draws one arc segment, while code 00D draws multiple arc segments (polyarcs) until it is terminated by a `(0,0)` displacement.
+They are similar to codes `8` and `9` in that you can use them to specify X-Y displacements. However, codes `00C` and `00D` draw arcs by applying a bulge factor to the displacement vector. Code `00C` draws one arc segment, while code `00D` draws multiple arc segments (polyarcs) until it is terminated by a `(0,0)` displacement.
 
-Code 00C must be followed by three bytes describing the arc:
+Code `00C` must be followed by three bytes describing the arc:
 
 ```
 0C,X-displacement,Y-displacement,Bulge
@@ -237,17 +245,18 @@ Code 00C must be followed by three bytes describing the arc:
 Both the X and Y displacement and the bulge, which specifies the curvature of the arc, can range from -127 to +127. If the line segment specified by the displacement has length D, and the perpendicular distance from the midpoint of that segment has height H, the magnitude of the bulge is 
 
 ```
-((2* H / D) * 127)
+let r = D / 2
+let bulge = H / r * 127
 ```
 
-. The sign is negative if the arc from the current location to the new location is clockwise.
+. The sign is negative if the arc from the current location to the new location is clockwise. 正负号和sc的正负号相同。
 
 ![img](D:\Application Data\GitHub\xp44mm\shpParser\markdown\bulge.png)
 
 
 A semicircle has bulge 127 (or -127) and is the greatest arc that can be represented as a single-arc segment using these codes (use two consecutive arc segments for larger arcs). A bulge specification of 0 is valid and represents a straight-line segment. However, using code 8 for a straight-line segment saves a byte in the shape description.
 
-The polyarc code (00D, or 13) is followed by 0 or by more arc segment triples, and is terminated by a (0,0) displacement. Note that no bulge is specified after the final displacement. For example, the letter `S` might be defined by the following sequence:
+The polyarc code (00D, or 13) is followed by `0` or by more arc segment triples, and is terminated by a `(0,0)` displacement. Note that no bulge is specified after the final displacement. For example, the letter `S` might be defined by the following sequence:
 
 ```
 13,(0,5,127),(0,5,-127),(0,0)
@@ -256,8 +265,6 @@ The polyarc code (00D, or 13) is followed by 0 or by more arc segment triples, a
 Zero bulge segments are useful within polyarcs to represent straight segments; they are more efficient than terminating the polyarc, inserting one straight segment, and then starting another polyarc.
 
 The number -128 cannot be used in arc segment and polyarc definitions.
-
-
 
 ### 00E
 
