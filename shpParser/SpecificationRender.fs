@@ -5,7 +5,7 @@ open FSharp.Idioms.Literal
 open FSharp.Idioms.StringOps
 open FSharp.Idioms.OrdinalIgnoreCase
 
-let rec render(this:Specification) =
+let rec renderFSharp(this:Specification) =
     let printS16 (sc:sbyte) =
         let sgn,num = if sc < 0y then "-",-sc else "",sc
         $"{sgn}0x%X{num}y"
@@ -18,7 +18,7 @@ let rec render(this:Specification) =
     | Multiply x -> $"Multiply {x}uy"
     | Push -> "Push"
     | Pop -> "Pop"
-    | Subshape x -> $"Subshape 0x%X{x}uy"
+    | Subshape x -> $"Subshape {x}uy"
     | Displacement (x,y) -> $"Displacement({x}y,{y}y)"
     | ManyDisplacements ls -> 
         //let s =
@@ -37,15 +37,26 @@ let rec render(this:Specification) =
         //    |> List.map(fun (x,y,h) -> $"({x},{y},{h})")
         //    |> String.concat ";"
         $"ManyBulgeArc {stringify ls}"
-    | VerticalText spec -> "VerticalText " + render spec
-    | Vector x -> $"Vector 0x%X{x}y"
+    | VerticalText spec -> "VerticalText(" + renderFSharp spec + ")"
+    | Vector x -> $"Vector 0x%X{x}uy"
 
-let renderSpecifications (shpnum) (specifications:Specification list) =
-    let hanzi = GBK.hanzi shpnum
+let renderSpecifications (shpnum:uint16) (specifications:Specification list) =
+    //let hanzi = GBK.hanzi shpnum
+    let c =
+        if shpnum < 32us then
+            None
+        elif shpnum < 127us then
+            char shpnum |> Some
+        elif shpnum < 256us then
+            None
+        else GBK.hanzi shpnum |> Some
+        |> Option.map(fun c -> $",{c}")
+        |> Option.defaultValue ""
+        //""
     [
-        $"*{shpnum}" + if Char.IsControl hanzi then "" else $",{hanzi}"
+        $"*{shpnum}" + c
         for spec in specifications do
-            "  " + render spec
+            "  " + renderFSharp spec
     ]
     |> String.concat "\r\n"
 

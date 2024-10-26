@@ -34,7 +34,7 @@ type SpecificationTest (output:ITestOutputHelper) =
 
         let y1 = SpecificationUtils.getSpecifications (y)
         for spec in y1 do
-        output.WriteLine(SpecificationRender.render spec)
+        output.WriteLine(SpecificationRender.renderFSharp spec)
         let bytes = 
             y1 |> List.collect(fun sp -> sp.getBytes())
         Should.equal bytes y
@@ -55,7 +55,7 @@ type SpecificationTest (output:ITestOutputHelper) =
         output.WriteLine($"defbytes:{bytes0.Length}")
         let y1 = SpecificationUtils.getSpecifications (bytes0)
         for spec in y1 do
-        output.WriteLine(SpecificationRender.render spec)
+        output.WriteLine(SpecificationRender.renderFSharp spec)
         let bytes = 
             y1 |> List.collect(fun sp -> sp.getBytes())
         Should.equal bytes bytes0
@@ -72,7 +72,7 @@ type SpecificationTest (output:ITestOutputHelper) =
             |> SpecificationUtils.distinctPen
 
         for spec in specs do
-            output.WriteLine(SpecificationRender.render spec)
+            output.WriteLine(SpecificationRender.renderFSharp spec)
 
         let bytes = 
             specs |> List.collect(fun sp -> sp.getBytes())

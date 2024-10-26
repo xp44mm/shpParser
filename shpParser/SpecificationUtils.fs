@@ -224,15 +224,6 @@ let splitLine (line: string) =
         [None; Some(line.[1..])]
     else [Some line]
 
-let renderShape (ranges) h w (mp:Map<uint16,string>) =
-    [
-        BigFont.renderShape ranges
-        Shape0.renderShape h w
-        for KeyValue(num,res) in mp do
-            res
-    ]
-    |> String.concat "\r\n"
-
 let trimPushPop (specifications:Specification list) =
     //去掉头
     let rec removeHead(specifications) =

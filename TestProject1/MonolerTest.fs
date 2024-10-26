@@ -1,4 +1,5 @@
 ﻿namespace shpParser
+//"D:\Application Data\AutoCAD\Fonts\MONOLER.SHP"
 
 open Xunit
 open Xunit.Abstractions
@@ -22,16 +23,11 @@ open System.Reactive.Threading.Tasks
 open System.Reactive.Linq
 open System.Threading
 
-type ShapesCompilerTest(output:ITestOutputHelper) =
+type MonolerTest(output:ITestOutputHelper) =
 
     [<Theory>]
-    [<InlineData("disp/chin2")>]
-    [<InlineData("disp/design")>]
-    [<InlineData("disp/SBHZ")>]
-    [<InlineData("disp/tssdchn")>]
-    [<InlineData("disp/XDX")>]
-    member _.``shape spec``(filename : string) =
-        let name = Path.GetFileNameWithoutExtension(filename)
+    [<InlineData("SHX/MONOLER")>]
+    member _.``shape spec``(filename : string) =        
         let src = Path.Combine(Dir.solutionPath, filename+".SHP")
         let tgt = Path.Combine(Dir.solutionPath, filename+".shape")
 
@@ -42,41 +38,36 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
             )
                 .ToObservable()
                 .SelectMany(fun (lines) -> task {
-                    return GroupType.from lines
+                    return BlobGroup.from lines
                     })
 
-        let mutable ranges = []
+        let mutable title = ""
         let bigFont =
             groups
                 .Where(fun group ->
                     match group with
-                    | BigFont rg -> true
+                    | BlobTitle _ -> true
                     | _ -> false
                 )
                 .Do(fun group ->
                     match group with
-                    | BigFont rg -> ranges <- rg
+                    | BlobTitle rg -> title <- rg
                     | _ -> ()
                 )
                 .Select(fun x -> -1)
 
-        let mutable height = -1
-        let mutable width = -1
+        let mutable zeroDef = []
+
         let zero =
             groups
                 .Where(fun group ->
                     match group with
-                    | Zero _ -> true
+                    | BlobShape (0us,_) -> true
                     | _ -> false
                 )
                 .Do(fun group ->
                     match group with
-                    | Zero [h;0;0;0] ->
-                        height <- h
-                        width <- h
-                    | Zero [h;0;0;w;0] ->
-                        height <- h
-                        width <- w
+                    | BlobShape (0us,x) -> zeroDef <- x
                     | _ -> ()
                 )
                 .Select(fun x -> 0)
@@ -86,17 +77,25 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
             groups
                 .Where(fun group ->
                     match group with
-                    | ShapeDef _ -> true
+                    | BlobShape (x,_) when x > 0us  -> true
                     | _ -> false
                 )
                 .Select(fun group ->
                     match group with
-                    | ShapeDef (i,specs) -> i,specs
+                    | BlobShape (i,specs) -> i,specs
                     | _ -> 0us,[]
                 )
                 ///在此执行任何映射操作
-                .Select(fun (k,v) ->
-                    k, SpecificationRender.renderSpecifications k v                    
+                .Select(fun (num,lines) ->
+                    let specs =
+                        lines
+                        |> List.tail
+                        |> Number.getIntListFromLines
+                        |> SpecificationUtils.getSpecifications
+                        //|> stringify
+
+                    let render = SpecificationRender.renderSpecifications num specs
+                    num, render
                 )
                 .Synchronize()
                 .Do(fun (k,v) -> dict.Add(k,v))
@@ -106,20 +105,21 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
         //let countdownEvent = new CountdownEvent(3)
 
         let complete () =
+
+            let zeroOutp =
+                zeroDef
+                |> String.concat "\r\n"
+
             let mp =
                 dict
                 |> Map.fromInterface
 
-            //output.WriteLine(stringify ranges)
-            //output.WriteLine(stringify (height,width))
-            //for KeyValue(k,v) in mp do
-            //    output.WriteLine(stringify k)
-            //    output.WriteLine(stringify v)
-            let outp = ShapeFile.renderShape ranges height width mp
+            let outp = ShapeFile.render title zeroOutp mp
 
             File.WriteAllText(tgt, outp, Encoding.UTF8)
             output.WriteLine("生成新文件:")
             output.WriteLine(tgt)
+
             //countdownEvent.Signal() |> ignore
             tcs.SetResult()
 
@@ -131,16 +131,10 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
         tcs.Task
 
     [<Theory>]
-    [<InlineData("scale/chin2")>]
-    [<InlineData("scale/design")>]
-    [<InlineData("scale/SBHZ")>]
-    [<InlineData("scale/tssdchn")>]
-    [<InlineData("scale/XDX")>]
-    member _.``shp to disp from scale``(filename : string) =
+    [<InlineData("SHX/MONOLER")>]
+    member _.``fsharp shape``(filename : string) =        
         let src = Path.Combine(Dir.solutionPath, filename+".SHP")
-
-        let name = Path.GetFileNameWithoutExtension(filename)
-        let tgt = Path.Combine(Dir.solutionPath, "disp", name+".shp")
+        let tgt = Path.Combine(Dir.solutionPath, filename+".fs")
 
         let groups =
             (
@@ -149,84 +143,63 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
             )
                 .ToObservable()
                 .SelectMany(fun (lines) -> task {
-                    return GroupType.from lines
+                    return BlobGroup.from lines
                     })
 
-        let mutable ranges = []
-        let bigFont =
+        let mutable titleLine = ""
+        let title =
             groups
                 .Where(fun group ->
                     match group with
-                    | BigFont rg -> 
-                        ranges <- rg
-                        true
+                    | BlobTitle _ -> true
                     | _ -> false
                 )
                 .Do(fun group ->
                     match group with
-                    | BigFont rg -> 
-                        ranges <- rg
+                    | BlobTitle ln -> titleLine <- ln
                     | _ -> ()
                 )
                 .Select(fun x -> -1)
 
-        let mutable height = -1
-        let mutable width = -1
+        let mutable zeroLines = []
+
         let zero =
             groups
                 .Where(fun group ->
                     match group with
-                    | Zero _ -> true
+                    | BlobShape (0us,_) -> true
                     | _ -> false
                 )
                 .Do(fun group ->
                     match group with
-                    | Zero [h;_;0;0] -> 
-                        height <- h
-                        width <- h
-                    | Zero [h;_;w;0] ->
-                        height <- h
-                        width <- w
+                    | BlobShape (0us,lines) -> zeroLines <- lines
                     | _ -> ()
                 )
                 .Select(fun x -> 0)
 
         let dict = Dictionary<uint16,_>()
-
-        //let i = SpecificationUtils.scaleFactors name // 缩放比例
-
         let shapeDefs =
             groups
                 .Where(fun group ->
                     match group with
-                    | ShapeDef _ -> true
+                    | BlobShape (x,_) when x > 0us -> true
                     | _ -> false
                 )
                 .Select(fun group ->
                     match group with
-                    | ShapeDef (i,specs) -> i,specs
+                    | BlobShape (num,lines) -> num,lines
                     | _ -> 0us,[]
                 )
                 ///在此执行任何映射操作
-                .Select(fun (num,specs) ->
+                .Select(fun (num,lines) ->
                     let specs =
-                        specs
-                        |> SpecificationUtils.trimPushPop
-                        |> List.collect(fun spec ->
-                            spec.dissolveManyDisp()
-                        )
-                        //|> SpecificationUtils.distinctPen
-                        //|> List.map(fun spec -> spec.scale i)
+                        lines
+                        |> List.tail
+                        |> Number.getIntListFromLines
+                        |> SpecificationUtils.getSpecifications
 
-                    let bytes =
-                        specs
-                        |> List.collect(fun spec -> spec.getBytes())
-                        |> SpecificationUtils.fromStartToEndBytes (sbyte width)
-
-                    num, bytes
-                )
-                .Select(fun (num, bytes) ->
-                    num, SHP.renderSHP num bytes
+                    let render = FSharpSpecification.renderShape num specs
+                    num, render
                 )
                 .Synchronize()
                 .Do(fun (k,v) -> dict.Add(k,v))
@@ -236,26 +209,20 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
         //let countdownEvent = new CountdownEvent(3)
 
         let complete () =
-            let mp =
+            let shapes =
                 dict
                 |> Map.fromInterface
 
-            //output.WriteLine(stringify ranges)
-            //output.WriteLine(stringify (height,width))
-            //for KeyValue(k,v) in mp do
-            //    output.WriteLine(stringify k)
-            //    output.WriteLine(stringify v)
+            let outp = 
+                [
+                    yield! FSharpSpecification.moduleHeadLines "Monoler"
+                    yield FSharpSpecification.titleLines titleLine
+                    yield! FSharpSpecification.zeroLines zeroLines
+                    yield! FSharpSpecification.shapesLines shapes
+                ]
+                |> String.concat "\r\n"
 
-            let height, width =
-                if name == "design" then
-                    127,100
-                else 127,127
-
-            let title = BigFont.render (mp.Count) ranges
-            let font = Shape0.render height width
-            let outp = SHP.render title font mp
-
-            File.WriteAllText(tgt, outp, Encoding.ASCII)
+            File.WriteAllText(tgt, outp, Encoding.UTF8)
             output.WriteLine("生成新文件:")
             output.WriteLine(tgt)
 
@@ -263,9 +230,8 @@ type ShapesCompilerTest(output:ITestOutputHelper) =
             tcs.SetResult()
 
         Observable
-            .Merge(bigFont,zero,shapeDefs)
+            .Merge(title,zero,shapeDefs)
             .Subscribe(CompletionObserver complete)
         |> ignore
 
         tcs.Task
-

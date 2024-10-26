@@ -1,0 +1,1552 @@
+﻿0,4,Mono Spaced Leroy Letters 1/09/87 46 char size
+50,14,2,0
+*2
+  Divide 2uy
+  FractionalArc(105uy,82uy,21us,-0x4y)
+  FractionalArc(85uy,171uy,40us,-0x52y)
+  FractionalArc(174uy,151uy,21us,-0x44y)
+  Multiply 2uy
+  EndOfShape
+*10
+  PenUp
+  Displacement(0y,-75y)
+  VerticalText Displacement(50y,75y)
+  EndOfShape
+*32, 
+  PenUp
+  Displacement(46y,0y)
+  VerticalText Displacement(-46y,-50y)
+  EndOfShape
+*33,!
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Vector 0x74y
+  PenUp
+  Vector 0x74y
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*34,"
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(17y,41y)
+  PenDown
+  Displacement(0y,16y)
+  PenUp
+  Vector 0xC0y
+  PenDown
+  Displacement(0y,-16y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*35,#
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,14y)
+  PenDown
+  Displacement(34y,0y)
+  PenUp
+  Displacement(0y,12y)
+  PenDown
+  Displacement(-34y,0y)
+  PenUp
+  Displacement(0y,-36y)
+  PenDown
+  Displacement(22y,60y)
+  PenUp
+  Vector 0xC0y
+  PenDown
+  Displacement(-22y,-60y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*36,$
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,13y)
+  PenDown
+  FractionalArc(140uy,194uy,17us,0x43y)
+  FractionalArc(235uy,140uy,12us,0x63y)
+  FractionalArc(185uy,218uy,11us,0x2y)
+  FractionalArc(155uy,215uy,50us,0x11y)
+  FractionalArc(41uy,113uy,10us,-0x64y)
+  FractionalArc(130uy,80uy,17us,-0x33y)
+  PenUp
+  Displacement(-9y,14y)
+  PenDown
+  Displacement(0y,-56y)
+  PenUp
+  Vector 0xA8y
+  PenDown
+  Displacement(0y,56y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*37,%
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,3y)
+  PenDown
+  Displacement(33y,44y)
+  PenUp
+  Displacement(-33y,-8y)
+  PenDown
+  OctantArc(8uy,0x40y)
+  PenUp
+  Displacement(17y,-28y)
+  PenDown
+  OctantArc(8uy,0x40y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*38,&
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(42y,3y)
+  PenDown
+  FractionalArc(250uy,114uy,26us,0x73y)
+  FractionalArc(176uy,42uy,46us,0x12y)
+  Push
+  FractionalArc(109uy,147uy,9us,-0x64y)
+  FractionalArc(122uy,134uy,20us,-0x32y)
+  FractionalArc(109uy,147uy,9us,-0x24y)
+  Pop
+  FractionalArc(158uy,98uy,13us,0x24y)
+  FractionalArc(70uy,131uy,15us,0x53y)
+  FractionalArc(117uy,217uy,60us,-0x41y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-29y,-25y)
+  EndOfShape
+*39,'
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(22y,41y)
+  PenDown
+  Displacement(0y,16y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*40,(
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(27y,-5y)
+  PenDown
+  FractionalArc(70uy,186uy,51us,-0x52y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*41,)
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(19y,-5y)
+  PenDown
+  FractionalArc(70uy,186uy,51us,0x72y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*42,*
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,6y)
+  PenDown
+  Displacement(0y,38y)
+  PenUp
+  Displacement(-16y,-28y)
+  PenDown
+  Displacement(32y,19y)
+  PenUp
+  Displacement(0y,-19y)
+  PenDown
+  Displacement(-32y,19y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*43,+
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,25y)
+  PenDown
+  Displacement(22y,0y)
+  PenUp
+  Displacement(-11y,11y)
+  PenDown
+  Displacement(0y,-22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*44,,
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(25y,5y)
+  PenDown
+  OctantArc(2uy,0x0y)
+  FractionalArc(0uy,210uy,15us,-0x1y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*45,-
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,25y)
+  PenDown
+  Displacement(22y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*46,.
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(24y,4y)
+  PenDown
+  OctantArc(1uy,0x0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*47,/
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,-5y)
+  PenDown
+  Displacement(34y,55y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*48,0
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(37y,38y)
+  PenDown
+  FractionalArc(130uy,126uy,15us,0x4y)
+  FractionalArc(99uy,157uy,28us,0x32y)
+  FractionalArc(130uy,126uy,15us,0x44y)
+  FractionalArc(99uy,157uy,28us,0x72y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*49,1
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*50,2
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(37y,3y)
+  PenDown
+  Displacement(-28y,0y)
+  FractionalArc(0uy,163uy,25us,-0x42y)
+  FractionalArc(63uy,155uy,10us,0x64y)
+  FractionalArc(92uy,204uy,13us,0x13y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*51,3
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,47y)
+  PenDown
+  Displacement(25y,0y)
+  FractionalArc(78uy,160uy,25us,-0x2y)
+  PenUp
+  Displacement(6y,2y)
+  PenDown
+  FractionalArc(210uy,0uy,14us,-0x35y)
+  FractionalArc(225uy,44uy,18us,-0x73y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*52,4
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(32y,3y)
+  PenDown
+  ManyDisplacements [0y,44y;-4y,0y;-21y,-25y;0y,-4y;33y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*53,5
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(35y,47y)
+  PenDown
+  ManyDisplacements [-22y,0y;-2y,-19y]
+  FractionalArc(230uy,114uy,15us,-0x40y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*54,6
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(35y,42y)
+  PenDown
+  FractionalArc(235uy,75uy,15us,0x4y)
+  FractionalArc(79uy,177uy,29us,0x32y)
+  FractionalArc(188uy,50uy,16us,0x44y)
+  FractionalArc(100uy,34uy,11us,0x73y)
+  FractionalArc(24uy,110uy,17us,0x13y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*55,7
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,47y)
+  PenDown
+  ManyDisplacements [30y,0y;0y,-4y]
+  FractionalArc(212uy,24uy,46us,0x23y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*56,8
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(15y,28y)
+  PenDown
+  FractionalArc(158uy,98uy,13us,0x24y)
+  FractionalArc(105uy,151uy,19us,0x52y)
+  FractionalArc(139uy,240uy,11us,0x64y)
+  FractionalArc(245uy,171uy,30us,-0x72y)
+  FractionalArc(249uy,7uy,9us,-0x64y)
+  FractionalArc(27uy,229uy,17us,-0x32y)
+  FractionalArc(250uy,192uy,10us,-0x24y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*57,9
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(10y,8y)
+  PenDown
+  FractionalArc(235uy,75uy,15us,0x44y)
+  FractionalArc(79uy,177uy,29us,0x72y)
+  FractionalArc(188uy,50uy,16us,0x4y)
+  FractionalArc(100uy,34uy,11us,0x33y)
+  FractionalArc(24uy,110uy,17us,0x53y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*58,:
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(25y,5y)
+  PenDown
+  OctantArc(2uy,0x0y)
+  PenUp
+  Displacement(0y,24y)
+  PenDown
+  OctantArc(2uy,0x0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*59,;
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(25y,5y)
+  PenDown
+  OctantArc(2uy,0x0y)
+  FractionalArc(0uy,210uy,15us,-0x1y)
+  PenUp
+  Displacement(3y,33y)
+  PenDown
+  OctantArc(2uy,0x0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*60,<
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,12y)
+  PenDown
+  ManyDisplacements [-22y,13y;22y,13y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*61,=
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(16y,19y)
+  PenDown
+  Displacement(22y,0y)
+  PenUp
+  Displacement(0y,12y)
+  PenDown
+  Displacement(-22y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*62,>
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,12y)
+  PenDown
+  ManyDisplacements [22y,13y;-22y,13y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*63,?
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,38y)
+  PenDown
+  OctantArc(1uy,0x40y)
+  FractionalArc(83uy,85uy,12us,-0x44y)
+  FractionalArc(112uy,58uy,12us,-0x13y)
+  FractionalArc(156uy,12uy,13us,0x23y)
+  PenUp
+  Vector 0x8Cy
+  PenDown
+  OctantArc(1uy,0x20y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*64,@
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(37y,13y)
+  PenDown
+  FractionalArc(0uy,237uy,17us,-0x73y)
+  FractionalArc(223uy,174uy,15us,-0x56y)
+  FractionalArc(233uy,0uy,5us,-0x4y)
+  Push
+  PenUp
+  Displacement(0y,-2y)
+  PenDown
+  FractionalArc(52uy,5uy,6us,-0x77y)
+  Pop
+  Displacement(1y,9y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*65,A
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,3y)
+  PenDown
+  ManyDisplacements [15y,44y;4y,0y;15y,-44y]
+  PenUp
+  Displacement(-4y,10y)
+  PenDown
+  Displacement(-26y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*66,B
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Divide 2uy
+  ManyDisplacements [0y,88y;34y,0y]
+  OctantArc(21uy,-0x24y)
+  Displacement(-34y,0y)
+  PenUp
+  Displacement(36y,0y)
+  PenDown
+  OctantArc(23uy,-0x24y)
+  Displacement(-36y,0y)
+  Multiply 2uy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*67,C
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(38y,12y)
+  PenDown
+  FractionalArc(134uy,0uy,15us,-0x2y)
+  FractionalArc(235uy,138uy,14us,-0x73y)
+  FractionalArc(147uy,109uy,38us,-0x52y)
+  FractionalArc(111uy,0uy,15us,-0x42y)
+  FractionalArc(0uy,78uy,16us,-0x22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*68,D
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Displacement(0y,44y)
+  Vector 0xF0y
+  FractionalArc(240uy,85uy,12us,-0x33y)
+  FractionalArc(96uy,160uy,34us,-0x12y)
+  FractionalArc(170uy,16uy,12us,-0x3y)
+  Vector 0xF8y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*69,E
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(38y,3y)
+  PenDown
+  ManyDisplacements [-30y,0y;0y,44y;30y,0y]
+  PenUp
+  Displacement(-10y,-21y)
+  PenDown
+  Displacement(-20y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*70,F
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  ManyDisplacements [0y,44y;30y,0y]
+  PenUp
+  Displacement(-10y,-21y)
+  PenDown
+  Displacement(-20y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*71,G
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(26y,23y)
+  PenDown
+  Vector 0xC0y
+  Vector 0xBCy
+  FractionalArc(134uy,0uy,15us,-0x2y)
+  FractionalArc(235uy,138uy,14us,-0x73y)
+  FractionalArc(147uy,109uy,38us,-0x52y)
+  FractionalArc(111uy,0uy,15us,-0x42y)
+  FractionalArc(0uy,78uy,16us,-0x22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*72,H
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-21y)
+  PenDown
+  Displacement(30y,0y)
+  PenUp
+  Displacement(0y,21y)
+  PenDown
+  Displacement(0y,-44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*73,I
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*74,J
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,47y)
+  PenDown
+  Displacement(0y,-33y)
+  OctantArc(11uy,-0x4y)
+  Vector 0x34y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*75,K
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-24y)
+  PenDown
+  Displacement(30y,24y)
+  PenUp
+  Displacement(-20y,-16y)
+  PenDown
+  Displacement(20y,-28y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*76,L
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(38y,3y)
+  PenDown
+  Displacement(-30y,0y)
+  Displacement(0y,44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*77,M
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(4y,3y)
+  PenDown
+  ManyDisplacements [0y,44y;4y,0y;15y,-44y;15y,44y;4y,0y;0y,-44y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*78,N
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  ManyDisplacements [0y,44y;2y,0y;26y,-44y;2y,0y;0y,44y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*79,O
+  Subshape 0x30uy
+  EndOfShape
+*80,P
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Displacement(0y,44y)
+  Displacement(17y,0y)
+  OctantArc(11uy,-0x24y)
+  Displacement(-17y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*81,Q
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(37y,38y)
+  PenDown
+  FractionalArc(130uy,126uy,15us,0x4y)
+  FractionalArc(99uy,157uy,28us,0x32y)
+  FractionalArc(130uy,126uy,15us,0x44y)
+  FractionalArc(99uy,157uy,28us,0x72y)
+  PenUp
+  Displacement(-11y,-27y)
+  PenDown
+  FractionalArc(0uy,0uy,6us,-0x22y)
+  FractionalArc(9uy,0uy,5us,0x42y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*82,R
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  PenDown
+  Displacement(0y,44y)
+  Displacement(19y,0y)
+  OctantArc(11uy,-0x24y)
+  Displacement(-19y,0y)
+  PenUp
+  Displacement(17y,0y)
+  PenDown
+  Displacement(13y,-22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*83,S
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,3y)
+  Vector 0xA4y
+  PenDown
+  FractionalArc(140uy,194uy,17us,0x43y)
+  FractionalArc(235uy,140uy,12us,0x63y)
+  FractionalArc(185uy,218uy,11us,0x2y)
+  FractionalArc(155uy,215uy,50us,0x11y)
+  FractionalArc(41uy,113uy,10us,-0x64y)
+  FractionalArc(130uy,80uy,17us,-0x33y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*84,T
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(-16y,0y)
+  PenDown
+  Displacement(32y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*85,U
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,47y)
+  PenDown
+  Displacement(0y,-29y)
+  OctantArc(15uy,0x44y)
+  Displacement(0y,29y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*86,V
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,47y)
+  PenDown
+  ManyDisplacements [17y,-44y;17y,44y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*87,W
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(3y,47y)
+  PenDown
+  ManyDisplacements [11y,-44y;9y,44y;9y,-44y;11y,44y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*88,X
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,47y)
+  PenDown
+  Displacement(30y,-44y)
+  PenUp
+  Displacement(0y,44y)
+  PenDown
+  Displacement(-30y,-44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*89,Y
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(7y,47y)
+  PenDown
+  Displacement(16y,-20y)
+  Displacement(16y,20y)
+  PenUp
+  Displacement(-16y,-20y)
+  PenDown
+  Displacement(0y,-24y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*90,Z
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,47y)
+  PenDown
+  ManyDisplacements [30y,0y;-30y,-44y;30y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*91,[
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(27y,-5y)
+  PenDown
+  ManyDisplacements [-8y,0y;0y,55y;8y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*92,\
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,50y)
+  PenDown
+  Displacement(34y,-55y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*93,]
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(19y,-5y)
+  PenDown
+  ManyDisplacements [8y,0y;0y,55y;-8y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*94,^
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(6y,30y)
+  PenDown
+  ManyDisplacements [15y,17y;15y,-17y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*95,_
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  PenDown
+  Displacement(46y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*96,`
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,41y)
+  PenDown
+  Displacement(0y,16y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*97,a
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,10y)
+  PenDown
+  Subshape 0x2uy
+  PenUp
+  Vector 0x74y
+  PenDown
+  Displacement(0y,-30y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*98,b
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-21y)
+  PenDown
+  Divide 2uy
+  FractionalArc(105uy,82uy,21us,-0x44y)
+  FractionalArc(85uy,171uy,40us,-0x12y)
+  FractionalArc(174uy,151uy,21us,-0x4y)
+  Multiply 2uy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*99,c
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,10y)
+  PenDown
+  Subshape 0x2uy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*100,d
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,10y)
+  PenDown
+  Subshape 0x2uy
+  PenUp
+  Displacement(0y,21y)
+  PenDown
+  Displacement(0y,-44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*101,e
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(35y,9y)
+  PenDown
+  Divide 2uy
+  FractionalArc(175uy,16uy,25us,-0x4y)
+  FractionalArc(27uy,229uy,34us,-0x52y)
+  FractionalArc(240uy,236uy,23us,-0x44y)
+  Multiply 2uy
+  ManyDisplacements [0y,-3y;-24y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*102,f
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,39y)
+  OctantArc(4uy,-0x43y)
+  PenUp
+  Vector 0xCCy
+  PenDown
+  Vector 0xE8y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*103,g
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,10y)
+  PenDown
+  Subshape 0x2uy
+  PenUp
+  Vector 0x74y
+  PenDown
+  Displacement(0y,-36y)
+  FractionalArc(0uy,155uy,9us,-0x3y)
+  Displacement(-4y,2y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*104,h
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-18y)
+  PenDown
+  FractionalArc(64uy,240uy,24us,-0x31y)
+  FractionalArc(0uy,0uy,8us,-0x22y)
+  Displacement(0y,-22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*105,i
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Vector 0xC4y
+  PenDown
+  Vector 0x24y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*106,j
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(19y,-11y)
+  PenDown
+  FractionalArc(145uy,0uy,6us,0x53y)
+  Displacement(0y,38y)
+  PenUp
+  Vector 0xC4y
+  PenDown
+  Vector 0x24y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*107,k
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-32y)
+  PenDown
+  Displacement(18y,16y)
+  PenUp
+  Vector 0x8Ay
+  PenDown
+  Displacement(10y,-20y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*108,l
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*109,m
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(3y,3y)
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Vector 0x4Cy
+  PenDown
+  FractionalArc(64uy,240uy,24us,-0x31y)
+  FractionalArc(0uy,0uy,8us,-0x22y)
+  Displacement(0y,-22y)
+  PenUp
+  Displacement(0y,26y)
+  PenDown
+  FractionalArc(64uy,240uy,24us,-0x31y)
+  FractionalArc(0uy,0uy,8us,-0x22y)
+  Displacement(0y,-22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*110,n
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,3y)
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Vector 0x4Cy
+  PenDown
+  FractionalArc(64uy,240uy,24us,-0x31y)
+  FractionalArc(0uy,0uy,8us,-0x22y)
+  Displacement(0y,-22y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*111,o
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(32y,8y)
+  PenDown
+  Divide 2uy
+  FractionalArc(176uy,80uy,21us,-0x4y)
+  FractionalArc(85uy,171uy,40us,-0x52y)
+  FractionalArc(176uy,80uy,21us,-0x44y)
+  FractionalArc(85uy,171uy,40us,-0x12y)
+  Multiply 2uy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*112,p
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,-11y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(0y,-7y)
+  PenDown
+  Divide 2uy
+  FractionalArc(105uy,82uy,21us,-0x44y)
+  FractionalArc(85uy,171uy,40us,-0x12y)
+  FractionalArc(174uy,151uy,21us,-0x4y)
+  Multiply 2uy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*113,q
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(34y,10y)
+  PenDown
+  Subshape 0x2uy
+  PenUp
+  Vector 0x74y
+  PenDown
+  Displacement(0y,-44y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*114,r
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(16y,3y)
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Vector 0xECy
+  PenDown
+  OctantArc(14uy,-0x42y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*115,s
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,10y)
+  PenDown
+  FractionalArc(139uy,29uy,12us,0x43y)
+  FractionalArc(0uy,0uy,8us,0x62y)
+  FractionalArc(238uy,146uy,6us,0x73y)
+  FractionalArc(155uy,215uy,50us,0x11y)
+  FractionalArc(64uy,92uy,7us,-0x64y)
+  FractionalArc(111uy,70uy,11us,-0x33y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*116,t
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,3y)
+  PenDown
+  Displacement(0y,44y)
+  PenUp
+  Displacement(7y,-14y)
+  PenDown
+  Vector 0xE8y
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*117,u
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,33y)
+  PenDown
+  Displacement(0y,-22y)
+  FractionalArc(0uy,0uy,8us,0x42y)
+  FractionalArc(64uy,247uy,24us,0x61y)
+  PenUp
+  Vector 0x6Cy
+  PenDown
+  Displacement(0y,30y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*118,v
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,33y)
+  PenDown
+  ManyDisplacements [10y,-30y;1y,0y;10y,30y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*119,w
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(8y,33y)
+  PenDown
+  ManyDisplacements [9y,-30y;1y,0y;5y,26y;1y,0y;5y,-26y;1y,0y;9y,30y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*120,x
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,33y)
+  PenDown
+  Displacement(19y,-30y)
+  PenUp
+  Displacement(-20y,0y)
+  PenDown
+  Displacement(19y,30y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*121,y
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(13y,33y)
+  PenDown
+  Displacement(10y,-30y)
+  PenUp
+  Displacement(10y,30y)
+  PenDown
+  Displacement(-13y,-39y)
+  FractionalArc(150uy,0uy,9us,-0x2y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*122,z
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(14y,33y)
+  PenDown
+  ManyDisplacements [18y,0y;-18y,-30y;18y,0y]
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*123,{
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(28y,-5y)
+  PenDown
+  FractionalArc(74uy,51uy,9us,-0x64y)
+  FractionalArc(51uy,0uy,7us,0x73y)
+  FractionalArc(48uy,225uy,8us,0x63y)
+  FractionalArc(0uy,182uy,9us,-0x53y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*124,|
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(23y,-5y)
+  PenDown
+  Displacement(0y,55y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*125,}
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(19y,-5y)
+  PenDown
+  FractionalArc(74uy,51uy,9us,0x64y)
+  FractionalArc(51uy,0uy,7us,-0x53y)
+  FractionalArc(48uy,225uy,8us,-0x63y)
+  FractionalArc(0uy,182uy,9us,0x73y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*126,~
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(9y,20y)
+  PenDown
+  FractionalArc(0uy,123uy,7us,-0x43y)
+  Displacement(8y,-5y)
+  FractionalArc(57uy,0uy,7us,0x53y)
+  Vector 0x24y
+  FractionalArc(0uy,123uy,7us,-0x3y)
+  Displacement(-8y,5y)
+  FractionalArc(57uy,0uy,7us,0x13y)
+  Vector 0x2Cy
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*127,
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(7y,40y)
+  PenDown
+  OctantArc(10uy,0x40y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*128
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(12y,25y)
+  PenDown
+  Displacement(22y,0y)
+  PenUp
+  Displacement(-11y,11y)
+  PenDown
+  Displacement(0y,-22y)
+  PenUp
+  Displacement(-11y,-10y)
+  PenDown
+  Displacement(22y,0y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*129
+  PenUp
+  VerticalText Displacement(-23y,-50y)
+  Push
+  Displacement(31y,10y)
+  PenDown
+  Divide 2uy
+  FractionalArc(176uy,80uy,21us,-0x4y)
+  FractionalArc(85uy,171uy,40us,-0x52y)
+  FractionalArc(176uy,80uy,21us,-0x44y)
+  FractionalArc(85uy,171uy,40us,-0x12y)
+  Multiply 2uy
+  PenUp
+  Displacement(-21y,-5y)
+  PenDown
+  Displacement(24y,30y)
+  PenUp
+  Pop
+  Displacement(46y,0y)
+  VerticalText Displacement(-23y,-25y)
+  EndOfShape
+*141
+  Subshape 0xAuy
+  EndOfShape
+*157
+  PenUp
+  Displacement(0y,25y)
+  VerticalText Displacement(50y,-25y)
+  EndOfShape
+*203
+  Subshape 0x27uy
+  EndOfShape
+*219
+  Subshape 0x22uy
+  EndOfShape
+*227
+  Subshape 0x7Fuy
+  EndOfShape

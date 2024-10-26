@@ -19,6 +19,10 @@
     <Compile Include="GroupType.fs" />
     <Compile Include="BlobGroup.fs" />
     <Compile Include="SHP.fs" />
+    <Compile Include="ShapeFile.fs" />
+    <Compile Include="Punctuation.fs" />
+    <Compile Include="FSharpSpecification.fs" />
+    <Compile Include="MONOLER.fs" />
   </ItemGroup>
 
   <ItemGroup>

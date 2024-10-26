@@ -9,26 +9,33 @@ open FSharp.Idioms.StringOps
 open FSharp.Idioms.OrdinalIgnoreCase
 open FSharp.Idioms.RegularExpressions
 
-/// 改进算法
-let renderSHP (num:uint16) (bytes:int list) =
-    let COLUMN = 80
-    let tryline (text:string) =
-        if text = "" then
-            None
-        elif text.Length <= COLUMN then
-            Some(text,"")
-        else
-            let i = text.[0..COLUMN-1].LastIndexOf ','
-            Some(text.[0..i],text.[i+1..])
-    let lines =
-        bytes 
-        |> Seq.map(fun i -> i.ToString()) 
-        |> String.concat ","
-        |> Seq.unfold(tryline)
+let MAXCOLUMN = 118
 
+///打印整数列表，不超过指定的列数
+let renderIntList (maxcol:int) (bytes: int list) =
+    let rec loop (lines:string list) (rest: int list) =
+        match rest with
+        | head :: tail ->
+            let yld = 
+                match tail with
+                | [] -> $"{head}"
+                | _ -> $"{head},"
+            let line = lines.Head+yld
+            if line.Length > maxcol then
+                loop (yld::lines) tail
+            else
+                loop (line::lines.Tail) tail
+        | [] -> lines |> List.rev
+
+    match bytes with
+    | [] -> []
+    | _ -> loop [""] bytes
+
+/// 
+let renderSHP (num:uint16) (bytes:int list) =
     [
         $"*{num},{bytes.Length}"
-        yield! lines
+        yield! renderIntList MAXCOLUMN bytes
     ]
     |> String.concat "\r\n"
 
@@ -47,6 +54,7 @@ let fileSHP (ranges:int list) (fontHeight) (fontWidth) (dict:Dictionary<uint16,i
     ]
     |> String.concat "\r\n"
 
+//每个shpae已经打印好了
 let render (title:string) (font:string) (mp:Map<uint16,string>) =
     [
         title

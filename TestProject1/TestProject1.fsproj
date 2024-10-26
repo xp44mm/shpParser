@@ -9,13 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="CompletionObserver.fs" />
     <Compile Include="Dir.fs" />
     <Compile Include="ShapeDefTest.fs" />
     <Compile Include="Specifications.fs" />
     <Compile Include="SpecificationTest.fs" />
     <Compile Include="ShapeDefsTest.fs" />
     <Compile Include="ShapesCompilerTest.fs" />
+    <Compile Include="SHPTest.fs" />
     <Compile Include="OctantTest.fs" />
+    <Compile Include="MonolerTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
