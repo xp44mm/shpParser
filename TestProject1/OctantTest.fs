@@ -1,4 +1,5 @@
 ﻿namespace shpParser
+open gains
 
 open Xunit
 open Xunit.Abstractions
@@ -73,17 +74,4 @@ type OctantTest(output:ITestOutputHelper) =
         output.WriteLine($"{c}")
         let y = GBK.code c
         output.WriteLine($"{y}")
-
-    [<Fact>]
-    member this.``所有中文标点符号``() =
-        let y =
-            Punctuation.Shapes
-            |> Punctuation.getBytes
-            |> Map.toList
-            |> List.map(fun (c,bytes) -> GBK.code c,bytes)
-            |> List.sortBy fst
-
-        for (number,bytes) in y do
-            let outp = SHP.renderSHP number bytes
-            output.WriteLine outp
 

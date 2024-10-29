@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Design0.fs" />
+    <Compile Include="Design1.fs" />
+    <Compile Include="Design10.fs" />
+    <Compile Include="Design11.fs" />
+    <Compile Include="Design12.fs" />
+    <Compile Include="Design13.fs" />
+    <Compile Include="Design14.fs" />
+    <Compile Include="Design15.fs" />
+    <Compile Include="Design16.fs" />
+    <Compile Include="Design17.fs" />
+    <Compile Include="Design18.fs" />
+    <Compile Include="Design19.fs" />
+    <Compile Include="Design2.fs" />
+    <Compile Include="Design3.fs" />
+    <Compile Include="Design4.fs" />
+    <Compile Include="Design5.fs" />
+    <Compile Include="Design6.fs" />
+    <Compile Include="Design7.fs" />
+    <Compile Include="Design8.fs" />
+    <Compile Include="Design9.fs" />
+    <Compile Include="Dir.fs" />
+    <Compile Include="SHP.fs" />
+    <Compile Include="DesignTest.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FSharp.Idioms" Version="1.4.22" />
+    <PackageReference Include="FSharp.xUnit" Version="1.2.28" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="System.Reactive" Version="6.0.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\shpParser\shpParser.fsproj" />
+  </ItemGroup>
+
+</Project>

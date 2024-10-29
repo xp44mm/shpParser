@@ -290,5 +290,5 @@ type Specification =
             ls
             |> List.map(fun (x,y) ->Displacement(x, y))
         | Subshape _
-        | VerticalText _ -> raise <| NotImplementedException("需要先消除的元素")
+        | VerticalText _ // -> raise <| NotImplementedException("需要先消除的元素")
         | _ -> [this] 

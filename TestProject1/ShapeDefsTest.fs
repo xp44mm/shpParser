@@ -240,9 +240,6 @@ type ShapeDefsTest(output:ITestOutputHelper) =
     //    tcs.Task
 
 
-
-
-
     //[<Theory>]
     //[<InlineData("dissolve/chin2")>]
     //[<InlineData("dissolve/design")>]

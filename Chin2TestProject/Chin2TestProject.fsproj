@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Chin2_00.fs" />
+    <Compile Include="Chin2_01.fs" />
+    <Compile Include="Chin2_02.fs" />
+    <Compile Include="Chin2_03.fs" />
+    <Compile Include="Chin2_04.fs" />
+    <Compile Include="Chin2_05.fs" />
+    <Compile Include="Chin2_06.fs" />
+    <Compile Include="Chin2_07.fs" />
+    <Compile Include="Chin2_08.fs" />
+    <Compile Include="Chin2_09.fs" />
+    <Compile Include="Chin2_10.fs" />
+    <Compile Include="Chin2_11.fs" />
+    <Compile Include="Chin2_12.fs" />
+    <Compile Include="Chin2_13.fs" />
+    <Compile Include="Chin2_14.fs" />
+    <Compile Include="Chin2_15.fs" />
+    <Compile Include="Chin2_16.fs" />
+    <Compile Include="Chin2_17.fs" />
+    <Compile Include="Chin2_18.fs" />
+    <Compile Include="Chin2_19.fs" />
+    <Compile Include="Dir.fs" />
+    <Compile Include="SHP.fs" />
+    <Compile Include="Chin2Test.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FSharp.xUnit" Version="1.2.28" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gains\gains.fsproj" />
+    <ProjectReference Include="..\shpParser\shpParser.fsproj" />
+  </ItemGroup>
+
+</Project>

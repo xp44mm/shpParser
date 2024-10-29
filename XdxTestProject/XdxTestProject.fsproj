@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Xdx00.fs" />
+    <Compile Include="Xdx01.fs" />
+    <Compile Include="Xdx02.fs" />
+    <Compile Include="Xdx03.fs" />
+    <Compile Include="Xdx04.fs" />
+    <Compile Include="Xdx05.fs" />
+    <Compile Include="Xdx06.fs" />
+    <Compile Include="Xdx07.fs" />
+    <Compile Include="Xdx08.fs" />
+    <Compile Include="Xdx09.fs" />
+    <Compile Include="Xdx10.fs" />
+    <Compile Include="Xdx11.fs" />
+    <Compile Include="Xdx12.fs" />
+    <Compile Include="Xdx13.fs" />
+    <Compile Include="Xdx14.fs" />
+    <Compile Include="Xdx15.fs" />
+    <Compile Include="Xdx16.fs" />
+    <Compile Include="Xdx17.fs" />
+    <Compile Include="Xdx18.fs" />
+    <Compile Include="Xdx19.fs" />
+    <Compile Include="Dir.fs" />
+    <Compile Include="SHP.fs" />
+    <Compile Include="XdxTest.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FSharp.xUnit" Version="1.2.28" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gains\gains.fsproj" />
+    <ProjectReference Include="..\shpParser\shpParser.fsproj" />
+  </ItemGroup>
+
+</Project>

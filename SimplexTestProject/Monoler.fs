@@ -1,14 +1,7 @@
-﻿module shpParser.MonolerSpecification
-open System.Collections.Generic
-open FSharp.Idioms
-let title = ""
-let zero = [
-    "0,4,Mono Spaced Leroy Letters 1/09/87 46 char size"
-    "50,14,2,0"
-]
-let Shapes =
-    let dict = Dictionary<uint16,Specification list>()
-    dict.[2us] <- [
+﻿module SimplexTestProject.Monoler
+open shpParser
+let shapes = [
+    2us, [
         Divide 2uy
         FractionalArc(105uy,82uy,21us,-0x4y)
         FractionalArc(85uy,171uy,40us,-0x52y)
@@ -16,21 +9,21 @@ let Shapes =
         Multiply 2uy
         EndOfShape
     ]
-    dict.[10us] <- [
+    10us, [
         PenUp
         Displacement(0y,-75y)
         VerticalText(Displacement(50y,75y))
         EndOfShape
     ]
     //  
-    dict.[32us] <- [
+    32us, [
         PenUp
         Displacement(46y,0y)
         VerticalText(Displacement(-46y,-50y))
         EndOfShape
     ]
     // !
-    dict.[33us] <- [
+    33us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -48,7 +41,7 @@ let Shapes =
         EndOfShape
     ]
     // "
-    dict.[34us] <- [
+    34us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -66,7 +59,7 @@ let Shapes =
         EndOfShape
     ]
     // #
-    dict.[35us] <- [
+    35us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -92,7 +85,7 @@ let Shapes =
         EndOfShape
     ]
     // $
-    dict.[36us] <- [
+    36us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -119,7 +112,7 @@ let Shapes =
         EndOfShape
     ]
     // %
-    dict.[37us] <- [
+    37us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -141,7 +134,7 @@ let Shapes =
         EndOfShape
     ]
     // &
-    dict.[38us] <- [
+    38us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -164,7 +157,7 @@ let Shapes =
         EndOfShape
     ]
     // '
-    dict.[39us] <- [
+    39us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -178,7 +171,7 @@ let Shapes =
         EndOfShape
     ]
     // (
-    dict.[40us] <- [
+    40us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -192,7 +185,7 @@ let Shapes =
         EndOfShape
     ]
     // )
-    dict.[41us] <- [
+    41us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -206,7 +199,7 @@ let Shapes =
         EndOfShape
     ]
     // *
-    dict.[42us] <- [
+    42us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -228,7 +221,7 @@ let Shapes =
         EndOfShape
     ]
     // +
-    dict.[43us] <- [
+    43us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -246,7 +239,7 @@ let Shapes =
         EndOfShape
     ]
     // ,
-    dict.[44us] <- [
+    44us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -261,7 +254,7 @@ let Shapes =
         EndOfShape
     ]
     // -
-    dict.[45us] <- [
+    45us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -275,7 +268,7 @@ let Shapes =
         EndOfShape
     ]
     // .
-    dict.[46us] <- [
+    46us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -289,7 +282,7 @@ let Shapes =
         EndOfShape
     ]
     // /
-    dict.[47us] <- [
+    47us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -303,7 +296,7 @@ let Shapes =
         EndOfShape
     ]
     // 0
-    dict.[48us] <- [
+    48us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -320,7 +313,7 @@ let Shapes =
         EndOfShape
     ]
     // 1
-    dict.[49us] <- [
+    49us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -334,7 +327,7 @@ let Shapes =
         EndOfShape
     ]
     // 2
-    dict.[50us] <- [
+    50us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -351,7 +344,7 @@ let Shapes =
         EndOfShape
     ]
     // 3
-    dict.[51us] <- [
+    51us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -371,7 +364,7 @@ let Shapes =
         EndOfShape
     ]
     // 4
-    dict.[52us] <- [
+    52us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -385,7 +378,7 @@ let Shapes =
         EndOfShape
     ]
     // 5
-    dict.[53us] <- [
+    53us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -400,7 +393,7 @@ let Shapes =
         EndOfShape
     ]
     // 6
-    dict.[54us] <- [
+    54us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -418,7 +411,7 @@ let Shapes =
         EndOfShape
     ]
     // 7
-    dict.[55us] <- [
+    55us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -433,7 +426,7 @@ let Shapes =
         EndOfShape
     ]
     // 8
-    dict.[56us] <- [
+    56us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -453,7 +446,7 @@ let Shapes =
         EndOfShape
     ]
     // 9
-    dict.[57us] <- [
+    57us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -471,7 +464,7 @@ let Shapes =
         EndOfShape
     ]
     // :
-    dict.[58us] <- [
+    58us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -489,7 +482,7 @@ let Shapes =
         EndOfShape
     ]
     // ;
-    dict.[59us] <- [
+    59us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -508,7 +501,7 @@ let Shapes =
         EndOfShape
     ]
     // <
-    dict.[60us] <- [
+    60us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -522,7 +515,7 @@ let Shapes =
         EndOfShape
     ]
     // =
-    dict.[61us] <- [
+    61us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -540,7 +533,7 @@ let Shapes =
         EndOfShape
     ]
     // >
-    dict.[62us] <- [
+    62us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -554,7 +547,7 @@ let Shapes =
         EndOfShape
     ]
     // ?
-    dict.[63us] <- [
+    63us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -575,7 +568,7 @@ let Shapes =
         EndOfShape
     ]
     // @
-    dict.[64us] <- [
+    64us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -598,7 +591,7 @@ let Shapes =
         EndOfShape
     ]
     // A
-    dict.[65us] <- [
+    65us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -616,7 +609,7 @@ let Shapes =
         EndOfShape
     ]
     // B
-    dict.[66us] <- [
+    66us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -639,7 +632,7 @@ let Shapes =
         EndOfShape
     ]
     // C
-    dict.[67us] <- [
+    67us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -657,7 +650,7 @@ let Shapes =
         EndOfShape
     ]
     // D
-    dict.[68us] <- [
+    68us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -676,7 +669,7 @@ let Shapes =
         EndOfShape
     ]
     // E
-    dict.[69us] <- [
+    69us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -694,7 +687,7 @@ let Shapes =
         EndOfShape
     ]
     // F
-    dict.[70us] <- [
+    70us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -712,7 +705,7 @@ let Shapes =
         EndOfShape
     ]
     // G
-    dict.[71us] <- [
+    71us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -732,7 +725,7 @@ let Shapes =
         EndOfShape
     ]
     // H
-    dict.[72us] <- [
+    72us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -754,7 +747,7 @@ let Shapes =
         EndOfShape
     ]
     // I
-    dict.[73us] <- [
+    73us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -768,7 +761,7 @@ let Shapes =
         EndOfShape
     ]
     // J
-    dict.[74us] <- [
+    74us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -784,7 +777,7 @@ let Shapes =
         EndOfShape
     ]
     // K
-    dict.[75us] <- [
+    75us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -806,7 +799,7 @@ let Shapes =
         EndOfShape
     ]
     // L
-    dict.[76us] <- [
+    76us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -821,7 +814,7 @@ let Shapes =
         EndOfShape
     ]
     // M
-    dict.[77us] <- [
+    77us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -835,7 +828,7 @@ let Shapes =
         EndOfShape
     ]
     // N
-    dict.[78us] <- [
+    78us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -849,12 +842,12 @@ let Shapes =
         EndOfShape
     ]
     // O
-    dict.[79us] <- [
+    79us, [
         Subshape 48uy
         EndOfShape
     ]
     // P
-    dict.[80us] <- [
+    80us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -871,7 +864,7 @@ let Shapes =
         EndOfShape
     ]
     // Q
-    dict.[81us] <- [
+    81us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -893,7 +886,7 @@ let Shapes =
         EndOfShape
     ]
     // R
-    dict.[82us] <- [
+    82us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -914,7 +907,7 @@ let Shapes =
         EndOfShape
     ]
     // S
-    dict.[83us] <- [
+    83us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -934,7 +927,7 @@ let Shapes =
         EndOfShape
     ]
     // T
-    dict.[84us] <- [
+    84us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -952,7 +945,7 @@ let Shapes =
         EndOfShape
     ]
     // U
-    dict.[85us] <- [
+    85us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -968,7 +961,7 @@ let Shapes =
         EndOfShape
     ]
     // V
-    dict.[86us] <- [
+    86us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -982,7 +975,7 @@ let Shapes =
         EndOfShape
     ]
     // W
-    dict.[87us] <- [
+    87us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -996,7 +989,7 @@ let Shapes =
         EndOfShape
     ]
     // X
-    dict.[88us] <- [
+    88us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1014,7 +1007,7 @@ let Shapes =
         EndOfShape
     ]
     // Y
-    dict.[89us] <- [
+    89us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1033,7 +1026,7 @@ let Shapes =
         EndOfShape
     ]
     // Z
-    dict.[90us] <- [
+    90us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1047,7 +1040,7 @@ let Shapes =
         EndOfShape
     ]
     // [
-    dict.[91us] <- [
+    91us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1061,7 +1054,7 @@ let Shapes =
         EndOfShape
     ]
     // \
-    dict.[92us] <- [
+    92us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1075,7 +1068,7 @@ let Shapes =
         EndOfShape
     ]
     // ]
-    dict.[93us] <- [
+    93us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1089,7 +1082,7 @@ let Shapes =
         EndOfShape
     ]
     // ^
-    dict.[94us] <- [
+    94us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1103,7 +1096,7 @@ let Shapes =
         EndOfShape
     ]
     // _
-    dict.[95us] <- [
+    95us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1116,7 +1109,7 @@ let Shapes =
         EndOfShape
     ]
     // `
-    dict.[96us] <- [
+    96us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1130,7 +1123,7 @@ let Shapes =
         EndOfShape
     ]
     // a
-    dict.[97us] <- [
+    97us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1148,7 +1141,7 @@ let Shapes =
         EndOfShape
     ]
     // b
-    dict.[98us] <- [
+    98us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1170,7 +1163,7 @@ let Shapes =
         EndOfShape
     ]
     // c
-    dict.[99us] <- [
+    99us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1184,7 +1177,7 @@ let Shapes =
         EndOfShape
     ]
     // d
-    dict.[100us] <- [
+    100us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1202,7 +1195,7 @@ let Shapes =
         EndOfShape
     ]
     // e
-    dict.[101us] <- [
+    101us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1221,7 +1214,7 @@ let Shapes =
         EndOfShape
     ]
     // f
-    dict.[102us] <- [
+    102us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1240,7 +1233,7 @@ let Shapes =
         EndOfShape
     ]
     // g
-    dict.[103us] <- [
+    103us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1260,7 +1253,7 @@ let Shapes =
         EndOfShape
     ]
     // h
-    dict.[104us] <- [
+    104us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1280,7 +1273,7 @@ let Shapes =
         EndOfShape
     ]
     // i
-    dict.[105us] <- [
+    105us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1298,7 +1291,7 @@ let Shapes =
         EndOfShape
     ]
     // j
-    dict.[106us] <- [
+    106us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1317,7 +1310,7 @@ let Shapes =
         EndOfShape
     ]
     // k
-    dict.[107us] <- [
+    107us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1339,7 +1332,7 @@ let Shapes =
         EndOfShape
     ]
     // l
-    dict.[108us] <- [
+    108us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1353,7 +1346,7 @@ let Shapes =
         EndOfShape
     ]
     // m
-    dict.[109us] <- [
+    109us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1379,7 +1372,7 @@ let Shapes =
         EndOfShape
     ]
     // n
-    dict.[110us] <- [
+    110us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1399,7 +1392,7 @@ let Shapes =
         EndOfShape
     ]
     // o
-    dict.[111us] <- [
+    111us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1418,7 +1411,7 @@ let Shapes =
         EndOfShape
     ]
     // p
-    dict.[112us] <- [
+    112us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1440,7 +1433,7 @@ let Shapes =
         EndOfShape
     ]
     // q
-    dict.[113us] <- [
+    113us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1458,7 +1451,7 @@ let Shapes =
         EndOfShape
     ]
     // r
-    dict.[114us] <- [
+    114us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1476,7 +1469,7 @@ let Shapes =
         EndOfShape
     ]
     // s
-    dict.[115us] <- [
+    115us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1495,7 +1488,7 @@ let Shapes =
         EndOfShape
     ]
     // t
-    dict.[116us] <- [
+    116us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1513,7 +1506,7 @@ let Shapes =
         EndOfShape
     ]
     // u
-    dict.[117us] <- [
+    117us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1533,7 +1526,7 @@ let Shapes =
         EndOfShape
     ]
     // v
-    dict.[118us] <- [
+    118us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1547,7 +1540,7 @@ let Shapes =
         EndOfShape
     ]
     // w
-    dict.[119us] <- [
+    119us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1561,7 +1554,7 @@ let Shapes =
         EndOfShape
     ]
     // x
-    dict.[120us] <- [
+    120us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1579,7 +1572,7 @@ let Shapes =
         EndOfShape
     ]
     // y
-    dict.[121us] <- [
+    121us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1598,7 +1591,7 @@ let Shapes =
         EndOfShape
     ]
     // z
-    dict.[122us] <- [
+    122us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1612,7 +1605,7 @@ let Shapes =
         EndOfShape
     ]
     // {
-    dict.[123us] <- [
+    123us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1629,7 +1622,7 @@ let Shapes =
         EndOfShape
     ]
     // |
-    dict.[124us] <- [
+    124us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1643,7 +1636,7 @@ let Shapes =
         EndOfShape
     ]
     // }
-    dict.[125us] <- [
+    125us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1660,7 +1653,7 @@ let Shapes =
         EndOfShape
     ]
     // ~
-    dict.[126us] <- [
+    126us, [
         PenUp
         VerticalText(Displacement(-23y,-50y))
         Push
@@ -1680,82 +1673,4 @@ let Shapes =
         VerticalText(Displacement(-23y,-25y))
         EndOfShape
     ]
-    dict.[127us] <- [
-        PenUp
-        VerticalText(Displacement(-23y,-50y))
-        Push
-        Displacement(7y,40y)
-        PenDown
-        OctantArc(10uy,0x40y)
-        PenUp
-        Pop
-        Displacement(46y,0y)
-        VerticalText(Displacement(-23y,-25y))
-        EndOfShape
     ]
-    dict.[128us] <- [
-        PenUp
-        VerticalText(Displacement(-23y,-50y))
-        Push
-        Displacement(12y,25y)
-        PenDown
-        Displacement(22y,0y)
-        PenUp
-        Displacement(-11y,11y)
-        PenDown
-        Displacement(0y,-22y)
-        PenUp
-        Displacement(-11y,-10y)
-        PenDown
-        Displacement(22y,0y)
-        PenUp
-        Pop
-        Displacement(46y,0y)
-        VerticalText(Displacement(-23y,-25y))
-        EndOfShape
-    ]
-    dict.[129us] <- [
-        PenUp
-        VerticalText(Displacement(-23y,-50y))
-        Push
-        Displacement(31y,10y)
-        PenDown
-        Divide 2uy
-        FractionalArc(176uy,80uy,21us,-0x4y)
-        FractionalArc(85uy,171uy,40us,-0x52y)
-        FractionalArc(176uy,80uy,21us,-0x44y)
-        FractionalArc(85uy,171uy,40us,-0x12y)
-        Multiply 2uy
-        PenUp
-        Displacement(-21y,-5y)
-        PenDown
-        Displacement(24y,30y)
-        PenUp
-        Pop
-        Displacement(46y,0y)
-        VerticalText(Displacement(-23y,-25y))
-        EndOfShape
-    ]
-    dict.[141us] <- [
-        Subshape 10uy
-        EndOfShape
-    ]
-    dict.[157us] <- [
-        PenUp
-        Displacement(0y,25y)
-        VerticalText(Displacement(50y,-25y))
-        EndOfShape
-    ]
-    dict.[203us] <- [
-        Subshape 39uy
-        EndOfShape
-    ]
-    dict.[219us] <- [
-        Subshape 34uy
-        EndOfShape
-    ]
-    dict.[227us] <- [
-        Subshape 127uy
-        EndOfShape
-    ]
-    Map.fromInterface dict

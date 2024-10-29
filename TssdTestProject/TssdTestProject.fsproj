@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Tssd00.fs" />
+    <Compile Include="Tssd01.fs" />
+    <Compile Include="Tssd02.fs" />
+    <Compile Include="Tssd03.fs" />
+    <Compile Include="Tssd04.fs" />
+    <Compile Include="Tssd05.fs" />
+    <Compile Include="Tssd06.fs" />
+    <Compile Include="Tssd07.fs" />
+    <Compile Include="Tssd08.fs" />
+    <Compile Include="Tssd09.fs" />
+    <Compile Include="Tssd10.fs" />
+    <Compile Include="Tssd11.fs" />
+    <Compile Include="Tssd12.fs" />
+    <Compile Include="Tssd13.fs" />
+    <Compile Include="Tssd14.fs" />
+    <Compile Include="Tssd15.fs" />
+    <Compile Include="Tssd16.fs" />
+    <Compile Include="Tssd17.fs" />
+    <Compile Include="Tssd18.fs" />
+    <Compile Include="Tssd19.fs" />
+    <Compile Include="Dir.fs" />
+    <Compile Include="SHP.fs" />
+    <Compile Include="TssdTest.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FSharp.xUnit" Version="1.2.28" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gains\gains.fsproj" />
+    <ProjectReference Include="..\shpParser\shpParser.fsproj" />
+  </ItemGroup>
+
+</Project>

@@ -198,7 +198,7 @@ type MonolerTest(output:ITestOutputHelper) =
                         |> Number.getIntListFromLines
                         |> SpecificationUtils.getSpecifications
 
-                    let render = FSharpSpecification.renderShape num specs
+                    let render = FSharpSpecification.listShape num specs
                     num, render
                 )
                 .Synchronize()
@@ -211,14 +211,16 @@ type MonolerTest(output:ITestOutputHelper) =
         let complete () =
             let shapes =
                 dict
-                |> Map.fromInterface
+                |> Seq.toArray
+                |> Array.map(fun(KeyValue(k,v))->k,v)
+                |> Array.sortBy fst
 
             let outp = 
                 [
                     yield! FSharpSpecification.moduleHeadLines "Monoler"
                     yield FSharpSpecification.titleLines titleLine
                     yield! FSharpSpecification.zeroLines zeroLines
-                    yield! FSharpSpecification.shapesLines shapes
+                    yield! FSharpSpecification.bindShapes "shapes" shapes
                 ]
                 |> String.concat "\r\n"
 
