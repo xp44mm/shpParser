@@ -1,14 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
-    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Radical.fs" />
+    <Compile Include="全尺寸.fs" />
     <Compile Include="Xdx00.fs" />
     <Compile Include="Xdx01.fs" />
     <Compile Include="Xdx02.fs" />
@@ -30,16 +30,17 @@
     <Compile Include="Xdx18.fs" />
     <Compile Include="Xdx19.fs" />
     <Compile Include="Dir.fs" />
+    <Compile Include="XdxSpecifications.fs" />
+    <Compile Include="XdxShape.fs" />
     <Compile Include="SHP.fs" />
     <Compile Include="XdxTest.fs" />
+    <Compile Include="ShapeOutputTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="FSharp.Idioms" Version="1.4.26" />
     <PackageReference Include="FSharp.xUnit" Version="1.2.30" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="xunit" Version="2.9.2" />
@@ -52,10 +53,6 @@
   <ItemGroup>
     <ProjectReference Include="..\gains\gains.fsproj" />
     <ProjectReference Include="..\shpParser\shpParser.fsproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="9.0.100" />
   </ItemGroup>
 
 </Project>

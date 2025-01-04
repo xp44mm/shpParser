@@ -17,12 +17,6 @@ let parseSign (s:string) =
     | '-' -> - parse s.[1..]
     | _ -> parse s
 
-let sbyteFromFloat (x:float) =
-    let x = Math.Round(x)
-    if x >= 127. then 127y
-    elif x <= -127. then -127y
-    else sbyte x
-
 let byteFromFloat (x:float) =
     let x = Math.Round(x)
     if x >= 255. then 255uy

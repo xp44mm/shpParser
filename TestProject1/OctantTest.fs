@@ -1,5 +1,5 @@
 ﻿namespace shpParser
-open gains
+//open gains
 
 open Xunit
 open Xunit.Abstractions

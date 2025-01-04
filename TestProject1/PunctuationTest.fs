@@ -96,47 +96,47 @@ type PunctuationTest(output:ITestOutputHelper) =
 
         tcs.Task
 
-    [<Fact>]
-    member _.``fsharp to fsharp``() =
-        let shapes = gains.Punctuation.punctuations
+    //[<Fact>]
+    //member _.``fsharp to fsharp``() =
+    //    let shapes = gains.Punctuation.punctuations
 
-        let outp =
-            shapes
-            |> Seq.map(fun ((n,specs)) ->
-                let lines = FSharpSpecification.listShape n specs
-                n,lines
-            )
-            |> FSharpSpecification.bindShapes "punctuations"
-            |> String.concat "\r\n"
+    //    let outp =
+    //        shapes
+    //        |> Seq.map(fun ((n,specs)) ->
+    //            let lines = FSharpSpecification.listShape n specs
+    //            n,lines
+    //        )
+    //        |> FSharpSpecification.bindShapes "punctuations"
+    //        |> String.concat "\r\n"
 
-        output.WriteLine(outp)
+    //    output.WriteLine(outp)
 
-    [<Fact>]
-    member _.``fsharp to SHP`` () =
-        let tgt = Path.Combine(Dir.solutionPath, "punctuation", "punctuations.SHP")
-        let shapes = gains.Punctuation.punctuations
+    //[<Fact>]
+    //member _.``fsharp to SHP`` () =
+    //    let tgt = Path.Combine(Dir.solutionPath, "punctuation", "punctuations.SHP")
+    //    let shapes = gains.Punctuation.punctuations
 
-        let titleLine = 
-            shapes.Length
-            |> BigFont.replace "*BIGFONT 7071,1,0A1,0FE" 
+    //    let titleLine = 
+    //        shapes.Length
+    //        |> BigFont.replace "*BIGFONT 7071,1,0A1,0FE" 
 
-        let outp = 
-            [
-                titleLine
-                "*0,4"
-                "127,0,0,0"
-                for (num, specs) in shapes do
-                    let bytes =
-                        specs
-                        |> List.collect(fun spec -> spec.getBytes())
-                        |> SpecificationUtils.fromStartToEndBytes 127y
-                    SHP.renderSHP num bytes
-                ""
-            ]
-            |> String.concat "\r\n"
+    //    let outp = 
+    //        [
+    //            titleLine
+    //            "*0,4"
+    //            "127,0,0,0"
+    //            for (num, specs) in shapes do
+    //                let bytes =
+    //                    specs
+    //                    |> List.collect(fun spec -> spec.getBytes())
+    //                    |> SpecificationUtils.fromStartToEndBytes 127y
+    //                SHP.renderSHP num bytes
+    //            ""
+    //        ]
+    //        |> String.concat "\r\n"
 
-        File.WriteAllText(tgt, outp, Encoding.ASCII)
-        output.WriteLine("生成新文件:")
-        output.WriteLine(tgt)
+    //    File.WriteAllText(tgt, outp, Encoding.ASCII)
+    //    output.WriteLine("生成新文件:")
+    //    output.WriteLine(tgt)
 
 

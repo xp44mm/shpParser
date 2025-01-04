@@ -208,8 +208,12 @@ let scaleFactors (filename:string) =
     | _ -> 1.
 
 let fromStartToEndBytes (fontWidth) =
-    let h = Push.getBytes() |> List.exactlyOne
-    let t =
+    // 头
+    let head = 
+        Push.getBytes() 
+        |> List.exactlyOne
+    // 尾
+    let tail =
         [
             Pop
             PenUp
@@ -217,7 +221,13 @@ let fromStartToEndBytes (fontWidth) =
             EndOfShape
         ]
         |> List.collect(fun spec -> spec.getBytes())
-    fun (bytes:int list) -> [h::bytes;t] |> List.concat
+
+    fun (bytes:int list) ->
+        [
+            head::bytes;
+            tail
+            ] 
+        |> List.concat
 
 let splitLine (line: string) =
     if line.[0] = '*' then

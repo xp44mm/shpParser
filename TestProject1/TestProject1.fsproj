@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
@@ -21,6 +21,7 @@
     <Compile Include="OctantTest.fs" />
     <Compile Include="MonolerTest.fs" />
     <Compile Include="FSharpSpecificationTest.fs" />
+    <Compile Include="ComplexTest.fs" />
     <Compile Include="PunctuationTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
@@ -30,24 +31,23 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FSharp.Idioms" Version="1.4.22" />
-    <PackageReference Include="FSharp.xUnit" Version="1.2.28" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="FSharp.Idioms" Version="1.4.26" />
+    <PackageReference Include="FSharp.xUnit" Version="1.2.30" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
     <PackageReference Include="xunit" Version="2.9.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\gains\gains.fsproj" />
     <ProjectReference Include="..\shpParser\shpParser.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="8.0.401" />
+    <PackageReference Update="FSharp.Core" Version="9.0.100" />
   </ItemGroup>
 
 </Project>

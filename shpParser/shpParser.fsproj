@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="ShapesParseTable.fs" />
     <Compile Include="ShapesCompiler.fs" />
+    <Compile Include="SByte.fs" />
     <Compile Include="Number.fs" />
     <Compile Include="GBK.fs" />
     <Compile Include="BigFont.fs" />
@@ -26,11 +27,11 @@
   <ItemGroup>
     <PackageReference Include="FslexFsyacc" Version="1.5.4" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="8.0.401" />
+    <PackageReference Update="FSharp.Core" Version="9.0.100" />
   </ItemGroup>
 
 </Project>

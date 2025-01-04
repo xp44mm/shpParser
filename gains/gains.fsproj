@@ -7,10 +7,18 @@
 
   <ItemGroup>
     <Compile Include="Punctuation.fs" />
+    <Compile Include="Chin2.fs" />
+    <Compile Include="Sbhz.fs" />
+    <Compile Include="Xxx.fs" />
+    <Compile Include="Punctuations.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\shpParser\shpParser.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="9.0.100" />
   </ItemGroup>
 
 </Project>

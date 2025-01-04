@@ -3,6 +3,7 @@
 open System
 open FSharp.Idioms.Literal
 open type System.Math
+open System.Numerics
 
 /// 形定义字节。每个定义字节都是一个代码，或者定义矢量长度和方向，或者是特殊代码的对应值之一。
 type Specification =
@@ -136,50 +137,15 @@ type Specification =
         | VerticalText spec -> [14;yield! spec.getBytes()]
         | Vector x -> [int x]
 
-    //member this.render() =
-    //    let printS16 (sc:sbyte) =
-    //        let clock,sc = if sc < 0y then "-",-sc else "",sc
-    //        $"{clock}0%X{sc})"
-
-    //    match this with
-    //    | EndOfShape -> "EndOfShape"
-    //    | PenDown -> "PenDown"
-    //    | PenUp -> "PenUp"
-    //    | Divide x -> $"Divide {x}"
-    //    | Multiply x -> $"Multiply {x}"
-    //    | Push -> "Push"
-    //    | Pop -> "Pop"
-    //    | Subshape x -> $"Subshape 0%X{x}"
-    //    | Displacement (x,y) -> $"Displacement({x},{y})"
-    //    | ManyDisplacements ls -> 
-    //        let s =
-    //            ls
-    //            |> List.map(fun (x,y)-> $"({x},{y})")
-    //            |> String.concat ";"
-    //        $"ManyDisplacements[{s}]"
-    //    | OctantArc (r,sc) -> 
-    //        $"OctantArc({r},{printS16 sc})"
-    //    | FractionalArc (s,c,r,sc) ->
-    //        $"FractionalArc({s},{c},{r},{printS16 sc})"
-    //    | BulgeArc (x,y,h) -> $"BulgeArc({x},{y},{h})"
-    //    | ManyBulgeArc ls ->
-    //        let ls =
-    //            ls
-    //            |> List.map(fun (x,y,h) -> $"({x},{y},{h})")
-    //            |> String.concat ";"
-    //        $"ManyBulgeArc[{ls}]"
-    //    | VerticalText spec -> "VerticalText " + spec.render()
-    //    | Vector x -> $"Vector 0%X{x}"
-
     member this.scale(i:float) =
         if i <= 0 then 
             failwith "比例系数为一个正数"
         elif i = 1.0 then 
-            this 
+            this
         else
 
         let scaleSByte (x:sbyte) =
-            float x * i |> Number.sbyteFromFloat
+            float x * i |> SByte.fromFloat
 
         let scaleByte (x:byte) =
             float x * i |> Number.byteFromFloat
@@ -234,11 +200,6 @@ type Specification =
             -> this
         | Subshape _ -> failwith $"unimpl:{stringify this}"
 
-/// todo: 等价替换下三种
-    //| OctantArc of byte*sbyte                 // 00A 计算弦向量和弦高
-    //| FractionalArc of byte*byte*uint16*sbyte // 00B
-    //| Vector of byte   转换角度为1,0/2,1/1,1/0,1其他象限等同
-
     /// 极坐标转为xy坐标的对像
     member this.eliminate127() = 
         match this with
@@ -292,3 +253,34 @@ type Specification =
         | Subshape _
         | VerticalText _ // -> raise <| NotImplementedException("需要先消除的元素")
         | _ -> [this] 
+
+    member this.complex() =
+        match this with
+        | EndOfShape -> Complex(0.,0.)
+        | PenDown -> Complex(0.,0.)
+        | PenUp -> Complex(0.,0.)
+        | Divide x -> Complex(0.,0.)
+        | Multiply x -> Complex(0.,0.)
+        | Push -> Complex(0.,0.)
+        | Pop -> Complex(0.,0.)
+        | Subshape x -> Complex(0.,0.)
+        | Displacement (x,y) -> Complex(float x, float y)
+        | ManyDisplacements ls -> 
+            [
+                for (x,y) in ls do
+                    Complex(float x, float y)
+            ]
+            |> List.reduce(+)
+
+        | OctantArc (r,sc) -> raise <| NotImplementedException("OctantArc")
+        | FractionalArc (s,c,r,sc) -> raise <| NotImplementedException("FractionalArc")
+        | BulgeArc (x,y,h) -> raise <| NotImplementedException("BulgeArc")
+        | ManyBulgeArc ls -> raise <| NotImplementedException("ManyBulgeArc")
+
+        | VerticalText spec -> Complex(0.,0.)
+        | Vector x -> raise <| NotImplementedException("ManyBulgeArc")
+
+    static member displacementFromComplex (complex:Complex) =
+        let x = sbyte complex.Real
+        let y = sbyte complex.Imaginary
+        Displacement (x,y)

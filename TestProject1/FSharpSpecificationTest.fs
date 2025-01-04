@@ -311,22 +311,22 @@ type FSharpSpecificationTest(output:ITestOutputHelper) =
 
         tcs.Task
 
-    [<Fact>]
-    member _.``fsharp to fsharp``() =
-        let shapes = gains.Punctuation.punctuations
+    //[<Fact>]
+    //member _.``fsharp to fsharp``() =
+    //    let shapes = gains.Punctuation.punctuations
 
-        let outp =
-            shapes
-            |> Seq.toArray
-            |> Array.map(fun (n,specs) ->
-                //let n = GBK.code c
-                let lines = FSharpSpecification.listShape n specs
-                n,lines
-            )
-            |> Array.sortBy fst
-            |> FSharpSpecification.bindShapes "xxx"
-            |> String.concat "\r\n"
+    //    let outp =
+    //        shapes
+    //        |> Seq.toArray
+    //        |> Array.map(fun (n,specs) ->
+    //            //let n = GBK.code c
+    //            let lines = FSharpSpecification.listShape n specs
+    //            n,lines
+    //        )
+    //        |> Array.sortBy fst
+    //        |> FSharpSpecification.bindShapes "xxx"
+    //        |> String.concat "\r\n"
 
-            //File.WriteAllText(tgt, outp, Encoding.UTF8)
-            //output.WriteLine("生成新文件:")
-        output.WriteLine(outp)
+    //        //File.WriteAllText(tgt, outp, Encoding.UTF8)
+    //        //output.WriteLine("生成新文件:")
+    //    output.WriteLine(outp)
