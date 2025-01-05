@@ -4770,19 +4770,10 @@ let chunk = [
     // 口
     49114us, [
         PenUp
-        Displacement(22y,32y)
-        yield! Radical.口 80y 74y
+        Displacement(22y,106y)
+        PenDown
+        yield! Radical.口(80y, 74y)
 
-        //PenUp
-        //Displacement(22y,17y)
-        //PenDown
-        //Displacement(0y,89y)
-        //Displacement(80y,0y)
-        //Displacement(0y,-89y)
-        //PenUp
-        //Displacement(-80y,15y)
-        //PenDown
-        //Displacement(79y,0y)
     ]
     // 扣
     49115us, [
