@@ -36,12 +36,12 @@ let bordersTail () =
     ]
 
 /// 首笔左上
-/// 末笔中横右端
+/// 末笔中横左端
 let 日(x, y) =
     [
         yield! 口(x, y)
-        yield! move 0y -(y/2y)
-        Displacement(x,0y)
+        yield! move x -(y/2y)
+        Displacement(-x,0y)
     ]
 
 ///首笔左上
@@ -66,7 +66,7 @@ let 田(x, y) =
     // first at (0,0)
     [
         yield! 日(x, y)
-        yield! move -(x/2y) (y/2y)
+        yield! move (x/2y) (y/2y)
         Displacement(0y,-y)
     ]
 
@@ -94,7 +94,7 @@ let 皿 x y =
 
 ///首笔左竖高点
 ///末笔中竖下点
-let 山 x y =
+let 山( x, y) =
     let yy = SByte.multiply 1.4 y //中竖高度
     [
         Displacement(0y,-y)
@@ -405,7 +405,8 @@ let 青月(x,y) =
     ]
 
 
-
+///首笔左上
+///末笔下横左端
 let 目 (x, y) =
     [
         Displacement(0y,-y)
@@ -440,6 +441,44 @@ let 巴 x y =
 
         Displacement(chamfer,2y*chamfer)
     ]
+///例如:追去掉走之，去掉撇，剩余的部分
+///入口第二横左端
+///末笔第三横左端
+let 官旁 (x, y) =
+    let y1 = y/3y
+    [
+        Displacement(x,0y)
+        Displacement(0y,y1)
+        Displacement(-x,0y)
+        Displacement(0y,-y)
+        Displacement(x,0y)
+        Displacement(0y,y1)
+        Displacement(-x,0y)    
+    
+    ]
 
+///首笔上横左端
+///末笔日字中横左端
+let 曹头 (x, y) =
+    let x2 = SByte.multiply 0.8 x
+    let x3 = SByte.multiply (0.8/3.0) x
+    let x4 = SByte.multiply (0.8/3.0+0.1) x
+    let y2 = y/2y
+    let y3 = SByte.multiply 0.75 y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x4,-y3)
+        PenDown
+        Displacement(0y,y)
+        PenUp
+        Displacement(-x3,-y)
+        PenDown
+        Displacement(0y,y)
+        PenUp
+        Displacement(-x3,-y2)
+        PenDown
+        yield! 日(x2,y2)
+    ]
 //玉门
 //西共
