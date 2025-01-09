@@ -120,7 +120,6 @@ let 田(x, y) =
 
 let 皿 x y =
     let x1 = x/5y
-
     [
         Displacement(0y,y)
         Displacement(3y*x1,0y)
@@ -143,15 +142,14 @@ let 皿 x y =
 ///首笔左竖高点
 ///末笔中竖下点
 let 山( x, y) =
-    let yy = SByte.multiply 1.4 y //中竖高度
     [
         Displacement(0y,-y)
         Displacement(x,0y)
         Displacement(0y,y)
         PenUp
-        Displacement(-x/2y,yy-y)
+        Displacement(-x/2y,15y)
         PenDown
-        Displacement(0y,-yy)
+        Displacement(0y,-y-15y)
     ]
 ///首笔上横左边
 ///末笔中横左边
@@ -179,7 +177,6 @@ let 干 x1 x2 y1 y =
         yield! move -(x1+dx) -y1
         Displacement(x2,0y)
         yield! move -(x2/2y) y1
-
         Displacement(0y,-y)
     ]
 
@@ -221,13 +218,10 @@ let 回 (x,y) (x1,y1) =
     let dy = (y-y1)/2y
     [
         yield! 口(x, y)
-
         PenUp
         Displacement(dx,-dy)
         PenDown
-
         yield! 口(x1, y1)
-
     ]
 
 /// 首笔是上横左端
@@ -340,10 +334,7 @@ let 青头(x,y) =
 ///末笔左竖下端
 let 非 (x,y) =
     let x1 = x/3y
-    //let x2 = SByte.multiply (3./8.) x
-
     let y1 = y/4y
-
     let 三横 =
         [
         Displacement(x1,0y)
@@ -362,9 +353,7 @@ let 非 (x,y) =
         PenUp
         Displacement(x1,y/2y)
         PenDown
-
         yield! 三横
-
         PenUp
         Displacement(-x1,y-y1)
         PenDown
@@ -390,9 +379,7 @@ let 青月(x,y) =
         Displacement(-x,-y1)
         PenDown
         Displacement(x,0y)
-    
     ]
-
 
 ///首笔左上
 ///末笔下横左端
@@ -500,7 +487,6 @@ let 开 (x,y) =
     let y2 = y/2y
     let x2 = SByte.multiply 0.3 x
     let x3 = SByte.multiply 0.4 x
-
     [
         Displacement(x,0y)
         PenUp
@@ -524,7 +510,6 @@ let 月 (x,y) (x1,y1) =
     let x2 = x-x1
     let ll = y-y1 //竖撇的竖长度
     let c = SByte.multiply 0.42 ll
-
     [
         Displacement(x1,y1)
         Displacement(0y,ll)
@@ -556,7 +541,6 @@ let 用 (x,y) =
 let 朋 (x,y) (x1,y1) =
     let ll = y-y1 //竖撇的竖长度
     let c = SByte.multiply 0.42 ll
-
     [
         yield! 月 (x/2y,y) (x1,y1)
         yield! move 0y (-y+c+c)
@@ -568,20 +552,16 @@ let 玉(x,y) =
     let x2 = SByte.multiply 0.9 x
     let y1 = SByte.multiply (3./7.) y
     let y2 = SByte.multiply (4./7.) y
-
     [
         Displacement(x1,0y)
         PenUp
         Displacement(-x1,-y1)
         PenDown
         Displacement(x1,0y)
-
-        //点不变
         PenUp
         Displacement(-25y,-12y)
         PenDown
         Displacement(20y,-15y)
-
         PenUp
         Displacement(-x2-(-25y+15y),-y2-(-12y-15y))
         PenDown
@@ -661,17 +641,13 @@ let 土(x, y) =
     let x1 = SByte.multiply (2./3.) x //短横长度
     [
         Displacement(x,0y)
-
         PenUp
         Displacement(-x/6y,y/2y)
         PenDown
-
         Displacement(-x1,0y) //短横
-
         PenUp
         Displacement(x/3y,y/2y)
         PenDown
-
         Displacement(0y,-y)
     ]
 
@@ -745,5 +721,137 @@ let 酉(x, y) =
         Displacement(-x,y1)
         PenDown
         yield! 口(x,y2)
+    ]
+
+/// 首笔顶横左端
+/// 末笔底横右端
+let 四横一竖(x, y) =
+    let y1 = y/3y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,-y1)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,-y1)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x/2y,y-y1)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x/2y,0y)
+        PenDown
+        Displacement(x,0y)    
+    ]
+
+/// 首笔上左竖上端
+/// 末笔中竖下端
+let 出(x, y) =
+    let y1 = SByte.multiply (40./95.) y
+    let y2 = SByte.multiply (55./95.) y
+    [
+        yield! 凵(x,y1)
+        PenUp
+        Displacement(-x,-y2)
+        PenDown
+        yield! 凵(x,y1)
+        PenUp
+        Displacement(-x/2y,y2)
+        PenDown
+        Displacement(0y,-y)
+    ]
+
+/// 首笔上横左端
+/// 末笔左下角
+let 而(x, y) =
+    let x1 = x/3y
+    let x2 = x/6y
+    let y1 = SByte.multiply (2./7.) y
+    let y2 = SByte.multiply (5./7.) y
     
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1,-y)
+        PenDown
+        Displacement(0y,y2)
+        PenUp
+        Displacement(-x1,-y2)
+        PenDown
+        Displacement(0y,y2)
+        PenUp
+        Displacement(x2,y1)
+        PenDown
+        Displacement(-x1,-y1)
+        PenUp
+        Displacement(x-x2-14y,-y2+8y)
+        PenDown
+        Displacement(14y,-8y)
+        Displacement(0y,y2)
+        Displacement(-x,0y)
+        Displacement(0y,-y2)
+    ]
+
+/// 首笔左下角
+/// 末笔右竖下端
+let 且(x, y) =
+    let x1 = 15y
+    let x2 = x-2y*x1
+    let y1 = y/3y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x+x1,y1)
+        PenDown
+        Displacement(x2,0y)
+        PenUp
+        Displacement(-x2,y1)
+        PenDown
+        Displacement(x2,0y)
+        PenUp
+        Displacement(-x2,-2y*y1)
+        PenDown
+        Displacement(0y,y)
+        Displacement(x2,0y)
+        Displacement(0y,-y)
+    ]
+
+let 昔头(x,y)=
+    let x1 = x/3y
+    let y1 = SByte.multiply 0.4 y
+    let y2 = SByte.multiply 0.6 y
+
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,y2)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1-x1,y1)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x1,y)
+        PenDown
+        Displacement(0y,-y)
+    ]
+
+/// 首笔左上角
+/// 末笔右下角
+let 工(x,y)=
+    let x1 = x/2y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1,0y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1,0y)
+        PenDown
+        Displacement(x,0y)
     ]
