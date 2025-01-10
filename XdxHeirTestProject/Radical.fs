@@ -118,7 +118,7 @@ let 田(x, y) =
         Displacement(0y,-y)
     ]
 
-let 皿 x y =
+let 皿(x, y) =
     let x1 = x/5y
     [
         Displacement(0y,y)
@@ -382,7 +382,7 @@ let 青月(x,y) =
     ]
 
 ///首笔左上
-///末笔下横左端
+///末笔下隔横左端
 let 目 (x, y) =
     [
         Displacement(0y,-y)
@@ -455,8 +455,6 @@ let 曹头 (x, y) =
         PenDown
         yield! 日(x2,y2)
     ]
-//门
-//西昔
 
 let 丌 (x, y) =
     let x1 = x/3y
@@ -818,7 +816,8 @@ let 且(x, y) =
         Displacement(x2,0y)
         Displacement(0y,-y)
     ]
-
+/// 首笔左下角
+/// 末笔右竖下端
 let 昔头(x,y)=
     let x1 = x/3y
     let y1 = SByte.multiply 0.4 y
@@ -854,4 +853,52 @@ let 工(x,y)=
         Displacement(-x1,0y)
         PenDown
         Displacement(x,0y)
+    ]
+
+let 丁 x1 (x,y) =
+    let x1 = SByte.multiply x1 x
+    [
+    Displacement(x,0y)
+    PenUp
+    Displacement(-x1-20y,-y+14y)
+    PenDown
+    Displacement(20y,-14y)
+    Displacement(0y,y)
+    ]
+
+let 臼 (x,y) =
+    let x1 = x/3y
+    let y1 = y/2y
+    [
+        Displacement(-x1,-6y)
+        Displacement(0y,-y)
+        Displacement(x,0y)
+        Displacement(0y,y)
+        Displacement(-x1,0y)
+        PenUp
+        Displacement(-x+x1,-y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(x-x1-x1,0y)
+        PenDown
+        Displacement(x1,0y)
+    ]
+
+/// 首笔上竖的上点
+/// 末笔口的左上点
+let 占 (x,y) =
+    let x1= x/2y
+    let y1 = y/4y
+    let y2= y/2y
+    [
+        Displacement(0y,-y2)
+        PenUp
+        Displacement(x1,y1)
+        PenDown
+        Displacement(-x1,0y)
+        PenUp
+        Displacement(-x1,-y1)
+        PenDown
+        yield! 口(x,y2)
     ]
