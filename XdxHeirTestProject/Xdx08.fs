@@ -9837,25 +9837,33 @@ let chunk = [
         Displacement(52y,23y)
         PenDown
         Displacement(22y,-18y)
+        //PenUp
+        //Displacement(-19y,5y)
+        //PenDown
+        //Displacement(-33y,-18y)
+        //Displacement(-31y,-8y)
+        //PenUp
+        //Displacement(19y,-33y)
+        //PenDown
+        //Displacement(0y,33y)
+        //Displacement(51y,0y)
+        //Displacement(0y,-33y)
+        //Displacement(-51y,0y)
+        //PenUp
+        //Displacement(1y,15y)
+        //PenDown
+        //Displacement(48y,0y)
+        //PenUp
+        //Displacement(-24y,-18y)
+        //PenDown
         PenUp
-        Displacement(-19y,5y)
+        Displacement(-64y,-21y)
         PenDown
-        Displacement(-33y,-18y)
-        Displacement(-31y,-8y)
+        yield! Radical.日(51y,33y)
         PenUp
-        Displacement(19y,-33y)
+        Displacement(25y,-18y)
         PenDown
-        Displacement(0y,33y)
-        Displacement(51y,0y)
-        Displacement(0y,-33y)
-        Displacement(-51y,0y)
-        PenUp
-        Displacement(1y,15y)
-        PenDown
-        Displacement(48y,0y)
-        PenUp
-        Displacement(-24y,-18y)
-        PenDown
+
         Displacement(0y,-28y)
         Displacement(-1y,-5y)
         Displacement(-8y,-3y)

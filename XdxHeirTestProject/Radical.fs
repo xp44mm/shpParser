@@ -44,6 +44,7 @@ let 凵 (x, y) =
 
 let 反凵 (x, y) = 凵 (x, -y)
 
+/// mì
 let 冖 (x, y) = 反凵 (x, y)
 
 let 十(x, y) =
@@ -153,6 +154,7 @@ let 山( x, y) =
     ]
 ///首笔上横左边
 ///末笔中横左边
+/// ji
 let 彐( x, y) =
     [
         Displacement(x,0y)
@@ -419,7 +421,8 @@ let 巴 x y =
 ///例如:追去掉走之，去掉撇，剩余的部分
 ///入口第二横左端
 ///末笔第三横左端
-let 官旁 (x, y) =
+/// yi 以，繁体字
+let 㠯 (x, y) =
     let y1 = y/3y
     [
         Displacement(x,0y)

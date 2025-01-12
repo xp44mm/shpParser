@@ -119,14 +119,11 @@ let chunk = [
     // 吼
     47856us, [
         PenUp
-        Displacement(9y,29y)
+        Displacement(6y,108y)
         PenDown
-        Displacement(0y,82y)
-        Displacement(24y,0y)
-        Displacement(0y,-66y)
-        Displacement(-24y,0y)
+        yield! Radical.口(22y,61y)
         PenUp
-        Displacement(31y,71y)
+        Displacement(31y,5y)
         PenDown
         Displacement(42y,0y)
         Displacement(-20y,-23y)
