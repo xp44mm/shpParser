@@ -13836,7 +13836,7 @@ let chunk = [
         PenUp
         Displacement(-38y,107y)
         PenDown
-        yield! Radical.竖弯钩(33y,88y)
+        yield! Radical.竖弯勾(33y,88y)
         PenUp
         Displacement(-3y,54y)
         PenDown
@@ -13870,7 +13870,7 @@ let chunk = [
         PenUp
         Displacement(-30y,87y)
         PenDown
-        yield! Radical.竖弯钩(61y,110y)
+        yield! Radical.竖弯勾(61y,110y)
 
     ]
     // 迟

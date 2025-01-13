@@ -9,16 +9,12 @@ open System.Reactive.Linq
 
 open FSharp.Idioms
 
-
-let bordersBytes (writeLine:string->unit) (shapes:(uint16*Specification list)list) =
-    let titleLine = 
-        shapes.Length
-        |> BigFont.replace BigFont.template
-
+let bordersBytes (writeLine:string->unit) (chunks:(uint16*Specification list)list list) =
     let arr = ResizeArray<uint16*_>()
     let shapeStream =
-        shapes
+        chunks
             .ToObservable()
+            .SelectMany(fun ck -> ck.ToObservable())
             .SelectMany(fun (num,specs) -> task {
                 let bytes = 
                     specs
@@ -31,6 +27,10 @@ let bordersBytes (writeLine:string->unit) (shapes:(uint16*Specification list)lis
     let tcs = TaskCompletionSource()
 
     let complete () =
+        let titleLine = 
+            arr.Count
+            |> BigFont.replace BigFont.template
+
         let outp = 
             seq {
                 titleLine
@@ -46,6 +46,7 @@ let bordersBytes (writeLine:string->unit) (shapes:(uint16*Specification list)lis
 
         let filePath = Path.Combine(Dir.outputs,"border.shp")
         File.WriteAllText(filePath, outp, Encoding.ASCII)
+        writeLine("测试时间:"+System.DateTime.Now.ToShortTimeString())
         writeLine("生成新文件:")
         writeLine(filePath)
         tcs.SetResult()

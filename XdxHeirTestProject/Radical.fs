@@ -418,6 +418,7 @@ let 巴 x y =
         Displacement(x-chamfer,0y)
         Displacement(chamfer,2y*chamfer)
     ]
+
 ///例如:追去掉走之，去掉撇，剩余的部分
 ///入口第二横左端
 ///末笔第三横左端
@@ -673,7 +674,7 @@ let 由(x, y) =
         Displacement(0y,-y)
     ]
 
-let 竖弯钩(x, y) =
+let 竖弯勾(x, y) =
     let d = 7y
     let g = 14y
     [

@@ -10,38 +10,39 @@ open System.Reactive.Linq
 
 open FSharp.Idioms
 
-let getAllOfShapes () = [
-    yield! Xdx00.chunk
-    yield! Xdx01.chunk
-    yield! Xdx02.chunk
-    yield! Xdx03.chunk
-    yield! Xdx04.chunk
-    yield! Xdx05.chunk
-    yield! Xdx06.chunk
-    yield! Xdx07.chunk
-    yield! Xdx08.chunk
-    yield! Xdx09.chunk
-    yield! Xdx10.chunk
-    yield! Xdx11.chunk
-    yield! Xdx12.chunk
-    yield! Xdx13.chunk
-    yield! Xdx14.chunk
-    yield! Xdx15.chunk
-    yield! Xdx16.chunk
-    yield! Xdx17.chunk
-    yield! Xdx18.chunk
-    yield! Xdx19.chunk
+let getChunks() = [
+    Xdx00.chunk
+    Xdx01.chunk
+    Xdx02.chunk
+    Xdx03.chunk
+    Xdx04.chunk
+    Xdx05.chunk
+    Xdx06.chunk
+    Xdx07.chunk
+    Xdx08.chunk
+    Xdx09.chunk
+    Xdx10.chunk
+    Xdx11.chunk
+    Xdx12.chunk
+    Xdx13.chunk
+    Xdx14.chunk
+    Xdx15.chunk
+    Xdx16.chunk
+    Xdx17.chunk
+    Xdx18.chunk
+    Xdx19.chunk
     ]
 
-let getBytesFile (writeLine:string->unit) (shapes:(uint16*Specification list)list) =
-    let titleLine = 
-        shapes.Length
-        |> BigFont.replace BigFont.template
+let getAllOfShapes () = 
+    getChunks()
+    |> List.collect id
 
+let getBytesFile (writeLine:string->unit) (chunks:(uint16*Specification list)list list) =
     let arr = ResizeArray<uint16*_>()
     let shapeStream =
-        shapes
+        chunks
             .ToObservable()
+            .SelectMany(fun ck -> ck.ToObservable())
             .SelectMany(fun (num,specs) -> task {
                 let bytes =
                     specs
@@ -56,6 +57,10 @@ let getBytesFile (writeLine:string->unit) (shapes:(uint16*Specification list)lis
     let tcs = TaskCompletionSource()
 
     let complete () =
+        let titleLine = 
+            arr.Count
+            |> BigFont.replace BigFont.template
+
         let outp = 
             seq {
                 titleLine
@@ -73,6 +78,7 @@ let getBytesFile (writeLine:string->unit) (shapes:(uint16*Specification list)lis
 
         let filePath = Path.Combine(Dir.outputs,"gbk.shp")
         File.WriteAllText(filePath, outp, Encoding.ASCII)
+        writeLine("测试时间:"+System.DateTime.Now.ToShortTimeString())
         writeLine("生成新文件:")
         writeLine(filePath)
         tcs.SetResult()

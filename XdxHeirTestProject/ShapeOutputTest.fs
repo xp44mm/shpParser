@@ -29,14 +29,11 @@ type ShapeOutputTest (output:ITestOutputHelper) =
 
     [<Fact>]
     member _.``fsharp to borders SHP`` () =
-        let shapes =
-            XdxShape.getAllOfShapes()
-        output.WriteLine("测试开始时间:"+System.DateTime.Now.ToShortTimeString())
-        SHP.bordersBytes output.WriteLine shapes
+        let chunks = XdxShape.getChunks()
+        SHP.bordersBytes output.WriteLine chunks
+
     [<Fact>]
     member _.``fsharp to normal SHP`` () =
-        let shapes =
-            XdxShape.getAllOfShapes()
-        output.WriteLine("测试开始时间:"+System.DateTime.Now.ToShortTimeString())
-        XdxShape.getBytesFile output.WriteLine shapes
+        let chunks = XdxShape.getChunks()
+        XdxShape.getBytesFile output.WriteLine chunks
 
