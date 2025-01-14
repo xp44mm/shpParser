@@ -13885,7 +13885,7 @@ let chunk = [
         Displacement(3y,8y)
         Displacement(0y,33y)
 
-        yield! Radical.反匚(47y,36y)
+        yield! Radical.匚(-47y,36y)
         PenUp
         Displacement(23y,-15y)
         PenDown

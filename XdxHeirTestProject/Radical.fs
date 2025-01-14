@@ -139,7 +139,6 @@ let 皿(x, y) =
         Displacement(x,0y)
     ]
 
-
 ///首笔左竖高点
 ///末笔中竖下点
 let 山( x, y) =
@@ -152,6 +151,7 @@ let 山( x, y) =
         PenDown
         Displacement(0y,-y-15y)
     ]
+
 ///首笔上横左边
 ///末笔中横左边
 /// ji
@@ -384,7 +384,7 @@ let 青月(x,y) =
     ]
 
 ///首笔左上
-///末笔下隔横左端
+///末笔口内第二横左端
 let 目 (x, y) =
     [
         Displacement(0y,-y)
