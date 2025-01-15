@@ -47,6 +47,20 @@ let 反凵 (x, y) = 凵 (x, -y)
 /// mì
 let 冖 (x, y) = 反凵 (x, y)
 
+///首笔上横左边
+///末笔中横左边
+/// ji
+let 彐( x, y) =
+    [
+        Displacement(x,0y)
+        Displacement(0y,-y)
+        Displacement(-x,0y)
+        PenUp
+        Displacement(x,y/2y)
+        PenDown
+        Displacement(-x,0y)
+    ]
+
 let 十(x, y) =
     let x1 = x/2y
     let y1 = y/2y
@@ -118,7 +132,8 @@ let 田(x, y) =
         yield! move (x/2y) (y/2y)
         Displacement(0y,-y)
     ]
-
+///首笔左框下端
+///末笔底横右端
 let 皿(x, y) =
     let x1 = x/5y
     [
@@ -152,19 +167,6 @@ let 山( x, y) =
         Displacement(0y,-y-15y)
     ]
 
-///首笔上横左边
-///末笔中横左边
-/// ji
-let 彐( x, y) =
-    [
-        Displacement(x,0y)
-        Displacement(0y,-y)
-        Displacement(-x,0y)
-        PenUp
-        Displacement(x,y/2y)
-        PenDown
-        Displacement(-x,0y)
-    ]
 
 //x1 上横长度
 //x2 下横长度
