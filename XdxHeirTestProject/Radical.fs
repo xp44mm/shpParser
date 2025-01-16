@@ -315,6 +315,7 @@ let 王 (x,y) =
 
 ///首笔第一个横线
 ///末笔中竖下端
+// 冃
 let 青头(x,y) =
     let x1 = x/2y
     let y1 = SByte.multiply (3./8.) y
@@ -675,7 +676,7 @@ let 由(x, y) =
         yield! move (x/2y) (y-y1)
         Displacement(0y,-y)
     ]
-
+/// 乚
 let 竖弯勾(x, y) =
     let d = 7y
     let g = 14y
