@@ -14199,20 +14199,10 @@ let chunk = [
     // 畔
     50639us, [
         PenUp
-        Displacement(6y,19y)
+        Displacement(7y,111y)
         PenDown
-        Displacement(0y,92y)
-        Displacement(37y,0y)
-        Displacement(0y,-79y)
-        Displacement(-37y,0y)
-        PenUp
-        Displacement(1y,41y)
-        PenDown
-        Displacement(36y,0y)
-        PenUp
-        Displacement(-18y,38y)
-        PenDown
-        Displacement(0y,-79y)
+        yield! Radical.田(38y,78y)
+
         PenUp
         Displacement(28y,79y)
         PenDown
@@ -14606,12 +14596,10 @@ let chunk = [
     // 咆
     50648us, [
         PenUp
-        Displacement(9y,27y)
+        Displacement(9y,45y)
         PenDown
-        Displacement(0y,79y)
-        Displacement(27y,0y)
-        Displacement(0y,-61y)
-        Displacement(-27y,0y)
+        yield! Radical.口(27y,-61y)
+
         PenUp
         Displacement(62y,79y)
         PenDown
@@ -14775,10 +14763,7 @@ let chunk = [
         PenUp
         Displacement(14y,111y)
         PenDown
-        Displacement(33y,0y)
-        Displacement(0y,-33y)
-        Displacement(-33y,0y)
-        Displacement(0y,33y)
+        yield! Radical.口(33y,33y)
         PenUp
         Displacement(37y,-61y)
         PenDown
