@@ -5317,10 +5317,10 @@ let chunk = [
         Displacement(-34y,76y)
         PenDown
         Displacement(0y,-76y)
-        PenUp
-        Displacement(-4y,104y)
-        PenDown
-        Displacement(17y,-20y)
+        //PenUp
+        //Displacement(-4y,104y)
+        //PenDown
+        //Displacement(17y,-20y)
     ]
     // 苇
     52909us, [
