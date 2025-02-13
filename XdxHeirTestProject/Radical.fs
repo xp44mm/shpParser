@@ -32,7 +32,7 @@ let 冂 (x, y) =
         Displacement(0y,y)
         Displacement(x,0y)
         Displacement(0y,-y)
-        Displacement(-15y,10y) //勾
+        Displacement(-20y,14y) //勾
     ]
 
 let 凵 (x, y) =
@@ -49,7 +49,7 @@ let 冖 (x, y) = 反凵 (x, y)
 
 ///首笔上横左边
 ///末笔中横左边
-/// ji
+/// ji急
 let 彐( x, y) =
     [
         Displacement(x,0y)
@@ -98,9 +98,10 @@ let 日(x, y) =
         Displacement(-x,0y)
     ]
 
+/// 临的右下部分
 /// 首笔左上
 /// 末笔中竖下端
-let 倒日(x, y) =
+let 躺日(x, y) =
     [
         yield! 口(x, y)
         yield! move (x/2y) 0y
@@ -131,27 +132,6 @@ let 田(x, y) =
         yield! 日(x, y)
         yield! move (x/2y) (y/2y)
         Displacement(0y,-y)
-    ]
-///首笔左框下端
-///末笔底横右端
-let 皿(x, y) =
-    let x1 = x/5y
-    [
-        Displacement(0y,y)
-        Displacement(3y*x1,0y)
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x1,y)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x1,y)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-2y*x1,0y)
-        PenDown
-        Displacement(x,0y)
     ]
 
 ///首笔左竖高点
@@ -368,7 +348,8 @@ let 非 (x,y) =
         PenDown
         Displacement(0y,-y)
     ]
-
+///首笔左下角
+///末笔口内第二横右端
 let 青月(x,y) =
     let y1 = SByte.multiply 0.3 y
     [
@@ -667,15 +648,6 @@ let 正(x, y) =
         yield! 止(x,y)
     ]
 
-/// 首笔口左上
-/// 末笔底横中点
-let 由(x, y) =
-    let y1 = y/3y
-    [
-        yield! 日(x, y-y1)
-        yield! move (x/2y) (y-y1)
-        Displacement(0y,-y)
-    ]
 /// 乚
 let 竖弯勾(x, y) =
     let d = 7y
@@ -792,37 +764,14 @@ let 而(x, y) =
         PenDown
         Displacement(-x1,-y1)
         PenUp
-        Displacement(x-x2-14y,-y2+8y)
+        Displacement(x-x2-10y,-y2+7y)
         PenDown
-        Displacement(14y,-8y)
+        Displacement(10y,-7y)
         Displacement(0y,y2)
         Displacement(-x,0y)
         Displacement(0y,-y2)
     ]
 
-/// 首笔左下角
-/// 末笔右竖下端
-let 且(x, y) =
-    let x1 = 15y
-    let x2 = x-2y*x1
-    let y1 = y/3y
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x+x1,y1)
-        PenDown
-        Displacement(x2,0y)
-        PenUp
-        Displacement(-x2,y1)
-        PenDown
-        Displacement(x2,0y)
-        PenUp
-        Displacement(-x2,-2y*y1)
-        PenDown
-        Displacement(0y,y)
-        Displacement(x2,0y)
-        Displacement(0y,-y)
-    ]
 /// 首笔左下角
 /// 末笔右竖下端
 let 昔头(x,y)=
@@ -909,3 +858,140 @@ let 占 (x,y) =
         PenDown
         yield! 口(x,y2)
     ]
+
+
+///首笔左框下端
+///末笔底横右端
+/// x0 底单侧横出头的长度
+/// x 总长度
+let 皿 x0 (x, y) =
+    let xx = x - 2y*x0
+    let x1 = xx/3y
+    [
+        Displacement(0y,y)
+        Displacement(xx,0y)
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1-x0,0y)
+        PenDown
+        Displacement(x,0y)
+    ]
+/// 首笔左下角
+/// 末笔右竖下端
+let 且 x0 (x, y) =
+    //let x1 = 15y
+    let x1 = x-2y*x0 // 短横长度
+    let y1 = y/3y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x+x0,y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,y1-y)
+        PenDown
+
+        Displacement(0y,y)
+        Displacement(x1,0y)
+        Displacement(0y,-y)
+    ]
+
+///具去掉八
+/// 首笔左下角
+/// 末笔右竖下端
+let 目一 x0 (x, y) =
+    let x1 = x-2y*x0 // 短横长度
+    let y1 = y/4y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x+x0,y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,y1-y)
+        PenDown
+        Displacement(0y,y)
+        Displacement(x1,0y)
+        Displacement(0y,-y)
+    ]
+
+/// 首笔左下角
+/// 末笔勾顶
+let 门(x, y) =
+
+    [
+        //PenUp
+        //Displacement(18y,101y-97y)
+        //PenDown
+        Displacement(0y,y-10y)
+        PenUp
+        Displacement(5y,23y)
+        PenDown
+        Displacement(17y,-23y)
+        PenUp
+        Displacement(15y,10y)
+        PenDown
+        Displacement(x-37y,0y)
+        Displacement(0y,-y)
+        Displacement(-20y,14y)//勾
+        ]
+/// 扁无户，册的另一种写法
+/// 首笔左下角
+/// 末笔勾顶
+let 册(x, y) =
+    let x1 = x/3y
+    let y1 = y-10y
+    [
+        Displacement(0y,y)
+        Displacement(x,0y)
+        Displacement(0y,-y)
+        Displacement(-10y,7y) //勾
+        PenUp
+        Displacement(-x1+10y,y-7y)
+        PenDown
+        Displacement(0y,-y1)
+        PenUp
+        Displacement(-x1,y1)
+        PenDown
+        Displacement(0y,-y1)
+        PenUp
+        Displacement(2y*x1-x,y/2y)
+        PenDown
+        Displacement(x,0y)
+    ]
+
+/// 首笔左上角
+/// 末笔顶横中点
+let 甲 y0 (x, y) =
+    [
+        yield! 日(x, y)
+        yield! move (x/2y) (-y0+y/2y)
+        Displacement(0y,y0) // y0中竖长度
+    ]
+
+/// 首笔左下角
+/// 末笔底横中点
+let 由 y0 (x, y) = 甲 -y0 (x,-y)
+

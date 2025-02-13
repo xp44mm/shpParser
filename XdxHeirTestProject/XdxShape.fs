@@ -33,6 +33,12 @@ let getChunks() = [
     Xdx19.chunk
     ]
 
+let getChunksWithPunctuations() =
+    [
+        gains.Punctuation.punctuations
+        yield! getChunks()
+    ]
+
 let getAllOfShapes () = 
     getChunks()
     |> List.collect id

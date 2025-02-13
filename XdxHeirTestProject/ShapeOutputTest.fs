@@ -34,6 +34,6 @@ type ShapeOutputTest (output:ITestOutputHelper) =
 
     [<Fact>]
     member _.``fsharp to normal SHP`` () =
-        let chunks = XdxShape.getChunks()
+        let chunks = XdxShape.getChunksWithPunctuations()
         XdxShape.getBytesFile output.WriteLine chunks
 
