@@ -31,15 +31,8 @@ let chunk = [
         PenUp
         Displacement(4y,103y)
         PenDown
-        Displacement(119y,0y)
-        PenUp
-        Displacement(-82y,20y)
-        PenDown
-        Displacement(0y,-41y)
-        PenUp
-        Displacement(43y,41y)
-        PenDown
-        Displacement(0y,-41y)
+        yield! Radical.艹 (43y,20y) (119y,41y)
+
         PenUp
         Displacement(-70y,0y)
         PenDown
@@ -70,9 +63,8 @@ let chunk = [
         PenUp
         Displacement(11y,42y)
         PenDown
-        Displacement(0y,74y)
-        Displacement(33y,0y)
-        Displacement(0y,-74y)
+        yield! Radical.凵(33y,-74y)
+
         PenUp
         Displacement(-17y,51y)
         PenDown
@@ -272,15 +264,8 @@ let chunk = [
         PenUp
         Displacement(4y,106y)
         PenDown
-        Displacement(117y,0y)
-        PenUp
-        Displacement(-80y,18y)
-        PenDown
-        Displacement(0y,-36y)
-        PenUp
-        Displacement(45y,38y)
-        PenDown
-        Displacement(0y,-38y)
+        yield! Radical.艹 (45y,18y) (117y,38y)
+
         PenUp
         Displacement(-25y,5y)
         PenDown
@@ -388,9 +373,7 @@ let chunk = [
         Displacement(5y,20y)
         Displacement(4y,23y)
         Displacement(0y,43y)
-        Displacement(85y,0y)
-        Displacement(0y,-23y)
-        Displacement(-85y,0y)
+        yield! Radical.匚(-85y,23y)
         PenUp
         Displacement(40y,-8y)
         PenDown
@@ -684,15 +667,8 @@ let chunk = [
         PenUp
         Displacement(5y,108y)
         PenDown
-        Displacement(117y,0y)
-        PenUp
-        Displacement(-76y,18y)
-        PenDown
-        Displacement(0y,-31y)
-        PenUp
-        Displacement(37y,31y)
-        PenDown
-        Displacement(0y,-31y)
+        yield! Radical.艹 (38y,18y) (117y,31y)
+
         PenUp
         Displacement(-71y,-20y)
         PenDown
@@ -813,10 +789,7 @@ let chunk = [
         PenUp
         Displacement(-10y,69y)
         PenDown
-        Displacement(-25y,-33y)
-        PenUp
-        Displacement(-4y,0y)
-        PenDown
+        Displacement(-29y,-33y)
         Displacement(33y,-18y)
     ]
     // 肥
@@ -856,13 +829,11 @@ let chunk = [
     // 匪
     47051us, [
         PenUp
-        Displacement(122y,9y)
+        Displacement(113y,110y+9y)
         PenDown
-        Displacement(-113y,0y)
-        Displacement(0y,110y)
-        Displacement(104y,0y)
+        yield! Radical.匚(104y,110y)
         PenUp
-        Displacement(-61y,-10y)
+        Displacement(-61y,-10y+110y)
         PenDown
         Displacement(0y,-92y)
         PenUp
@@ -1097,11 +1068,11 @@ let chunk = [
         Displacement(19y,111y)
         PenDown
         Displacement(87y,0y)
-        Displacement(0y,-18y)
+        Displacement(0y,-15y)
         Displacement(-83y,0y)
-        Displacement(0y,-13y)
+        Displacement(0y,-15y)
         Displacement(94y,0y)
-        Displacement(-3y,-13y)
+        Displacement(-3y,-14y)
         Displacement(-5y,-5y)
         Displacement(-9y,0y)
         PenUp
@@ -1139,15 +1110,8 @@ let chunk = [
         PenUp
         Displacement(4y,103y)
         PenDown
-        Displacement(112y,0y)
-        PenUp
-        Displacement(-75y,20y)
-        PenDown
-        Displacement(0y,-36y)
-        PenUp
-        Displacement(34y,36y)
-        PenDown
-        Displacement(0y,-33y)
+        yield! Radical.艹 (34y,20y) (112y,36y)
+
         PenUp
         Displacement(-74y,-43y)
         PenDown
@@ -1695,8 +1659,14 @@ let chunk = [
         PenDown
         Displacement(0y,-125y)
         PenUp
-        Displacement(20y,110y)
+        Displacement(8y,97y)
         PenDown
+        Displacement(10y,-27y)
+        PenUp
+        Displacement(2y,39y)
+        PenDown
+
+
         Displacement(69y,0y)
         PenUp
         Displacement(-36y,15y)
@@ -1705,23 +1675,15 @@ let chunk = [
         PenUp
         Displacement(-36y,-13y)
         PenDown
-        Displacement(79y,0y)
-        PenUp
-        Displacement(-64y,13y)
-        PenDown
-        Displacement(0y,-25y)
-        PenUp
-        Displacement(42y,28y)
-        PenDown
-        Displacement(0y,-28y)
+        yield! Radical.艹 (42y,13y) (79y,28y)
+
         PenUp
         Displacement(-48y,-48y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(57y,0y)
-        Displacement(0y,-36y)
+        yield! Radical.凵 (57y,-41y)
+
         PenUp
-        Displacement(-31y,23y)
+        Displacement(-31y,28y)
         PenDown
         Displacement(0y,-18y)
         Displacement(-5y,-13y)
@@ -1949,7 +1911,7 @@ let chunk = [
         PenUp
         Displacement(10y,98y)
         PenDown
-        yield! Radical.山(34y,70y)
+        yield! Radical.山 85y (34y,70y)
         PenUp
         Displacement(28y,66y)
         PenDown
@@ -2496,7 +2458,7 @@ let chunk = [
         PenDown
         Displacement(47y,-25y)
         PenUp
-        Displacement(-98y,-16y)
+        Displacement(-96y,-16y)
         PenDown
         yield! Radical.口(76y,34y)
     ]
@@ -2547,17 +2509,8 @@ let chunk = [
         PenUp
         Displacement(-59y,-56y)
         PenDown
-        Displacement(0y,43y)
-        Displacement(50y,0y)
-        Displacement(0y,-41y)
-        PenUp
-        Displacement(-48y,25y)
-        PenDown
-        Displacement(48y,0y)
-        PenUp
-        Displacement(-48y,-13y)
-        PenDown
-        Displacement(48y,0y)
+        yield! Radical.青月(50y,43y)
+
         PenUp
         Displacement(-32y,-10y)
         PenDown
@@ -2662,10 +2615,7 @@ let chunk = [
         PenDown
         Displacement(-25y,-3y)
         Displacement(0y,-74y)
-        PenUp
-        Displacement(-8y,-5y)
-        PenDown
-        Displacement(19y,10y)
+        Displacement(19y-8y,10y-5y)
         PenUp
         Displacement(-8y,38y)
         PenDown
@@ -2816,14 +2766,13 @@ let chunk = [
         PenUp
         Displacement(20y,115y)
         PenDown
-        Displacement(71y,0y)
+        Displacement(70y,0y)
         PenUp
-        PenUp
-        Displacement(-60y,-18y)
+        Displacement(-57y,-18y)
         PenDown
-        yield! Radical.口(45y,23y)
+        yield! Radical.口(44y,23y)
         PenUp
-        Displacement(-9y,-38y)
+        Displacement(-8y,-38y)
         PenDown
         yield! Radical.田(60y,46y)
     ]
@@ -2846,15 +2795,13 @@ let chunk = [
         PenDown
         Displacement(68y,0y)
         PenUp
-        Displacement(-60y,-18y)
+        Displacement(-56y,-18y)
         PenDown
-        yield! Radical.口(45y,23y)
+        yield! Radical.口(44y,23y)
         PenUp
-        Displacement(-9y,-38y)
+        Displacement(-8y,-38y)
         PenDown
         yield! Radical.田(60y,46y)
-
-
     ]
     // 氟
     47098us, [
@@ -3191,15 +3138,15 @@ let chunk = [
         PenDown
         Displacement(19y,-18y)
         PenUp
-        Displacement(3y,66y)
+        Displacement(0y,62y)
         PenDown
         Displacement(74y,0y)
         PenUp
         Displacement(-60y,-18y)
         PenDown
-        yield! Radical.口(45y,23y)
+        yield! Radical.口(46y,23y)
         PenUp
-        Displacement(-9y,-38y)
+        Displacement(-7y,-38y)
         PenDown
         yield! Radical.田(60y,46y)
     ]
@@ -3295,20 +3242,7 @@ let chunk = [
         PenUp
         Displacement(-41y,-3y)
         PenDown
-        Displacement(0y,79y)
-        Displacement(83y,0y)
-        Displacement(0y,-69y)
-        Displacement(-5y,-5y)
-        Displacement(-9y,-3y)
-        Displacement(-8y,-3y)
-        PenUp
-        Displacement(-59y,56y)
-        PenDown
-        Displacement(80y,0y)
-        PenUp
-        Displacement(-82y,-23y)
-        PenDown
-        Displacement(80y,0y)
+        yield! Radical.青月(83y,79y)
         PenUp
         Displacement(-14y,84y)
         PenDown
@@ -3383,25 +3317,13 @@ let chunk = [
         PenDown
         Displacement(15y,-13y)
         PenUp
-        Displacement(-52y,-107y)
+        Displacement(-52y,-102y)
         PenDown
-        Displacement(0y,79y)
-        Displacement(52y,0y)
-        Displacement(0y,-69y)
-        Displacement(-4y,-5y)
-        Displacement(-14y,0y)
+        yield! Radical.青月(52y,78y)
         PenUp
-        Displacement(-9y,120y)
+        Displacement(-26y,90y)
         PenDown
         Displacement(0y,-117y)
-        PenUp
-        Displacement(-23y,48y)
-        PenDown
-        Displacement(46y,0y)
-        PenUp
-        Displacement(-46y,-23y)
-        PenDown
-        Displacement(48y,0y)
     ]
     // 俯
     47273us, [
@@ -3580,21 +3502,9 @@ let chunk = [
         PenUp
         Displacement(-66y,-97y)
         PenDown
-        Displacement(0y,79y)
-        Displacement(56y,0y)
-        Displacement(0y,-69y)
-        Displacement(-5y,-5y)
-        Displacement(-10y,-3y)
+        yield! Radical.青月(56y,79y)
         PenUp
-        Displacement(-38y,54y)
-        PenDown
-        Displacement(50y,0y)
-        PenUp
-        Displacement(-48y,-23y)
-        PenDown
-        Displacement(50y,0y)
-        PenUp
-        Displacement(-27y,92y)
+        Displacement(-28y,92y)
         PenDown
         Displacement(0y,-117y)
         PenUp
@@ -3767,7 +3677,9 @@ let chunk = [
         Displacement(-36y,54y)
         PenDown
         Displacement(0y,-54y)
+        PenUp
         Displacement(4y,0y)
+        PenDown
         Displacement(0y,-56y)
         PenUp
         Displacement(-19y,43y)
@@ -3799,13 +3711,13 @@ let chunk = [
         PenUp
         Displacement(4y,113y)
         PenDown
-        Displacement(73y,0y)
+        Displacement(72y,0y)
         PenUp
-        Displacement(-56y,-16y)
+        Displacement(-58y,-16y)
         PenDown
-        yield! Radical.口(45y,20y)
+        yield! Radical.口(44y,20y)
         PenUp
-        Displacement(-8y,-37y)
+        Displacement(-6y,-37y)
         PenDown
         yield! Radical.田(56y,40y)
         PenUp
@@ -3829,10 +3741,7 @@ let chunk = [
         PenUp
         Displacement(-8y,-33y)
         PenDown
-        Displacement(-99y,0y)
-        Displacement(0y,20y)
-        Displacement(99y,0y)
-        Displacement(0y,-20y)
+        yield! Radical.口(-99y,-20y)
         PenUp
         Displacement(-32y,33y)
         PenDown
@@ -3860,20 +3769,14 @@ let chunk = [
         PenUp
         Displacement(14y,13y)
         PenDown
-        Displacement(65y,0y)
-        PenUp
-        Displacement(-8y,-33y)
-        PenDown
-        Displacement(-60y,0y)
-        Displacement(0y,23y)
         Displacement(60y,0y)
-        Displacement(0y,-23y)
         PenUp
-        Displacement(-1y,10y)
+        Displacement(-3y-60y,-33y+23y)
         PenDown
-        Displacement(-57y,0y)
+        yield! Radical.日(55y,22y)
+
         PenUp
-        Displacement(8y,-13y)
+        Displacement(10y,-11y)
         PenDown
         Displacement(-22y,-20y)
         PenUp
@@ -3896,11 +3799,9 @@ let chunk = [
         PenUp
         Displacement(9y,34y)
         PenDown
-        Displacement(0y,74y)
-        Displacement(32y,0y)
-        Displacement(0y,-71y)
+        yield! Radical.凵(32y,-74y)
         PenUp
-        Displacement(-17y,51y)
+        Displacement(-17y,54y)
         PenDown
         Displacement(0y,-46y)
         Displacement(-6y,-20y)
@@ -3962,18 +3863,12 @@ let chunk = [
         PenDown
         Displacement(85y,0y)
         PenUp
-        Displacement(-85y,-33y)
+        Displacement(-85y,-15y)
         PenDown
-        Displacement(73y,0y)
+        yield! Radical.日(73y,34y)
+
         PenUp
-        Displacement(-74y,-18y)
-        PenDown
-        Displacement(0y,33y)
-        Displacement(73y,0y)
-        Displacement(0y,-33y)
-        Displacement(-73y,0y)
-        PenUp
-        Displacement(17y,0y)
+        Displacement(17y,-17y)
         PenDown
         Displacement(-10y,-13y)
         Displacement(-11y,-10y)
@@ -4013,19 +3908,10 @@ let chunk = [
         PenUp
         Displacement(-74y,-61y)
         PenDown
-        Displacement(0y,46y)
-        Displacement(62y,0y)
-        Displacement(0y,-46y)
+        yield! Radical.青月(62y,46y)
+
         PenUp
-        Displacement(-61y,28y)
-        PenDown
-        Displacement(61y,0y)
-        PenUp
-        Displacement(-60y,-15y)
-        PenDown
-        Displacement(60y,0y)
-        PenUp
-        Displacement(-32y,64y)
+        Displacement(-31y,64y)
         PenDown
         Displacement(0y,-76y)
         PenUp
@@ -4037,9 +3923,9 @@ let chunk = [
         PenDown
         Displacement(87y,0y)
         PenUp
-        Displacement(-22y,13y)
+        Displacement(-4y-22y,13y)
         PenDown
-        Displacement(-4y,-41y)
+        Displacement(0y,-41y)
         Displacement(-15y,-8y)
         PenUp
         Displacement(-23y,28y)
@@ -4085,6 +3971,7 @@ let chunk = [
         PenUp
         Displacement(-23y,-21y)
         PenDown
+
         yield! Radical.㠯(71y,60y)
         PenUp
         Displacement(-24y,-38y)
@@ -4153,18 +4040,12 @@ let chunk = [
         PenDown
         Displacement(56y,0y)
         PenUp
-        Displacement(-62y,-36y)
+        Displacement(-62y,17y-36y)
         PenDown
-        Displacement(48y,0y)
+        yield! Radical.日(48y,34y)
+
         PenUp
-        Displacement(0y,-18y)
-        PenDown
-        Displacement(-48y,0y)
-        Displacement(0y,33y)
-        Displacement(48y,0y)
-        Displacement(0y,-33y)
-        PenUp
-        Displacement(-34y,0y)
+        Displacement(48y-34y,-17y)
         PenDown
         Displacement(-23y,-28y)
         PenUp
@@ -4197,11 +4078,10 @@ let chunk = [
         PenUp
         Displacement(-38y,-61y)
         PenDown
-        Displacement(0y,59y)
-        Displacement(73y,0y)
-        Displacement(0y,-56y)
+        yield! Radical.凵(72y,-59y)
+
         PenUp
-        Displacement(-36y,38y)
+        Displacement(-36y,41y)
         PenDown
         Displacement(-4y,-20y)
         Displacement(-5y,-18y)
@@ -4223,21 +4103,19 @@ let chunk = [
         PenUp
         Displacement(-57y,-28y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(99y,0y)
-        Displacement(0y,-20y)
+        yield! Radical.冖(99y,20y)
         PenUp
         Displacement(-88y,5y)
         PenDown
         Displacement(76y,0y)
         PenUp
-        Displacement(-70y,-13y)
+        Displacement(-68y,-13y)
         PenDown
-        yield! Radical.口(61y,18y)
+        yield! Radical.口(60y,20y)
         PenUp
-        Displacement(-11y,-33y)
+        Displacement(-12y,-32y)
         PenDown
-        yield! Radical.田(84y,34y)
+        yield! Radical.田(84y,36y)
     ]
     // 讣
     47292us, [
@@ -4347,19 +4225,10 @@ let chunk = [
         PenUp
         Displacement(-65y,-61y)
         PenDown
-        Displacement(0y,46y)
-        Displacement(56y,0y)
-        Displacement(0y,-46y)
+        yield! Radical.青月(56y,46y)
+
         PenUp
-        Displacement(-54y,31y)
-        PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-51y,-15y)
-        PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-27y,64y)
+        Displacement(-28y,64y)
         PenDown
         Displacement(0y,-79y)
         PenUp
@@ -4421,28 +4290,15 @@ let chunk = [
         PenUp
         Displacement(29y,3y)
         PenDown
-        Displacement(83y,0y)
+        yield! Radical.艹(27y,15y) (83y,25y)
+
         PenUp
-        Displacement(-28y,15y)
+        Displacement(-70y+28y,14y-18y)
         PenDown
-        Displacement(0y,-25y)
+        yield! Radical.日(57y,28y)
+
         PenUp
-        Displacement(-27y,25y)
-        PenDown
-        Displacement(0y,-25y)
-        PenUp
-        Displacement(-14y,-18y)
-        PenDown
-        Displacement(55y,0y)
-        PenUp
-        Displacement(-56y,-13y)
-        PenDown
-        Displacement(0y,28y)
-        Displacement(57y,0y)
-        Displacement(0y,-28y)
-        Displacement(-57y,0y)
-        PenUp
-        Displacement(11y,-5y)
+        Displacement(11y,-14y-5y)
         PenDown
         Displacement(-9y,-13y)
         Displacement(-17y,-15y)
@@ -4483,22 +4339,12 @@ let chunk = [
         PenDown
         Displacement(-6y,-15y)
         PenUp
-        Displacement(-22y,-43y)
+        Displacement(-22y,0y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(56y,0y)
-        Displacement(0y,-41y)
-        Displacement(-56y,0y)
+        yield! Radical.目(56y,42y)
+
         PenUp
-        Displacement(1y,28y)
-        PenDown
-        Displacement(55y,0y)
-        PenUp
-        Displacement(-56y,-13y)
-        PenDown
-        Displacement(56y,0y)
-        PenUp
-        Displacement(-74y,-38y)
+        Displacement(56y-74y,-38y)
         PenDown
         Displacement(90y,10y)
         PenUp
@@ -4631,15 +4477,10 @@ let chunk = [
         PenDown
         Displacement(-24y,-20y)
         Displacement(0y,94y)
-        Displacement(25y,0y)
-        Displacement(0y,-51y)
-        Displacement(-22y,0y)
+        yield! Radical.彐(25y,50y)
+
         PenUp
-        Displacement(0y,25y)
-        PenDown
-        Displacement(19y,0y)
-        PenUp
-        Displacement(11y,23y)
+        Displacement(25y+11y,23y)
         PenDown
         Displacement(42y,0y)
         PenUp
@@ -4736,27 +4577,14 @@ let chunk = [
         PenDown
         Displacement(102y,0y)
         PenUp
-        Displacement(-52y,38y)
+        Displacement(-52y,40y)
         PenDown
-        Displacement(0y,-36y)
+        Displacement(0y,-40y)
         PenUp
-        Displacement(-61y,-56y)
+        Displacement(-41y,-56y)
         PenDown
-        Displacement(122y,0y)
-        PenUp
-        Displacement(-102y,3y)
-        PenDown
-        Displacement(0y,33y)
-        Displacement(82y,0y)
-        Displacement(0y,-33y)
-        PenUp
-        Displacement(-55y,31y)
-        PenDown
-        Displacement(0y,-31y)
-        PenUp
-        Displacement(27y,31y)
-        PenDown
-        Displacement(0y,-31y)
+        yield! Radical.皿 122y (82y,33y)
+
     ]
     // 溉
     47304us, [
@@ -4778,15 +4606,10 @@ let chunk = [
         PenDown
         Displacement(-23y,-20y)
         Displacement(0y,94y)
-        Displacement(25y,0y)
-        Displacement(0y,-48y)
-        Displacement(-22y,0y)
+        yield! Radical.彐(25y,48y)
+
         PenUp
-        Displacement(0y,23y)
-        PenDown
-        Displacement(17y,0y)
-        PenUp
-        Displacement(-4y,-36y)
+        Displacement(20y-4y,-36y)
         PenDown
         Displacement(18y,-23y)
         PenUp
@@ -4834,25 +4657,17 @@ let chunk = [
     // 甘
     47306us, [
         PenUp
-        Displacement(0y,88y)
+        Displacement(3y,82y)
         PenDown
         Displacement(122y,0y)
         PenUp
         Displacement(-93y,36y)
         PenDown
-        Displacement(0y,-120y)
+        yield! Radical.凵(64y,104y)
         PenUp
-        Displacement(64y,120y)
+        Displacement(-64y,-66y)
         PenDown
-        Displacement(0y,-120y)
-        PenUp
-        Displacement(-62y,15y)
-        PenDown
-        Displacement(61y,0y)
-        PenUp
-        Displacement(-60y,38y)
-        PenDown
-        Displacement(59y,0y)
+        Displacement(64y,0y)
     ]
     // 杆
     47307us, [
@@ -4913,19 +4728,12 @@ let chunk = [
         PenUp
         Displacement(-60y,33y)
         PenDown
-        Displacement(0y,-115y)
+        yield! Radical.凵(42y,102y)
+
         PenUp
-        Displacement(42y,117y)
+        Displacement(-42y,-66y)
         PenDown
-        Displacement(0y,-120y)
-        PenUp
-        Displacement(-41y,54y)
-        PenDown
-        Displacement(37y,0y)
-        PenUp
-        Displacement(-37y,-38y)
-        PenDown
-        Displacement(37y,0y)
+        Displacement(42y,0y)
     ]
     // 竿
     47309us, [
@@ -5065,10 +4873,8 @@ let chunk = [
         PenUp
         Displacement(-36y,-36y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(29y,0y)
-        Displacement(0y,-20y)
-        Displacement(-29y,0y)
+        yield! Radical.口(30y,-20y)
+
         PenUp
         Displacement(46y,71y)
         PenDown
@@ -5222,16 +5028,10 @@ let chunk = [
         PenUp
         Displacement(-43y,-15y)
         PenDown
-        Displacement(33y,0y)
-        Displacement(0y,-25y)
-        Displacement(-33y,0y)
-        Displacement(0y,25y)
+        yield! Radical.日(33y,25y)
+
         PenUp
-        Displacement(1y,-13y)
-        PenDown
-        Displacement(31y,0y)
-        PenUp
-        Displacement(-46y,-28y)
+        Displacement(31y-46y,-28y)
         PenDown
         Displacement(57y,0y)
         PenUp
@@ -5259,21 +5059,13 @@ let chunk = [
         PenUp
         Displacement(-52y,-5y)
         PenDown
-        Displacement(41y,0y)
+        yield! Radical.工 40y (68y, 15y)
+
         PenUp
-        Displacement(-56y,-15y)
+        Displacement(-34y-23y,-44y)
         PenDown
-        Displacement(68y,0y)
-        PenUp
-        Displacement(-36y,13y)
-        PenDown
-        Displacement(0y,-13y)
-        PenUp
-        Displacement(-23y,-41y)
-        PenDown
-        Displacement(3y,28y)
-        Displacement(42y,0y)
-        Displacement(0y,-31y)
+        yield! Radical.凵(44y,-31y)
+        
         PenUp
         Displacement(-22y,20y)
         PenDown
@@ -5401,25 +5193,17 @@ let chunk = [
         PenUp
         Displacement(-34y,31y)
         PenDown
-        Displacement(0y,-76y)
+        Displacement(0y,-78y)
         PenUp
-        Displacement(-23y,31y)
+        Displacement(-22y,38y)
         PenDown
-        Displacement(0y,-36y)
-        Displacement(45y,0y)
-        Displacement(0y,38y)
+        yield! Radical.凵(44y,38y)
+
         PenUp
         Displacement(15y,48y)
         PenDown
-        Displacement(50y,0y)
-        PenUp
-        Displacement(-59y,-92y)
-        PenDown
-        Displacement(62y,0y)
-        PenUp
-        Displacement(-31y,89y)
-        PenDown
-        Displacement(0y,-87y)
+        yield! Radical.工 50y (62y, 92y)
+
     ]
     // 肛
     47320us, [
@@ -5445,15 +5229,8 @@ let chunk = [
         PenUp
         Displacement(14y,54y)
         PenDown
-        Displacement(62y,0y)
-        PenUp
-        Displacement(-65y,-89y)
-        PenDown
-        Displacement(70y,0y)
-        PenUp
-        Displacement(-37y,89y)
-        PenDown
-        Displacement(0y,-87y)
+        yield! Radical.工 62y (70y, 89y)
+
     ]
     // 纲
     47321us, [
@@ -5492,15 +5269,10 @@ let chunk = [
     // 岗
     47322us, [
         PenUp
-        Displacement(23y,126y)
+        Displacement(23y,120y)
         PenDown
-        Displacement(0y,-25y)
-        Displacement(83y,0y)
-        Displacement(0y,25y)
-        PenUp
-        Displacement(-41y,3y)
-        PenDown
-        Displacement(0y,-25y)
+        yield! Radical.山 28y (84y,25y)
+
         PenUp
         Displacement(-45y,-99y)
         PenDown
@@ -5592,15 +5364,7 @@ let chunk = [
         PenUp
         Displacement(-1y,54y)
         PenDown
-        Displacement(68y,0y)
-        PenUp
-        Displacement(-73y,-94y)
-        PenDown
-        Displacement(76y,0y)
-        PenUp
-        Displacement(-38y,92y)
-        PenDown
-        Displacement(0y,-89y)
+        yield! Radical.工 68y (76y, 94y)
     ]
     // 篙
     47325us, [
@@ -5663,16 +5427,10 @@ let chunk = [
         PenUp
         Displacement(-19y,0y)
         PenDown
-        Displacement(75y,0y)
-        Displacement(0y,-38y)
-        Displacement(-75y,0y)
-        Displacement(0y,38y)
+        yield! Radical.日(75y,38y)
+
         PenUp
-        Displacement(1y,-20y)
-        PenDown
-        Displacement(75y,0y)
-        PenUp
-        Displacement(-98y,-36y)
+        Displacement(75y-98y,-36y)
         PenDown
         Displacement(117y,0y)
         PenUp
@@ -5710,10 +5468,8 @@ let chunk = [
         PenUp
         Displacement(-90y,-18y)
         PenDown
-        Displacement(64y,0y)
-        Displacement(0y,-18y)
-        Displacement(-64y,0y)
-        Displacement(0y,18y)
+        yield! Radical.口(64y,18y)
+
         PenUp
         Displacement(-17y,-84y)
         PenDown
@@ -5724,10 +5480,8 @@ let chunk = [
         PenUp
         Displacement(-51y,41y)
         PenDown
-        Displacement(47y,0y)
-        Displacement(0y,-20y)
-        Displacement(-47y,0y)
-        Displacement(0y,20y)
+        yield! Radical.口(47y,20y)
+
     ]
     // 膏
     47328us, [
@@ -5742,40 +5496,24 @@ let chunk = [
         PenUp
         Displacement(-90y,-23y)
         PenDown
-        Displacement(0y,13y)
-        Displacement(62y,0y)
-        Displacement(0y,-13y)
-        Displacement(-62y,0y)
+        yield! Radical.口(62y,-13y)
+
         PenUp
         Displacement(-22y,-31y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(106y,0y)
-        Displacement(0y,-18y)
+        yield! Radical.冖(106y,20y)
+
         PenUp
-        Displacement(-84y,-8y)
+        Displacement(-84y,-6y)
         PenDown
-        Displacement(0y,13y)
-        Displacement(62y,0y)
-        Displacement(0y,-13y)
-        Displacement(-62y,0y)
+        yield! Radical.口(62y,-13y)
+
+
         PenUp
-        Displacement(-3y,-51y)
+        Displacement(-4y,-51y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(70y,0y)
-        Displacement(0y,-33y)
-        Displacement(-3y,-3y)
-        Displacement(-5y,-3y)
-        Displacement(-6y,0y)
-        PenUp
-        Displacement(-56y,25y)
-        PenDown
-        Displacement(70y,0y)
-        PenUp
-        Displacement(-70y,-13y)
-        PenDown
-        Displacement(70y,0y)
+        yield! Radical.青月(70y,41y)
+
     ]
     // 羔
     47329us, [
@@ -5917,10 +5655,7 @@ let chunk = [
         PenUp
         Displacement(-64y,-15y)
         PenDown
-        Displacement(47y,0y)
-        Displacement(0y,-18y)
-        Displacement(-47y,0y)
-        Displacement(0y,18y)
+        yield! Radical.口(47y,18y)
         PenUp
         Displacement(-9y,-84y)
         PenDown
@@ -5934,10 +5669,8 @@ let chunk = [
         PenUp
         Displacement(-29y,38y)
         PenDown
-        Displacement(33y,0y)
-        Displacement(0y,-20y)
-        Displacement(-33y,0y)
-        Displacement(0y,20y)
+        yield! Radical.口(33y,20y)
+
     ]
     // 镐
     47332us, [
@@ -5974,10 +5707,8 @@ let chunk = [
         PenUp
         Displacement(-59y,-15y)
         PenDown
-        Displacement(45y,0y)
-        Displacement(0y,-18y)
-        Displacement(-45y,0y)
-        Displacement(0y,18y)
+        yield! Radical.口(45y,18y)
+
         PenUp
         Displacement(-9y,-87y)
         PenDown
@@ -5990,10 +5721,8 @@ let chunk = [
         PenUp
         Displacement(-28y,20y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(25y,0y)
-        Displacement(0y,-20y)
-        Displacement(-25y,0y)
+        yield! Radical.口(25y,-20y)
+
     ]
     // 稿
     47333us, [
@@ -6188,12 +5917,10 @@ let chunk = [
         PenDown
         Displacement(32y,-23y)
         PenUp
-        Displacement(-37y,-31y)
+        Displacement(-37y,25y-31y)
         PenDown
-        Displacement(0y,25y)
-        Displacement(25y,0y)
-        Displacement(0y,-25y)
-        Displacement(-25y,0y)
+        yield! Radical.口(25y,25y)
+
     ]
     // 戈
     47338us, [
@@ -6316,7 +6043,6 @@ let chunk = [
         Displacement(-61y,-8y)
         PenDown
         yield! Radical.口(45y,38y)
-
     ]
     // 疙
     47341us, [
@@ -6389,11 +6115,10 @@ let chunk = [
         Displacement(-34y,48y)
         PenDown
         Displacement(0y,-61y)
-
         PenUp
-        Displacement(-23y,0y)
+        Displacement(-25y,0y)
         PenDown
-        yield! Radical.口(46y,22y)
+        yield! Radical.口(50y,30y)
         PenUp
         Displacement(73y,61y)
         PenDown
@@ -6412,26 +6137,23 @@ let chunk = [
         PenDown
         Displacement(108y,0y)
         PenUp
-        Displacement(-78y,18y)
+        Displacement(-77y,18y)
         PenDown
-        Displacement(0y,-33y)
-        Displacement(46y,0y)
-        Displacement(0y,33y)
+        yield! Radical.凵(46y,33y)
+
         PenUp
-        Displacement(-61y,-51y)
+        Displacement(-62y,-51y)
         PenDown
-        Displacement(79y,0y)
-        Displacement(0y,-23y)
-        Displacement(-79y,0y)
-        Displacement(0y,23y)
+        yield! Radical.口(78y,23y)
+
         PenUp
-        Displacement(40y,15y)
+        Displacement(39y,18y)
         PenDown
         Displacement(0y,-84y)
         PenUp
         Displacement(-56y,28y)
         PenDown
-        Displacement(117y,0y)
+        Displacement(112y,0y)
     ]
     // 葛
     47344us, [
@@ -6567,23 +6289,13 @@ let chunk = [
     // 阁
     47347us, [
         PenUp
-        Displacement(27y,119y)
+        Displacement(18y,7y)
         PenDown
-        Displacement(15y,-20y)
+        yield! Radical.门(95y,102y)
         PenUp
-        Displacement(-24y,0y)
+        Displacement(-33y,79y)
         PenDown
-        Displacement(0y,-92y)
-        PenUp
-        Displacement(36y,102y)
-        PenDown
-        Displacement(59y,0y)
-        Displacement(0y,-97y)
-        Displacement(-4y,-8y)
-        Displacement(-17y,-3y)
-        PenUp
-        Displacement(-32y,99y)
-        PenDown
+
         Displacement(-11y,-15y)
         Displacement(-9y,-10y)
         Displacement(-5y,-5y)
@@ -6624,16 +6336,13 @@ let chunk = [
         PenUp
         Displacement(25y,79y)
         PenDown
-        Displacement(73y,0y)
+        Displacement(72y,0y)
         PenUp
-        Displacement(-61y,-36y)
+        Displacement(-59y,-36y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(47y,0y)
-        Displacement(0y,-18y)
-        Displacement(-47y,0y)
+        yield! Radical.口(46y,-18y)
         PenUp
-        Displacement(-6y,-71y)
+        Displacement(-5y,-71y)
         PenDown
         Displacement(0y,56y)
         Displacement(62y,0y)
@@ -6821,15 +6530,10 @@ let chunk = [
         PenDown
         Displacement(-24y,-15y)
         Displacement(0y,107y)
-        Displacement(48y,0y)
-        Displacement(0y,-48y)
-        Displacement(-47y,0y)
+        yield! Radical.彐(48y,48y)
+
         PenUp
-        Displacement(1y,25y)
-        PenDown
-        Displacement(46y,0y)
-        PenUp
-        Displacement(-27y,-25y)
+        Displacement(48y-27y,-25y)
         PenDown
         Displacement(5y,-15y)
         Displacement(5y,-13y)
@@ -6846,10 +6550,8 @@ let chunk = [
         PenUp
         Displacement(20y,113y)
         PenDown
-        Displacement(32y,0y)
-        Displacement(0y,-31y)
-        Displacement(-32y,0y)
-        Displacement(0y,31y)
+        yield! Radical.口(32y,31y)
+
         PenUp
         Displacement(40y,-54y)
         PenDown
@@ -6871,15 +6573,10 @@ let chunk = [
         PenDown
         Displacement(-25y,-15y)
         Displacement(0y,104y)
-        Displacement(45y,0y)
-        Displacement(0y,-48y)
-        Displacement(-42y,0y)
+        yield! Radical.彐(45y,48y)
+
         PenUp
-        Displacement(1y,25y)
-        PenDown
-        Displacement(38y,0y)
-        PenUp
-        Displacement(13y,-33y)
+        Displacement(40y+13y,-33y)
         PenDown
         Displacement(-24y,-18y)
         PenUp
@@ -6975,9 +6672,8 @@ let chunk = [
         PenUp
         Displacement(28y,79y)
         PenDown
-        Displacement(74y,0y)
-        Displacement(0y,-38y)
-        Displacement(-74y,0y)
+        yield! Radical.匚(-74y,38y)
+
         PenUp
         Displacement(-8y,20y)
         PenDown
@@ -7099,18 +6795,12 @@ let chunk = [
         PenDown
         Displacement(80y,0y)
         PenUp
-        Displacement(-70y,-61y)
+        Displacement(-70y,42y-61y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(59y,0y)
-        Displacement(0y,-41y)
-        Displacement(-59y,0y)
+        yield! Radical.日(60y,42y)
+
         PenUp
-        Displacement(3y,20y)
-        PenDown
-        Displacement(54y,0y)
-        PenUp
-        Displacement(-27y,38y)
+        Displacement(30y,38y)
         PenDown
         Displacement(0y,-59y)
         Displacement(-1y,-13y)
@@ -7136,23 +6826,23 @@ let chunk = [
         PenDown
         Displacement(64y,15y)
         PenUp
-        Displacement(-50y,76y)
+        Displacement(-50y,74y)
         PenDown
         Displacement(0y,-84y)
         PenUp
         Displacement(32y,84y)
         PenDown
-        Displacement(0y,-115y)
+        Displacement(0y,-110y)
         PenUp
-        Displacement(-31y,84y)
+        Displacement(-32y,80y)
         PenDown
-        Displacement(28y,0y)
+        Displacement(32y,0y)
         PenUp
         Displacement(-32y,-28y)
         PenDown
-        Displacement(36y,5y)
+        Displacement(32y,0y)
         PenUp
-        Displacement(22y,33y)
+        Displacement(22y,36y)
         PenDown
         Displacement(-5y,-20y)
         Displacement(-8y,-15y)
@@ -7201,18 +6891,12 @@ let chunk = [
         PenDown
         Displacement(73y,0y)
         PenUp
-        Displacement(-65y,-61y)
+        Displacement(-65y,42y-61y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(55y,0y)
-        Displacement(0y,-41y)
-        Displacement(-55y,0y)
+        yield! Radical.日(56y,42y)
+
         PenUp
-        Displacement(3y,20y)
-        PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-28y,41y)
+        Displacement(28y,41y)
         PenDown
         Displacement(0y,-61y)
         Displacement(0y,-15y)
@@ -7224,24 +6908,14 @@ let chunk = [
         Displacement(9y,41y)
         PenDown
         Displacement(25y,-20y)
-        Displacement(19y,-10y)
-        Displacement(18y,-8y)
-        Displacement(10y,-3y)
+        Displacement(40y,-20y)
     ]
     // 工
     47524us, [
         PenUp
         Displacement(17y,108y)
         PenDown
-        Displacement(98y,0y)
-        PenUp
-        Displacement(-108y,-84y)
-        PenDown
-        Displacement(112y,0y)
-        PenUp
-        Displacement(-55y,84y)
-        PenDown
-        Displacement(0y,-84y)
+        yield! Radical.工 98y (112y, 84y)
     ]
     // 攻
     47525us, [
@@ -7250,7 +6924,7 @@ let chunk = [
         PenDown
         Displacement(52y,0y)
         PenUp
-        Displacement(-25y,3y)
+        Displacement(-25y,0y)
         PenDown
         Displacement(0y,-71y)
         PenUp
@@ -7291,7 +6965,7 @@ let chunk = [
         PenDown
         Displacement(45y,0y)
         PenUp
-        Displacement(-22y,-3y)
+        Displacement(-22y,0y)
         PenDown
         Displacement(0y,-61y)
         PenUp
@@ -7328,11 +7002,11 @@ let chunk = [
         PenUp
         Displacement(-74y,48y)
         PenDown
-        Displacement(-5y,-48y)
+        Displacement(0y,-48y)
         PenUp
-        Displacement(45y,46y)
+        Displacement(45y,48y)
         PenDown
-        Displacement(0y,-46y)
+        Displacement(0y,-48y)
         PenUp
         Displacement(-41y,-3y)
         PenDown
@@ -7495,8 +7169,8 @@ let chunk = [
         Displacement(62y,104y)
         PenDown
         Displacement(42y,0y)
-        Displacement(-5y,-31y)
-        Displacement(-29y,0y)
+        Displacement(-0y,-31y)
+        Displacement(-34y,0y)
         Displacement(0y,-28y)
         Displacement(36y,0y)
         Displacement(0y,-36y)
@@ -7552,13 +7226,13 @@ let chunk = [
         PenUp
         Displacement(-61y,-28y)
         PenDown
-        yield! Radical.冖(107y,23y)
+        yield! Radical.冖(106y,23y)
         PenUp
-        Displacement(-85y,3y)
+        Displacement(-83y,3y)
         PenDown
         yield! Radical.口(60y,25y)
         PenUp
-        Displacement(-5y,-46y)
+        Displacement(-7y,-46y)
         PenDown
         yield! Radical.口(74y,29y)
     ]
@@ -7616,19 +7290,11 @@ let chunk = [
     // 汞
     47535us, [
         PenUp
-        Displacement(18y,121y)
+        Displacement(19y,121y)
         PenDown
-        Displacement(87y,0y)
+        yield! Radical.工 88y (116y, 31y)
         PenUp
-        Displacement(-102y,-31y)
-        PenDown
-        Displacement(117y,0y)
-        PenUp
-        Displacement(-60y,28y)
-        PenDown
-        Displacement(4y,-25y)
-        PenUp
-        Displacement(-56y,-31y)
+        Displacement(-116y/2y-56y,-31y)
         PenDown
         Displacement(41y,0y)
         Displacement(-11y,-23y)
@@ -7645,7 +7311,7 @@ let chunk = [
         Displacement(20y,-18y)
         Displacement(24y,-18y)
         PenUp
-        Displacement(-56y,64y)
+        Displacement(-56y,68y)
         PenDown
         Displacement(0y,-66y)
         Displacement(-5y,-5y)
@@ -7697,23 +7363,13 @@ let chunk = [
         PenUp
         Displacement(19y,113y)
         PenDown
-        Displacement(88y,0y)
-        PenUp
-        Displacement(-45y,-3y)
-        PenDown
-        Displacement(0y,-20y)
-        PenUp
-        Displacement(-61y,-5y)
-        PenDown
-        Displacement(122y,0y)
+        yield! Radical.工 88y (122y, 28y)
         PenUp
         Displacement(-96y,-56y)
         PenDown
-        Displacement(0y,41y)
-        Displacement(70y,0y)
-        Displacement(0y,-38y)
+        yield! Radical.凵(70y,-40y)
         PenUp
-        Displacement(-37y,25y)
+        Displacement(-37y,28y)
         PenDown
         Displacement(0y,-18y)
         Displacement(-6y,-13y)
@@ -7938,7 +7594,6 @@ let chunk = [
         PenUp
         Displacement(-29y,63y)
         PenDown
-        
         yield! Radical.口(31y,31y)
     ]
     // 垢
@@ -7971,7 +7626,6 @@ let chunk = [
         Displacement(-57y,-25y)
         PenDown
         yield! Radical.口(47y,40y)
-        
     ]
     // 构
     47545us, [
@@ -8019,11 +7673,10 @@ let chunk = [
         PenUp
         Displacement(10y,34y)
         PenDown
-        Displacement(0y,74y)
-        Displacement(40y,0y)
-        Displacement(0y,-69y)
+        yield! Radical.凵(40y,-74y)
+
         PenUp
-        Displacement(-19y,51y)
+        Displacement(-19y,56y)
         PenDown
         Displacement(0y,-31y)
         Displacement(-3y,-23y)
@@ -8127,10 +7780,7 @@ let chunk = [
         PenUp
         Displacement(-37y,-20y)
         PenDown
-        Displacement(0y,15y)
-        Displacement(73y,0y)
-        Displacement(0y,-15y)
-        Displacement(-73y,0y)
+        yield! Radical.口(72y,-20y)
         PenUp
         Displacement(31y,-5y)
         PenDown
@@ -8199,7 +7849,6 @@ let chunk = [
         Displacement(-23y,0y)
         PenDown
         yield! Radical.口(47y,31y)
-        
     ]
     // 咕
     47550us, [
@@ -8254,11 +7903,10 @@ let chunk = [
         PenDown
         Displacement(40y,23y)
         PenUp
-        Displacement(73y,23y)
+        Displacement(74y,23y)
         PenDown
-        Displacement(-62y,0y)
-        Displacement(0y,-69y)
-        Displacement(64y,0y)
+        yield! Radical.匚(64y,69y)
+
         PenUp
         Displacement(-50y,20y)
         PenDown
@@ -8304,7 +7952,6 @@ let chunk = [
         Displacement(-27y,0y)
         PenDown
         yield! Radical.口(54y,41y)
-
     ]
     // 沽
     47553us, [
@@ -8332,7 +7979,6 @@ let chunk = [
         Displacement(-27y,0y)
         PenDown
         yield! Radical.口(54y,41y)
-
     ]
     // 孤
     47554us, [
@@ -8406,7 +8052,6 @@ let chunk = [
         Displacement(-27y,0y)
         PenDown
         yield! Radical.口(54y,41y)
-
     ]
     // 鼓
     47556us, [
@@ -8500,30 +8145,15 @@ let chunk = [
         PenUp
         Displacement(-90y,-41y)
         PenDown
-        Displacement(0y,31y)
-        Displacement(80y,0y)
-        Displacement(0y,-31y)
-        PenUp
-        Displacement(-54y,28y)
-        PenDown
-        Displacement(0y,-25y)
-        PenUp
-        Displacement(25y,25y)
-        PenDown
-        Displacement(0y,-25y)
-        PenUp
-        Displacement(-73y,-5y)
-        PenDown
-        Displacement(121y,0y)
+        yield! Radical.皿 120y (80y,36y)
     ]
     // 骨
     47559us, [
         PenUp
         Displacement(32y,85y)
         PenDown
-        Displacement(0y,33y)
-        Displacement(64y,0y)
-        Displacement(0y,-33y)
+        yield! Radical.凵(64y,-33y)
+
         PenUp
         Displacement(-62y,18y)
         PenDown
@@ -8532,25 +8162,13 @@ let chunk = [
         PenUp
         Displacement(-54y,-23y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(102y,0y)
-        Displacement(0y,-18y)
+        yield! Radical.凵(102y,-20y)
+
         PenUp
         Displacement(-83y,-61y)
         PenDown
-        Displacement(0y,61y)
-        Displacement(64y,0y)
-        Displacement(0y,-54y)
-        Displacement(-6y,-3y)
-        Displacement(-13y,-3y)
-        PenUp
-        Displacement(-43y,41y)
-        PenDown
-        Displacement(61y,0y)
-        PenUp
-        Displacement(-61y,-20y)
-        PenDown
-        Displacement(61y,0y)
+        yield! Radical.青月(64y,61y)
+
     ]
     // 谷
     47560us, [
@@ -8584,7 +8202,6 @@ let chunk = [
         Displacement(-94y,-3y)
         PenDown
         yield! Radical.口(66y,33y)
-        
     ]
     // 股
     47561us, [
@@ -8646,7 +8263,6 @@ let chunk = [
         Displacement(-34y,33y)
         PenDown
         Displacement(0y,-59y)
-        
         PenUp
         Displacement(-18y,0y)
         PenDown
@@ -8708,11 +8324,9 @@ let chunk = [
         PenUp
         Displacement(-22y,-64y)
         PenDown
-        Displacement(0y,61y)
-        Displacement(45y,0y)
-        Displacement(0y,-59y)
+        yield! Radical.凵(46y,-60y)
         PenUp
-        Displacement(-23y,41y)
+        Displacement(-23y,43y)
         PenDown
         Displacement(0y,-33y)
         Displacement(-4y,-13y)
@@ -8733,7 +8347,6 @@ let chunk = [
         Displacement(-37y,18y)
         PenDown
         Displacement(0y,-41y)
-
         PenUp
         Displacement(-23y,0y)
         PenDown
@@ -8752,9 +8365,8 @@ let chunk = [
         PenUp
         Displacement(-51y,-23y)
         PenDown
-        Displacement(89y,0y)
-        Displacement(0y,20y)
-        Displacement(-90y,0y)
+        yield! Radical.匚(-90y,-20y)
+
         Displacement(0y,-51y)
         Displacement(-3y,-15y)
         Displacement(-6y,-18y)
@@ -8898,9 +8510,8 @@ let chunk = [
         PenUp
         Displacement(-59y,-20y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(99y,0y)
-        Displacement(0y,-18y)
+        yield! Radical.凵(99y,-18y)
+
         PenUp
         Displacement(-88y,5y)
         PenDown
@@ -8910,25 +8521,12 @@ let chunk = [
         PenDown
         Displacement(-9y,-10y)
         PenUp
-        Displacement(-27y,-38y)
+        Displacement(-23y-27y,-38y)
         PenDown
-        Displacement(0y,36y)
-        Displacement(69y,0y)
-        Displacement(0y,-36y)
+        yield! Radical.且 115y (69y,36y)
+
         PenUp
-        Displacement(-68y,23y)
-        PenDown
-        Displacement(66y,0y)
-        PenUp
-        Displacement(-66y,-13y)
-        PenDown
-        Displacement(66y,0y)
-        PenUp
-        Displacement(-90y,-13y)
-        PenDown
-        Displacement(115y,0y)
-        PenUp
-        Displacement(-80y,0y)
+        Displacement(-80y+23y,0y)
         PenDown
         Displacement(-8y,-8y)
         Displacement(-11y,-8y)
@@ -9111,10 +8709,8 @@ let chunk = [
         PenUp
         Displacement(14y,10y)
         PenDown
-        Displacement(0y,33y)
-        Displacement(46y,0y)
-        Displacement(0y,-33y)
-        Displacement(-46y,0y)
+        yield! Radical.口(46y,-33y)
+
         PenUp
         Displacement(-11y,-25y)
         PenDown
@@ -9321,9 +8917,8 @@ let chunk = [
         PenUp
         Displacement(14y,18y)
         PenDown
-        Displacement(0y,64y)
-        Displacement(48y,0y)
-        Displacement(0y,-64y)
+        yield! Radical.凵(48y,-64y)
+
         PenUp
         Displacement(-23y,41y)
         PenDown
@@ -9443,29 +9038,18 @@ let chunk = [
         PenUp
         Displacement(4y,51y)
         PenDown
-        Displacement(78y,0y)
-        PenUp
-        Displacement(-54y,18y)
-        PenDown
-        Displacement(0y,-31y)
-        PenUp
-        Displacement(25y,31y)
-        PenDown
-        Displacement(0y,-33y)
+        yield! Radical.艹(25y,18y) (78y,33y)
+
         PenUp
         Displacement(-41y,-18y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(22y,0y)
-        Displacement(0y,-18y)
-        Displacement(-22y,0y)
+        yield! Radical.口(22y,-18y)
+
         PenUp
         Displacement(37y,0y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(20y,0y)
-        Displacement(0y,-18y)
-        Displacement(-20y,0y)
+        yield! Radical.口(22y,-18y)
+
         PenUp
         Displacement(-23y,-5y)
         PenDown
@@ -9516,10 +9100,8 @@ let chunk = [
         PenUp
         Displacement(13y,8y)
         PenDown
-        Displacement(0y,36y)
-        Displacement(55y,0y)
-        Displacement(0y,-36y)
-        Displacement(-55y,0y)
+        yield! Radical.口(55y,-36y)
+
         PenUp
         Displacement(-13y,18y)
         PenDown
@@ -9531,11 +9113,10 @@ let chunk = [
         PenUp
         Displacement(-31y,-54y)
         PenDown
-        Displacement(0y,36y)
-        Displacement(60y,0y)
-        Displacement(0y,-33y)
+        yield! Radical.凵(60y,-36y)
+
         PenUp
-        Displacement(-29y,23y)
+        Displacement(-29y,26y)
         PenDown
         Displacement(-1y,-15y)
         Displacement(-5y,-10y)
@@ -9566,29 +9147,18 @@ let chunk = [
         PenUp
         Displacement(6y,56y)
         PenDown
-        Displacement(85y,0y)
-        PenUp
-        Displacement(-60y,13y)
-        PenDown
-        Displacement(0y,-23y)
-        PenUp
-        Displacement(31y,25y)
-        PenDown
-        Displacement(0y,-25y)
+        yield! Radical.艹(31y,13y) (85y,25y)
+
         PenUp
         Displacement(-48y,-20y)
         PenDown
-        Displacement(0y,15y)
-        Displacement(25y,0y)
-        Displacement(0y,-15y)
-        Displacement(-25y,0y)
+        yield! Radical.口(25y,-15y)
+
         PenUp
-        Displacement(42y,3y)
+        Displacement(42y,0y)
         PenDown
-        Displacement(0y,15y)
-        Displacement(25y,0y)
-        Displacement(0y,-18y)
-        Displacement(-25y,0y)
+        yield! Radical.口(25y,-15y)
+
         PenUp
         Displacement(-28y,-5y)
         PenDown
@@ -9634,10 +9204,8 @@ let chunk = [
         PenUp
         Displacement(-97y,18y)
         PenDown
-        Displacement(73y,0y)
-        Displacement(0y,-33y)
-        Displacement(-73y,0y)
-        Displacement(0y,33y)
+        yield! Radical.口(73y,33y)
+
         PenUp
         Displacement(34y,-3y)
         PenDown
@@ -9645,11 +9213,10 @@ let chunk = [
         PenUp
         Displacement(-37y,-54y)
         PenDown
-        Displacement(0y,33y)
-        Displacement(74y,0y)
-        Displacement(0y,-36y)
+        yield! Radical.凵(74y,-36y)
+
         PenUp
-        Displacement(-37y,23y)
+        Displacement(-37y,26y)
         PenDown
         Displacement(-5y,-15y)
         Displacement(-8y,-10y)
@@ -9840,11 +9407,10 @@ let chunk = [
         PenUp
         Displacement(6y,20y)
         PenDown
-        Displacement(0y,69y)
-        Displacement(48y,0y)
-        Displacement(0y,-66y)
+        yield! Radical.凵(48y,-69y)
+
         PenUp
-        Displacement(-25y,43y)
+        Displacement(-25y,46y)
         PenDown
         Displacement(0y,-36y)
         Displacement(-5y,-15y)
@@ -9978,23 +9544,11 @@ let chunk = [
     // 闺
     47595us, [
         PenUp
-        Displacement(15y,93y)
+        Displacement(15y,93y-89y)
         PenDown
-        Displacement(0y,-89y)
+        yield! Radical.门(91y,100y)
         PenUp
-        Displacement(5y,115y)
-        PenDown
-        Displacement(15y,-20y)
-        PenUp
-        Displacement(14y,5y)
-        PenDown
-        Displacement(57y,0y)
-        Displacement(0y,-89y)
-        Displacement(-1y,-8y)
-        Displacement(-5y,-3y)
-        Displacement(-11y,-3y)
-        PenUp
-        Displacement(-57y,76y)
+        Displacement(-54y,59y)
         PenDown
         Displacement(57y,0y)
         PenUp
@@ -10252,25 +9806,21 @@ let chunk = [
         PenUp
         Displacement(70y,61y)
         PenDown
-        Displacement(-57y,0y)
-        Displacement(0y,-102y)
-        Displacement(62y,0y)
+        yield! Radical.匚(62y,102y)
+
         PenUp
         Displacement(-61y,69y)
         PenDown
-        Displacement(47y,0y)
-        Displacement(0y,-33y)
-        Displacement(-47y,0y)
+        yield! Radical.匚(-47y,33y)
+
     ]
     // 跪
     47602us, [
         PenUp
         Displacement(11y,111y)
         PenDown
-        Displacement(28y,0y)
-        Displacement(0y,-33y)
-        Displacement(-28y,0y)
-        Displacement(0y,33y)
+        yield! Radical.口(28y,33y)
+
         PenUp
         Displacement(37y,-56y)
         PenDown
@@ -10323,10 +9873,8 @@ let chunk = [
         PenUp
         Displacement(24y,90y)
         PenDown
-        Displacement(0y,23y)
-        Displacement(75y,0y)
-        Displacement(0y,-23y)
-        Displacement(-75y,0y)
+        yield! Radical.口(75y,-23y)
+
         PenUp
         Displacement(37y,36y)
         PenDown
@@ -10338,11 +9886,10 @@ let chunk = [
         PenUp
         Displacement(-99y,-51y)
         PenDown
-        Displacement(0y,36y)
-        Displacement(74y,0y)
-        Displacement(0y,-33y)
+        yield! Radical.凵(74y,-36y)
+
         PenUp
-        Displacement(-36y,20y)
+        Displacement(-36y,23y)
         PenDown
         Displacement(-9y,-20y)
         Displacement(-8y,-10y)
@@ -10415,18 +9962,12 @@ let chunk = [
         PenDown
         Displacement(0y,-87y)
         PenUp
-        Displacement(32y,71y)
+        Displacement(30y,71y+46y)
         PenDown
-        Displacement(0y,46y)
-        Displacement(48y,0y)
-        Displacement(0y,-46y)
-        Displacement(-48y,0y)
+        yield! Radical.日(48y,46y)
+
         PenUp
-        Displacement(3y,23y)
-        PenDown
-        Displacement(46y,0y)
-        PenUp
-        Displacement(-50y,-33y)
+        Displacement(1y,-33y)
         PenDown
         Displacement(0y,-54y)
         Displacement(25y,15y)
@@ -10531,18 +10072,12 @@ let chunk = [
         PenDown
         Displacement(18y,-15y)
         PenUp
-        Displacement(10y,15y)
+        Displacement(10y,15y+38y)
         PenDown
-        Displacement(0y,38y)
-        Displacement(55y,0y)
-        Displacement(0y,-38y)
-        Displacement(-55y,0y)
+        yield! Radical.日(55y,38y)
+
         PenUp
-        Displacement(1y,20y)
-        PenDown
-        Displacement(52y,0y)
-        PenUp
-        Displacement(-55y,-33y)
+        Displacement(-3y,-33y)
         PenDown
         Displacement(0y,-56y)
         Displacement(25y,13y)
@@ -10591,10 +10126,8 @@ let chunk = [
         PenUp
         Displacement(11y,84y)
         PenDown
-        Displacement(48y,0y)
-        Displacement(0y,-28y)
-        Displacement(-48y,0y)
-        Displacement(0y,28y)
+        yield! Radical.口(48y,28y)
+
         PenUp
         Displacement(-5y,-110y)
         PenDown
@@ -10703,24 +10236,14 @@ let chunk = [
         PenDown
         Displacement(115y,0y)
         PenUp
-        Displacement(-94y,-25y)
+        Displacement(-94y,-13y)
         PenDown
-        Displacement(74y,0y)
+        yield! Radical.甲 54y (76y,25y)
+
         PenUp
-        Displacement(-37y,13y)
+        Displacement(-57y,-25y-13y)
         PenDown
-        Displacement(0y,-54y)
-        PenUp
-        Displacement(-38y,28y)
-        PenDown
-        Displacement(0y,25y)
-        Displacement(76y,0y)
-        Displacement(0y,-25y)
-        Displacement(-76y,0y)
-        PenUp
-        Displacement(-19y,-13y)
-        PenDown
-        Displacement(115y,0y)
+        Displacement(114y,0y)
         PenUp
         Displacement(-64y,0y)
         PenDown
@@ -10803,15 +10326,12 @@ let chunk = [
         PenUp
         Displacement(6y,60y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(47y,0y)
-        Displacement(3y,-15y)
+        yield! Radical.凵(50y,-18y)
+
         PenUp
-        Displacement(-42y,15y)
+        Displacement(-42y,18y)
         PenDown
-        Displacement(0y,33y)
-        Displacement(33y,0y)
-        Displacement(0y,-33y)
+        yield! Radical.凵(33y,-33y)
         PenUp
         Displacement(-31y,15y)
         PenDown
@@ -10820,19 +10340,8 @@ let chunk = [
         PenUp
         Displacement(-15y,-76y)
         PenDown
-        Displacement(0y,59y)
-        Displacement(28y,0y)
-        Displacement(0y,-48y)
-        Displacement(-3y,-5y)
-        Displacement(-9y,-3y)
-        PenUp
-        Displacement(-15y,41y)
-        PenDown
-        Displacement(25y,0y)
-        PenUp
-        Displacement(-24y,-15y)
-        PenDown
-        Displacement(25y,0y)
+        yield! Radical.青月(28y,59y)
+
         PenUp
         Displacement(28y,92y)
         PenDown
@@ -11139,23 +10648,16 @@ let chunk = [
         PenUp
         Displacement(63y,32y)
         PenDown
-        Displacement(0y,-117y)
+        yield! Radical.凵(38y,108y)
+
         PenUp
-        Displacement(37y,117y)
+        Displacement(-51y,-36y)
         PenDown
-        Displacement(0y,-117y)
+        Displacement(64y,0y)
         PenUp
-        Displacement(-36y,48y)
+        Displacement(-51y,-36y)
         PenDown
-        Displacement(32y,0y)
-        PenUp
-        Displacement(-33y,-41y)
-        PenDown
-        Displacement(34y,0y)
-        PenUp
-        Displacement(-47y,74y)
-        PenDown
-        Displacement(66y,0y)
+        Displacement(38y,0y)
     ]
     // 憨
     47785us, [
@@ -11244,16 +10746,11 @@ let chunk = [
         PenUp
         Displacement(-52y,28y)
         PenDown
-        Displacement(0y,-112y)
-        PenUp
-        Displacement(3y,15y)
-        PenDown
-        Displacement(34y,0y)
-        Displacement(0y,99y)
+        yield! Radical.凵(37y,99y)
         PenUp
         Displacement(-37y,-61y)
         PenDown
-        Displacement(36y,0y)
+        Displacement(37y,0y)
         PenUp
         Displacement(24y,-56y)
         PenDown
@@ -11278,16 +10775,10 @@ let chunk = [
         PenUp
         Displacement(-18y,-3y)
         PenDown
-        Displacement(40y,0y)
-        Displacement(0y,-36y)
-        Displacement(-40y,0y)
-        Displacement(0y,36y)
+        yield! Radical.日(40y,36y)
+
         PenUp
-        Displacement(1y,-15y)
-        PenDown
-        Displacement(38y,0y)
-        PenUp
-        Displacement(-48y,-38y)
+        Displacement(38y-48y,-38y)
         PenDown
         Displacement(59y,0y)
         PenUp
@@ -11395,11 +10886,10 @@ let chunk = [
         PenUp
         Displacement(-57y,-31y)
         PenDown
-        Displacement(0y,20y)
-        Displacement(99y,0y)
-        Displacement(0y,-18y)
+        yield! Radical.凵(99y,-20y)
+
         PenUp
-        Displacement(-88y,3y)
+        Displacement(-88y,5y)
         PenDown
         Displacement(76y,0y)
         PenUp
@@ -11501,7 +10991,6 @@ let chunk = [
         PenUp
         Displacement(43y,59y)
         PenDown
-
         Displacement(11y,-15y)
         PenUp
         Displacement(-23y,20y)
@@ -11558,22 +11047,16 @@ let chunk = [
         PenDown
         Displacement(0y,-33y)
         PenUp
-        Displacement(-18y,-3y)
+        Displacement(-18y,0y)
         PenDown
-        Displacement(37y,0y)
-        Displacement(0y,-36y)
-        Displacement(-37y,0y)
-        Displacement(0y,36y)
+        yield! Radical.日(37y,36y)
+
         PenUp
-        Displacement(3y,-18y)
-        PenDown
-        Displacement(33y,0y)
-        PenUp
-        Displacement(-43y,-38y)
+        Displacement(33y-43y,-38y)
         PenDown
         Displacement(52y,0y)
         PenUp
-        Displacement(-25y,20y)
+        Displacement(-25y,18y)
         PenDown
         Displacement(0y,-48y)
         PenUp
@@ -11669,10 +11152,8 @@ let chunk = [
         PenUp
         Displacement(-24y,-33y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(22y,0y)
-        Displacement(0y,-18y)
-        Displacement(-22y,0y)
+        yield! Radical.口(22y,-18y)
+
         PenUp
         Displacement(-13y,-23y)
         PenDown
@@ -11714,16 +11195,10 @@ let chunk = [
         PenUp
         Displacement(11y,46y)
         PenDown
-        Displacement(50y,0y)
-        Displacement(0y,-36y)
-        Displacement(-50y,0y)
-        Displacement(0y,36y)
+        yield! Radical.日(50y,36y)
+
         PenUp
-        Displacement(1y,-18y)
-        PenDown
-        Displacement(46y,0y)
-        PenUp
-        Displacement(-56y,-38y)
+        Displacement(50y-56y,-38y)
         PenDown
         Displacement(69y,0y)
         PenUp
@@ -11738,18 +11213,12 @@ let chunk = [
     // 旱
     47797us, [
         PenUp
-        Displacement(24y,103y)
+        Displacement(24y,19y+103y)
         PenDown
-        Displacement(78y,0y)
+        yield! Radical.日(76y,38y)
+
         PenUp
-        Displacement(-78y,-20y)
-        PenDown
-        Displacement(0y,38y)
-        Displacement(76y,0y)
-        Displacement(0y,-38y)
-        Displacement(-76y,0y)
-        PenUp
-        Displacement(-8y,-18y)
+        Displacement(-8y,-19y-18y)
         PenDown
         Displacement(93y,0y)
         PenUp
@@ -11813,10 +11282,8 @@ let chunk = [
         PenUp
         Displacement(-23y,-36y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(22y,0y)
-        Displacement(0y,-18y)
-        Displacement(-22y,0y)
+        yield! Radical.口(22y,-18y)
+
         PenUp
         Displacement(-11y,-18y)
         PenDown
@@ -11856,18 +11323,11 @@ let chunk = [
         PenDown
         Displacement(10y,-25y)
         PenUp
-        Displacement(13y,8y)
+        Displacement(13y,18y+8y)
         PenDown
-        Displacement(0y,36y)
-        Displacement(52y,0y)
-        Displacement(0y,-36y)
-        Displacement(-52y,0y)
+        yield! Radical.日(52y,36y)
         PenUp
-        Displacement(1y,20y)
-        PenDown
-        Displacement(50y,0y)
-        PenUp
-        Displacement(-57y,-38y)
+        Displacement(-8y,-38y)
         PenDown
         Displacement(68y,0y)
         PenUp
@@ -11902,16 +11362,10 @@ let chunk = [
         PenUp
         Displacement(11y,89y)
         PenDown
-        Displacement(48y,0y)
-        Displacement(0y,-38y)
-        Displacement(-48y,0y)
-        Displacement(0y,38y)
+        yield! Radical.日(48y,38y)
+
         PenUp
-        Displacement(1y,-18y)
-        PenDown
-        Displacement(47y,0y)
-        PenUp
-        Displacement(-59y,-38y)
+        Displacement(48y-59y,-38y)
         PenDown
         Displacement(69y,0y)
         PenUp
@@ -12136,16 +11590,13 @@ let chunk = [
         PenUp
         Displacement(-68y,-13y)
         PenDown
-        Displacement(51y,0y)
-        Displacement(0y,-15y)
-        Displacement(-51y,0y)
-        Displacement(0y,15y)
+        yield! Radical.口(51y,15y)
+
         PenUp
         Displacement(-15y,-38y)
         PenDown
-        Displacement(3y,15y)
-        Displacement(76y,0y)
-        Displacement(0y,-15y)
+        yield! Radical.凵(81y,-15y)
+
         PenUp
         Displacement(-69y,0y)
         PenDown
@@ -12198,16 +11649,13 @@ let chunk = [
         PenUp
         Displacement(-68y,-13y)
         PenDown
-        Displacement(51y,0y)
-        Displacement(0y,-15y)
-        Displacement(-51y,0y)
-        Displacement(0y,15y)
+        yield! Radical.口(51y,15y)
+
         PenUp
         Displacement(-15y,-38y)
         PenDown
-        Displacement(3y,15y)
-        Displacement(76y,0y)
-        Displacement(0y,-15y)
+        yield! Radical.凵(81y,-15y)
+
         PenUp
         Displacement(-69y,0y)
         PenDown
@@ -12255,18 +11703,15 @@ let chunk = [
         PenUp
         Displacement(-82y,-28y)
         PenDown
-        Displacement(0y,15y)
-        Displacement(59y,0y)
-        Displacement(0y,-15y)
-        Displacement(-59y,0y)
+        yield! Radical.口(59y,-15y)
+
         PenUp
         Displacement(-22y,-31y)
         PenDown
-        Displacement(0y,18y)
-        Displacement(101y,0y)
-        Displacement(3y,-15y)
+        yield! Radical.凵(104y,-18y)
+
         PenUp
-        Displacement(-93y,5y)
+        Displacement(-93y,8y)
         PenDown
         Displacement(80y,0y)
         PenUp
@@ -12324,11 +11769,10 @@ let chunk = [
         PenUp
         Displacement(-18y,-51y)
         PenDown
-        Displacement(0y,23y)
-        Displacement(101y,0y)
-        Displacement(4y,-20y)
+        yield! Radical.凵(105y,-23y)
+
         PenUp
-        Displacement(-25y,10y)
+        Displacement(-25y,13y)
         PenDown
         Displacement(-33y,-5y)
         Displacement(-33y,-5y)
@@ -12841,21 +12285,8 @@ let chunk = [
         PenUp
         Displacement(-9y,-66y)
         PenDown
-        Displacement(0y,31y)
-        Displacement(80y,0y)
-        Displacement(0y,-31y)
-        PenUp
-        Displacement(-54y,31y)
-        PenDown
-        Displacement(0y,-28y)
-        PenUp
-        Displacement(27y,25y)
-        PenDown
-        Displacement(0y,-28y)
-        PenUp
-        Displacement(-71y,-3y)
-        PenDown
-        Displacement(117y,0y)
+        yield! Radical.皿 117y (80y,31y)
+
     ]
     // 貉
     47825us, [
@@ -12917,25 +12348,14 @@ let chunk = [
     // 阂
     47826us, [
         PenUp
-        Displacement(22y,121y)
+        Displacement(16y,7y)
         PenDown
-        Displacement(18y,-15y)
+        yield! Radical.门(96y,104y)
         PenUp
-        Displacement(-24y,-5y)
+        Displacement(-37y,80y)
         PenDown
-        Displacement(0y,-94y)
-        PenUp
-        Displacement(36y,104y)
-        PenDown
-        Displacement(60y,0y)
-        Displacement(0y,-92y)
-        Displacement(0y,-5y)
-        Displacement(-8y,-5y)
-        Displacement(-8y,-3y)
-        Displacement(-5y,0y)
-        PenUp
-        Displacement(-36y,94y)
-        PenDown
+
+
         Displacement(18y,-13y)
         PenUp
         Displacement(-46y,-5y)
@@ -13108,16 +12528,12 @@ let chunk = [
         PenDown
         Displacement(20y,-18y)
         PenUp
-        Displacement(11y,56y)
+        Displacement(11y,20y+56y)
         PenDown
-        Displacement(48y,0y)
-        Displacement(0y,-20y)
-        Displacement(-48y,0y)
-        Displacement(0y,38y)
-        Displacement(48y,0y)
-        Displacement(0y,-18y)
+        yield! Radical.日(48y,38y)
+
         PenUp
-        Displacement(-37y,-23y)
+        Displacement(48y-37y,-20y)
         PenDown
         Displacement(-22y,-28y)
         PenUp
@@ -13233,9 +12649,8 @@ let chunk = [
         PenUp
         Displacement(-48y,-87y)
         PenDown
-        Displacement(0y,38y)
-        Displacement(71y,0y)
-        Displacement(0y,-38y)
+        yield! Radical.凵(71y,-38y)
+
         PenUp
         Displacement(-38y,25y)
         PenDown
@@ -13366,14 +12781,6 @@ let chunk = [
         Displacement(-29y,-20y)
         Displacement(0y,89y)
         yield! Radical.彐(59y,41y)
-
-        //Displacement(59y,0y)
-        //Displacement(0y,-41y)
-        //Displacement(-56y,0y)
-        //PenUp
-        //Displacement(0y,20y)
-        //PenDown
-        //Displacement(52y,0y)
         PenUp
         Displacement(59y+18y,-28y)
         PenDown
@@ -13409,13 +12816,6 @@ let chunk = [
         Displacement(-27y,-23y)
         Displacement(0y,112y)
         yield! Radical.彐(50y,48y)
-        //Displacement(50y,0y)
-        //Displacement(0y,-48y)
-        //Displacement(-47y,0y)
-        //PenUp
-        //Displacement(47y,23y)
-        //PenDown
-        //Displacement(-47y,0y)
         PenUp
         Displacement(57y,-33y)
         PenDown
@@ -13450,22 +12850,12 @@ let chunk = [
         PenUp
         Displacement(22y,51y-5y)
         PenDown
-        //Displacement(52y,0y)
-        //Displacement(0y,51y)
-        //Displacement(-54y,0y)
         Displacement(0y,-110y)
         Displacement(25y,20y)
         PenUp
         Displacement(9y,10y)
         PenDown
         Displacement(25y,20y)
-        //PenUp
-        //Displacement(-8y,33y)
-        //PenDown
-        //Displacement(-51y,0y)
-        //PenUp
-        //Displacement(19y,-28y)
-        //PenDown
 
         PenUp
         Displacement(-40y,5y)
@@ -13504,15 +12894,6 @@ let chunk = [
         Displacement(-24y,-20y)
         Displacement(0y,110y)
         yield! Radical.彐(50y,48y)
-
-        //Displacement(50y,0y)
-        //Displacement(0y,-48y)
-        //Displacement(-50y,0y)
-        //PenUp
-        //Displacement(0y,23y)
-        //PenDown
-        //Displacement(48y,0y)
-
         PenUp
         Displacement(50y-29y,-25y)
         PenDown
@@ -13867,15 +13248,8 @@ let chunk = [
         PenUp
         Displacement(-3y,84y)
         PenDown
-        Displacement(60y,0y)
-        PenUp
-        Displacement(-31y,-3y)
-        PenDown
-        Displacement(0y,-92y)
-        PenUp
-        Displacement(-32y,0y)
-        PenDown
-        Displacement(70y,0y)
+        yield! Radical.工 60y (70y,95y)
+
     ]
     // 鸿
     47848us, [
@@ -14049,15 +13423,8 @@ let chunk = [
         PenUp
         Displacement(1y,76y)
         PenDown
-        Displacement(60y,0y)
-        PenUp
-        Displacement(-32y,3y)
-        PenDown
-        Displacement(0y,-92y)
-        PenUp
-        Displacement(-38y,-3y)
-        PenDown
-        Displacement(78y,0y)
+        yield! Radical.工 60y (78y,95y)
+
     ]
     // 喉
     47853us, [

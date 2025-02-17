@@ -136,15 +136,15 @@ let 田(x, y) =
 
 ///首笔左竖高点
 ///末笔中竖下点
-let 山( x, y) =
+let 山 y0 (x, y) =
     [
         Displacement(0y,-y)
         Displacement(x,0y)
         Displacement(0y,y)
         PenUp
-        Displacement(-x/2y,15y)
+        Displacement(-x/2y,y0-y)
         PenDown
-        Displacement(0y,-y-15y)
+        Displacement(0y,-y0) //中竖
     ]
 
 
@@ -166,12 +166,14 @@ let 干 x1 x2 y1 y =
 
 /// 首笔横左端
 /// 末笔右竖下端
-let 艹 x y =
-    let x0 = x/3y
+/// (x0, y0)顶部中间的尺寸
+/// (x, y) 总体尺寸
+let 艹 (x0, y0) (x, y) =
+    let x1 = (x-x0)/2y //两端长度
     [
         Displacement(x,0y)
         PenUp
-        Displacement(-2y*x0,y/2y)
+        Displacement(-x0-x1,y0)
         PenDown
         Displacement(0y,-y)
         PenUp
@@ -772,41 +774,18 @@ let 而(x, y) =
         Displacement(0y,-y2)
     ]
 
-/// 首笔左下角
-/// 末笔右竖下端
-let 昔头(x,y)=
-    let x1 = x/3y
-    let y1 = SByte.multiply 0.4 y
-    let y2 = SByte.multiply 0.6 y
-
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,y2)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x1-x1,y1)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(x1,y)
-        PenDown
-        Displacement(0y,-y)
-    ]
-
 /// 首笔左上角
-/// 末笔右下角
-let 工(x,y)=
-    let x1 = x/2y
+/// 末笔右下点
+/// x0 上横长度，x 下横长度
+let 工 x0 (x,y) =
     [
-        Displacement(x,0y)
+        Displacement(x0,0y)
         PenUp
-        Displacement(-x1,0y)
+        Displacement(-x0/2y,0y)
         PenDown
         Displacement(0y,-y)
         PenUp
-        Displacement(-x1,0y)
+        Displacement(-x/2y,0y)
         PenDown
         Displacement(x,0y)
     ]
@@ -860,80 +839,83 @@ let 占 (x,y) =
     ]
 
 
-///首笔左框下端
+///首笔最左竖下端
 ///末笔底横右端
-/// x0 底单侧横出头的长度
-/// x 总长度
+/// x0 长横长度
+/// x 短横长度
 let 皿 x0 (x, y) =
-    let xx = x - 2y*x0
-    let x1 = xx/3y
+    let x1 = x/3y
+    let x2 = (x0-x)/2y // 底单侧横出头的长度
     [
         Displacement(0y,y)
-        Displacement(xx,0y)
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x1,y)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x1,y)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x1-x0,0y)
-        PenDown
         Displacement(x,0y)
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1-x2,0y)
+        PenDown
+        Displacement(x0,0y)
     ]
+
 /// 首笔左下角
 /// 末笔右竖下端
+/// x0 长横长度
+/// x 短横长度
 let 且 x0 (x, y) =
-    //let x1 = 15y
-    let x1 = x-2y*x0 // 短横长度
+    let x1 = (x0-x)/2y // 底伸出长度
     let y1 = y/3y
     [
+        Displacement(x0,0y)
+        PenUp
+        Displacement(-x0+x1,y1)
+        PenDown
         Displacement(x,0y)
         PenUp
-        Displacement(-x+x0,y1)
+        Displacement(-x,y1)
         PenDown
-        Displacement(x1,0y)
+        Displacement(x,0y)
         PenUp
-        Displacement(-x1,y1)
+        Displacement(-x,-2y*y1)
         PenDown
-        Displacement(x1,0y)
-        PenUp
-        Displacement(-x1,y1-y)
-        PenDown
-
         Displacement(0y,y)
-        Displacement(x1,0y)
+        Displacement(x,0y)
         Displacement(0y,-y)
     ]
 
 ///具去掉八
 /// 首笔左下角
 /// 末笔右竖下端
+/// x0 长横长度
+/// x 短横长度
 let 目一 x0 (x, y) =
-    let x1 = x-2y*x0 // 短横长度
+    let x1 = (x0-x)/2y
     let y1 = y/4y
     [
+        Displacement(x0,0y)
+        PenUp
+        Displacement(-x0+x1,y1)
+        PenDown
         Displacement(x,0y)
         PenUp
-        Displacement(-x+x0,y1)
+        Displacement(-x,y1)
         PenDown
-        Displacement(x1,0y)
+        Displacement(x,0y)
         PenUp
-        Displacement(-x1,y1)
+        Displacement(-x,y1)
         PenDown
-        Displacement(x1,0y)
+        Displacement(x,0y)
         PenUp
-        Displacement(-x1,y1)
-        PenDown
-        Displacement(x1,0y)
-        PenUp
-        Displacement(-x1,y1-y)
+        Displacement(-x,-3y*y1)
         PenDown
         Displacement(0y,y)
-        Displacement(x1,0y)
+        Displacement(x,0y)
         Displacement(0y,-y)
     ]
 
@@ -995,3 +977,46 @@ let 甲 y0 (x, y) =
 /// 末笔底横中点
 let 由 y0 (x, y) = 甲 -y0 (x,-y)
 
+/// 首笔左上角
+/// 末笔右下点
+/// x0 上横长度，x 下横长度
+let 亚无八 x0 (x,y) =
+    let x1 = x0/4y
+    let x2 = (x0-x1)/2y
+    [
+        Displacement(x0,0y)
+        PenUp
+        Displacement(-x1-x2,0y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x1,0y)
+        PenDown
+        Displacement(0y,y)
+        PenUp
+        Displacement(-x/2y-x0/8y,-y)
+        PenDown
+        Displacement(x,0y)
+    ]
+
+/// 首笔左下角
+/// 末笔右竖下端
+let 共头(x,y)=
+    let x1 = x/3y
+    let y1 = SByte.multiply 0.4 y
+    let y2 = SByte.multiply 0.6 y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,y2)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1-x1,y1)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x1,y)
+        PenDown
+        Displacement(0y,-y)
+    ]
