@@ -9606,7 +9606,7 @@ let chunk = [
     // 鬼
     47597us, [
         PenUp
-        Displacement(68y,121y)
+        Displacement(62y,121y)
         PenDown
         Displacement(-11y,-15y)
         PenUp
@@ -10195,16 +10195,14 @@ let chunk = [
         yield! Radical.玉(72y,60y)
     ]
     // 果
-    47611us, [
-        
+    47611us, [        
         PenUp
         Displacement(18y,121y)
         PenDown
         yield! Radical.日(86y,44y)
         PenUp
-        Displacement(43y,23y)
+        Displacement(43y,22y)
         PenDown
-
         Displacement(0y,-119y)
         PenUp
         Displacement(-60y,56y)
@@ -11323,7 +11321,7 @@ let chunk = [
         PenDown
         Displacement(10y,-25y)
         PenUp
-        Displacement(13y,18y+8y)
+        Displacement(13y,36y+8y)
         PenDown
         yield! Radical.日(52y,36y)
         PenUp
