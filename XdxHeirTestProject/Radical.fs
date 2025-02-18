@@ -136,6 +136,7 @@ let 田(x, y) =
 
 ///首笔左竖高点
 ///末笔中竖下点
+/// y0 中竖高度
 let 山 y0 (x, y) =
     [
         Displacement(0y,-y)
@@ -144,7 +145,7 @@ let 山 y0 (x, y) =
         PenUp
         Displacement(-x/2y,y0-y)
         PenDown
-        Displacement(0y,-y0) //中竖
+        Displacement(0y,-y0)
     ]
 
 
@@ -1017,6 +1018,33 @@ let 共头(x,y)=
         Displacement(0y,-y)
         PenUp
         Displacement(x1,y)
+        PenDown
+        Displacement(0y,-y)
+    ]
+
+/// 首笔顶横左端
+/// 末笔底横右端
+let 中心对齐等距横 y (xs: _ list) =
+    [
+        Displacement(xs.Head,0y)
+        for (x1,x2) in (
+            xs
+            |> List.pairwise
+        ) do
+            let xx = x1/2y+x2/2y
+            PenUp
+            Displacement(-xx,-y)
+            PenDown
+            Displacement(x2,0y)
+    ]
+
+///首笔左竖上端
+///末笔右竖下端
+let 等长双竖 (x, y) =
+    [
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x,y)
         PenDown
         Displacement(0y,-y)
     ]
