@@ -5059,7 +5059,7 @@ let chunk = [
         PenUp
         Displacement(-52y,-5y)
         PenDown
-        yield! Radical.工 40y (68y, 15y)
+        yield! Radical.工 [40y;68y] 15y
 
         PenUp
         Displacement(-34y-23y,-44y)
@@ -5202,7 +5202,7 @@ let chunk = [
         PenUp
         Displacement(15y,48y)
         PenDown
-        yield! Radical.工 50y (62y, 92y)
+        yield! Radical.工 [50y; 62y] 92y
 
     ]
     // 肛
@@ -5229,7 +5229,7 @@ let chunk = [
         PenUp
         Displacement(14y,54y)
         PenDown
-        yield! Radical.工 62y (70y, 89y)
+        yield! Radical.工 [62y;70y] 89y
 
     ]
     // 纲
@@ -5364,7 +5364,7 @@ let chunk = [
         PenUp
         Displacement(-1y,54y)
         PenDown
-        yield! Radical.工 68y (76y, 94y)
+        yield! Radical.工 [68y; 76y] 94y
     ]
     // 篙
     47325us, [
@@ -6915,7 +6915,7 @@ let chunk = [
         PenUp
         Displacement(17y,108y)
         PenDown
-        yield! Radical.工 98y (112y, 84y)
+        yield! Radical.工 [98y; 112y] 84y
     ]
     // 攻
     47525us, [
@@ -7292,7 +7292,7 @@ let chunk = [
         PenUp
         Displacement(19y,121y)
         PenDown
-        yield! Radical.工 88y (116y, 31y)
+        yield! Radical.工 [88y; 116y] 31y
         PenUp
         Displacement(-116y/2y-56y,-31y)
         PenDown
@@ -7363,7 +7363,7 @@ let chunk = [
         PenUp
         Displacement(19y,113y)
         PenDown
-        yield! Radical.工 88y (122y, 28y)
+        yield! Radical.工 [88y; 122y] 28y
         PenUp
         Displacement(-96y,-56y)
         PenDown
@@ -8523,7 +8523,7 @@ let chunk = [
         PenUp
         Displacement(-23y-27y,-38y)
         PenDown
-        yield! Radical.且 115y (69y,36y)
+        yield! Radical.且 [69y;115y] 36y
 
         PenUp
         Displacement(-80y+23y,0y)
@@ -13246,7 +13246,7 @@ let chunk = [
         PenUp
         Displacement(-3y,84y)
         PenDown
-        yield! Radical.工 60y (70y,95y)
+        yield! Radical.工 [60y; 70y] 95y
 
     ]
     // 鸿
@@ -13421,7 +13421,7 @@ let chunk = [
         PenUp
         Displacement(1y,76y)
         PenDown
-        yield! Radical.工 60y (78y,95y)
+        yield! Radical.工 [60y; 78y] 95y
 
     ]
     // 喉

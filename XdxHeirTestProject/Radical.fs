@@ -772,19 +772,21 @@ let 而(x, y) =
 /// 首笔左上角
 /// 末笔右下点
 /// x0 上横长度，x 下横长度
-let 工 x0 (x,y) =
-    [
-        Displacement(x0,0y)
-        PenUp
-        Displacement(-x0/2y,0y)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(-x/2y,0y)
-        PenDown
-        Displacement(x,0y)
-    ]
-
+let 工 xs y = // x0 (x,y)
+    match xs with
+    | [x0;x] ->
+        [
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0/2y,0y)
+            PenDown
+            Displacement(0y,-y)
+            PenUp
+            Displacement(-x/2y,0y)
+            PenDown
+            Displacement(x,0y)
+        ]
+    | _ -> failwith ""
 let 丁 x1 (x,y) =
     let x1 = SByte.multiply x1 x
     [
@@ -796,21 +798,24 @@ let 丁 x1 (x,y) =
     Displacement(0y,y)
     ]
 
+/// 首笔左竖的中点
+/// 末笔右竖的中点
 let 臼 (x,y) =
-    let x1 = x/3y
+    let x1 = SByte.multiply 0.4 x
     let y1 = y/2y
+    let y2 = SByte.multiply (7./8.) y
     [
-        Displacement(-x1,-6y)
-        Displacement(0y,-y)
+        Displacement(x1,0y)
+        PenUp
+        Displacement(0y,y1+y/8y)
+        PenDown
+        Displacement(-x1,-y/4y)
+        Displacement(0y,-y2)
         Displacement(x,0y)
         Displacement(0y,y)
         Displacement(-x1,0y)
         PenUp
-        Displacement(-x+x1,-y1)
-        PenDown
-        Displacement(x1,0y)
-        PenUp
-        Displacement(x-x1-x1,0y)
+        Displacement(0y,-y1)
         PenDown
         Displacement(x1,0y)
     ]
@@ -861,59 +866,63 @@ let 皿 x0 (x, y) =
 
 /// 首笔左下角
 /// 末笔右竖下端
-/// x0 长横长度
-/// x 短横长度
-let 且 x0 (x, y) =
-    let x1 = (x0-x)/2y // 底伸出长度
-    let y1 = y/3y
-    [
-        Displacement(x0,0y)
-        PenUp
-        Displacement(-x0+x1,y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,-2y*y1)
-        PenDown
-        Displacement(0y,y)
-        Displacement(x,0y)
-        Displacement(0y,-y)
-    ]
-
+/// x0 短横长度
+/// x 长横长度
+let 且 xs y =
+    match xs with
+    | [x0;x] ->
+        let x1 = (x-x0)/2y // 底伸出长度
+        let y1 = y/3y
+        [
+            Displacement(x,0y)
+            PenUp
+            Displacement(-x+x1,y1)
+            PenDown
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0,y1)
+            PenDown
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0,-2y*y1)
+            PenDown
+            Displacement(0y,y)
+            Displacement(x0,0y)
+            Displacement(0y,-y)
+        ]
+    | _ -> failwith ""
 ///具去掉八
 /// 首笔左下角
 /// 末笔右竖下端
-/// x0 长横长度
-/// x 短横长度
-let 目一 x0 (x, y) =
-    let x1 = (x0-x)/2y
-    let y1 = y/4y
-    [
-        Displacement(x0,0y)
-        PenUp
-        Displacement(-x0+x1,y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,-3y*y1)
-        PenDown
-        Displacement(0y,y)
-        Displacement(x,0y)
-        Displacement(0y,-y)
-    ]
-
+/// x0 短横长度
+/// x 长横长度
+let 目一 xs y =
+    match xs with
+    | [x0;x] -> //x0 (x, y)
+        let x1 = (x-x0)/2y
+        let y1 = y/4y
+        [
+            Displacement(x,0y)
+            PenUp
+            Displacement(-x+x1,y1)
+            PenDown
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0,y1)
+            PenDown
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0,y1)
+            PenDown
+            Displacement(x0,0y)
+            PenUp
+            Displacement(-x0,-3y*y1)
+            PenDown
+            Displacement(0y,y)
+            Displacement(x0,0y)
+            Displacement(0y,-y)
+        ]
+    | _ -> failwith ""
 /// 首笔左下角
 /// 末笔勾顶
 let 门(x, y) =
@@ -1106,13 +1115,13 @@ let 十 x ys =
     | _ -> failwith $"ys[y0;y]列表元素数量不对"
 
 ///首笔横左端
-///末笔横中点
+///末笔竖顶点
 let 丄 (x, y) =
     //“上”字少一横得到的字是“丄”，读音和“上”字一样，都读作shàng。
     [
         Displacement(x,0y)
         PenUp
-        Displacement(-x/2y,-y)
+        Displacement(-x/2y,0y)
         PenDown
         Displacement(0y,y)
     ]
@@ -1120,9 +1129,6 @@ let 丄 (x, y) =
 ///首笔竖上端
 ///末笔竖中点
 let 卜 (x, y) =
-    //bǔ‌：古人迷信，用火灼龟甲，通过裂纹来预测吉凶。例如“占卜”
-    //‌bo‌：萝卜的“卜”就是这个读音‌
-    //‌pú‌：古代少数民族名，如“濮”或通“仆”‌
     [
         Displacement(0y,-y)
         PenUp
@@ -1130,3 +1136,27 @@ let 卜 (x, y) =
         PenDown
         Displacement(-x,0y)
     ]
+
+///首笔外框上横右端
+///末笔中间框左下点
+/// (x0,y0) 大框尺寸 (x1,y1) 中间框尺寸
+let 巨 (x0,y0) (x1,y1) =
+    [
+        yield! 匚(x0,y0)
+        PenUp
+        Displacement(-x0,y0/2y+y1/2y)
+        PenDown
+        yield! 匚(-x1,y1)
+    ]
+
+let 古 xs ys =
+    match xs,ys with
+    | [x1;x2],[y1;y2;y3]->
+        [
+            yield! 十 x1 [y1;y2]
+            PenUp
+            Displacement(-x2/2y,0y)
+            PenDown
+            yield! 口(x2,y3)
+        ]
+    | _ -> failwith ""

@@ -5650,7 +5650,7 @@ let chunk = [
         Displacement(43y,0y)
         Displacement(-22y,-31y)
         PenUp
-        Displacement(-17y,-8y)
+        Displacement(-38y,-39y)
         PenDown
         yield! Radical.臼(63y,50y)
     ]

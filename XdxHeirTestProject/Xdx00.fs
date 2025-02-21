@@ -10273,9 +10273,9 @@ let chunk = [
         PenDown
         Displacement(0y,-94y)
         PenUp
-        Displacement(-10y,59y)
+        Displacement(-29y,27y)
         PenDown
-        yield! Radical.臼(58y,53y)
+        yield! Radical.臼(58y,54y)
     ]
     // 叉
     45798us, [
@@ -10631,7 +10631,7 @@ let chunk = [
         PenUp
         Displacement(34y,18y)
         PenDown
-        yield! Radical.工 68y (100y,36y)
+        yield! Radical.工 [68y; 100y] 36y
 
     ]
     // 诧
