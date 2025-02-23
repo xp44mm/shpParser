@@ -1,4 +1,4 @@
-﻿module XdxTestProject.Xdx18
+﻿module XdxHeirTestProject.Xdx18
 open shpParser
 let chunk = [
     // 瘘

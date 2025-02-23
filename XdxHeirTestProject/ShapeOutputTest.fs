@@ -7,7 +7,7 @@ open Xunit.Abstractions
 open System.IO
 open System.Text
 
-open FSharp.Idioms
+open FSharp.Idioms.Literal
 open System.Threading.Tasks
 open System.Reactive.Linq
 
@@ -37,3 +37,23 @@ type ShapeOutputTest (output:ITestOutputHelper) =
         let chunks = XdxShape.getChunksWithPunctuations()
         XdxShape.getBytesFile output.WriteLine chunks
 
+    [<Fact>]
+    member _.``查找短线段`` () =
+        let shapes =
+            XdxShape.getAllOfShapes()
+            |> List.choose(fun(n,specs) ->
+                match 
+                    specs
+                    |> List.filter(fun spec -> 
+                        match spec with
+                        | Displacement(x,y) when abs (int x) + abs (int y) < 4 -> true
+                        | _ -> false
+                    )
+                with
+                | [] -> None
+                | specs -> Some(n,specs)
+            )
+        for (n,specs) in shapes do
+            output.WriteLine($"{n}:")
+            for spec in specs do
+                output.WriteLine(stringify spec)

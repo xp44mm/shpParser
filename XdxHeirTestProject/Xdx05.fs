@@ -2006,7 +2006,7 @@ let chunk = [
         PenUp
         Displacement(-59y,-8y)
         PenDown
-        yield! Radical.山 51y (83y,36y)
+        yield! Radical.山 83y [36y;51y]
     ]
     // 挛
     49870us, [
@@ -5354,9 +5354,6 @@ let chunk = [
         Displacement(-1y,59y)
         PenDown
         Displacement(-22y,0y)
-        PenUp
-        Displacement(-1y,0y)
-        PenDown
         Displacement(0y,23y)
         PenUp
         Displacement(23y,-33y)
@@ -5366,13 +5363,7 @@ let chunk = [
         Displacement(5y,0y)
         PenDown
         Displacement(0y,-18y)
-        PenUp
-        Displacement(1y,0y)
-        PenDown
         Displacement(-3y,-15y)
-        PenUp
-        Displacement(-1y,0y)
-        PenDown
         Displacement(-5y,-13y)
         PenUp
         Displacement(61y,41y)
@@ -5912,9 +5903,6 @@ let chunk = [
         Displacement(10y,8y)
         Displacement(10y,8y)
         Displacement(10y,10y)
-        PenUp
-        Displacement(3y,0y)
-        PenDown
         Displacement(6y,-8y)
         Displacement(8y,-10y)
         Displacement(8y,-5y)
@@ -6660,7 +6648,7 @@ let chunk = [
         PenUp
         Displacement(-94y,-25y)
         PenDown
-        yield! Radical.山 48y (78y,33y)
+        yield! Radical.山 78y [33y;48y]
     ]
     // 幂
     50141us, [
@@ -7506,7 +7494,7 @@ let chunk = [
         PenUp
         Displacement(23y,20y)
         PenDown
-        yield! Radical.皿 120y (80y,83y)
+        yield! Radical.皿 [80y;120y] 83y
     ]
     // 敏
     50164us, [
@@ -10023,9 +10011,6 @@ let chunk = [
         Displacement(0y,106y)
         PenDown
         Displacement(37y,0y)
-        PenUp
-        Displacement(0y,-3y)
-        PenDown
         Displacement(-4y,-28y)
         Displacement(-8y,-20y)
         Displacement(-23y,-33y)
@@ -11972,10 +11957,7 @@ let chunk = [
     // 柠
     50427us, [
         PenUp
-        Displacement(0y,1y)
-        PenDown
-        PenUp
-        Displacement(4y,89y)
+        Displacement(4y,90y)
         PenDown
         Displacement(47y,0y)
         PenUp
@@ -13110,9 +13092,6 @@ let chunk = [
     ]
     // 欧
     50615us, [
-        PenUp
-        Displacement(0y,1y)
-        PenDown
         PenUp
         Displacement(62y,110y)
         PenDown

@@ -8519,8 +8519,7 @@ let chunk = [
         PenUp
         Displacement(65y,31y)
         PenDown
-        Displacement(0y,-23y)
-        Displacement(0y,-3y)
+        Displacement(0y,-26y)
         Displacement(4y,-5y)
         Displacement(6y,0y)
         Displacement(25y,0y)
@@ -14408,7 +14407,6 @@ let chunk = [
         PenDown
         Displacement(-29y,-38y)
         Displacement(59y,0y)
-        Displacement(-1y,0y)
         PenUp
         Displacement(-18y,25y)
         PenDown

@@ -1,4 +1,4 @@
-﻿module XdxTestProject.Xdx15
+﻿module XdxHeirTestProject.Xdx15
 open shpParser
 let chunk = [
     // 姣

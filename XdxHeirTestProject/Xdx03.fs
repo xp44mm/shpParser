@@ -2387,8 +2387,7 @@ let chunk = [
         Displacement(3y,-25y)
         Displacement(4y,-23y)
         Displacement(6y,-8y)
-        Displacement(6y,0y)
-        Displacement(3y,0y)
+        Displacement(9y,0y)
         Displacement(1y,10y)
         PenUp
         Displacement(-65y,92y)
@@ -2398,7 +2397,6 @@ let chunk = [
         Displacement(-17y,-1y)
         PenDown
         yield! Radical.日(51y,32y)
-
         PenUp
         Displacement(-5y,-30y)
         PenDown
@@ -2851,7 +2849,7 @@ let chunk = [
         PenUp
         Displacement(19y,112y)
         PenDown
-        yield! Radical.山 28y (38y,20y)
+        yield! Radical.山 (38y) [20y;28y]
 
         PenUp
         Displacement(-22y,-15y)
@@ -3322,7 +3320,7 @@ let chunk = [
         PenUp
         Displacement(5y,61y)
         PenDown
-        yield! Radical.山 31y (60y,25y)
+        yield! Radical.山 60y [25y;31y]
 
         PenUp
         Displacement(-8y,-8y)
@@ -4282,7 +4280,7 @@ let chunk = [
         PenUp
         Displacement(-100y,-14y)
         PenDown
-        yield! Radical.山 110y (82y,38y)
+        yield! Radical.山 82y [38y;110y]
     ]
     // 圾
     48120us, [
@@ -4418,7 +4416,7 @@ let chunk = [
         PenUp
         Displacement(-60y,-8y)
         PenDown
-        yield! Radical.丁 (19./71.) (71y,70y)
+        yield! Radical.丁 [71y;19y] 70y
         PenUp
         Displacement(-42y,-19y)
         PenDown
@@ -6011,7 +6009,7 @@ let chunk = [
         PenUp
         Displacement(-96y,-10y)
         PenDown
-        yield! Radical.丁(23./115.)(115y,50y)
+        yield! Radical.丁 [115y;23y] 50y
         PenUp
         Displacement(-72y,-12y)
         PenDown
@@ -7004,9 +7002,6 @@ let chunk = [
         Displacement(62y,46y)
         PenDown
         Displacement(-25y,-28y)
-        PenUp
-        Displacement(0y,-3y)
-        PenDown
         Displacement(-40y,-38y)
         PenUp
         Displacement(50y,48y)
@@ -7076,7 +7071,7 @@ let chunk = [
         PenUp
         Displacement(18y-102y,-54y)
         PenDown
-        yield! Radical.皿 120y (84y,36y)
+        yield! Radical.皿 [84y;120y] 36y
     ]
     // 坚
     48353us, [
@@ -7248,8 +7243,7 @@ let chunk = [
         PenUp
         Displacement(23y,38y)
         PenDown
-        Displacement(0y,-41y)
-        Displacement(0y,-3y)
+        Displacement(0y,-44y)
         Displacement(-1y,-5y)
         Displacement(-4y,-3y)
         Displacement(-6y,0y)
@@ -7996,7 +7990,7 @@ let chunk = [
         PenUp
         Displacement(-61y,-46y)
         PenDown
-        yield! Radical.皿 89y (59y,38y)
+        yield! Radical.皿 [59y;89y] 38y
 
     ]
     // 鉴
@@ -8305,8 +8299,7 @@ let chunk = [
         PenUp
         Displacement(23y,43y)
         PenDown
-        Displacement(0y,-56y)
-        Displacement(0y,-3y)
+        Displacement(0y,-59y)
         Displacement(-6y,-5y)
         Displacement(-6y,0y)
         Displacement(-5y,0y)
@@ -8879,7 +8872,7 @@ let chunk = [
         PenUp
         Displacement(22y-18y,82y-28y)
         PenDown
-        yield! Radical.工 [74y; 84y] 90y
+        yield! Radical.多横中竖工 [74y; 84y] 90y
 
 
     ]
@@ -11177,9 +11170,7 @@ let chunk = [
         PenDown
         Displacement(10y,-10y)
         Displacement(13y,-5y)
-        Displacement(1y,0y)
-        Displacement(25y,0y)
-        Displacement(18y,0y)
+        Displacement(44y,0y)
     ]
     // 竭
     48607us, [
@@ -12579,7 +12570,7 @@ let chunk = [
         PenUp
         Displacement(-96y,-8y)
         PenDown
-        yield! Radical.工 [80y; 117y] 31y
+        yield! Radical.多横中竖工 [80y; 117y] 31y
 
     ]
     // 睛
@@ -12862,7 +12853,7 @@ let chunk = [
         PenUp
         Displacement(-61y,-10y)
         PenDown
-        yield! Radical.工 [55y; 74y] 41y
+        yield! Radical.多横中竖工 [55y; 74y] 41y
 
     ]
     // 井
@@ -13269,7 +13260,7 @@ let chunk = [
         PenUp
         Displacement(-80y,-15y)
         PenDown
-        yield! Radical.工 [72y; 86y] 40y
+        yield! Radical.多横中竖工 [72y; 86y] 40y
 
     ]
     // 痉
@@ -13308,7 +13299,7 @@ let chunk = [
         PenUp
         Displacement(-60y,-8y)
         PenDown
-        yield! Radical.工 [56y; 74y] 28y
+        yield! Radical.多横中竖工 [56y; 74y] 28y
 
     ]
     // 靖

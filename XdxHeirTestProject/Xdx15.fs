@@ -1044,7 +1044,6 @@ let chunk = [
         Displacement(-9y,-15y)
         Displacement(-15y,-10y)
         Displacement(-17y,-5y)
-        Displacement(1y,0y)
         Displacement(-36y,-5y)
     ]
     // 媾
@@ -3919,8 +3918,7 @@ let chunk = [
         Displacement(0y,-104y)
         Displacement(-1y,-5y)
         Displacement(-5y,-5y)
-        Displacement(-11y,-3y)
-        Displacement(-3y,0y)
+        Displacement(-14y,-3y)
         PenUp
         Displacement(-19y,61y)
         PenDown
@@ -8403,7 +8401,6 @@ let chunk = [
         Displacement(4y,10y)
         PenDown
         Displacement(31y,0y)
-        Displacement(0y,3y)
         PenUp
         Displacement(-5y,-36y)
         PenDown
@@ -10153,8 +10150,7 @@ let chunk = [
         PenUp
         Displacement(3y,-18y)
         PenDown
-        Displacement(31y,0y)
-        Displacement(3y,0y)
+        Displacement(34y,0y)
         PenUp
         Displacement(-45y,-36y)
         PenDown
@@ -10190,8 +10186,7 @@ let chunk = [
         Displacement(-48y,-23y)
         PenDown
         Displacement(50y,0y)
-        Displacement(0y,-20y)
-        Displacement(0y,-3y)
+        Displacement(0y,-23y)
         Displacement(-6y,-3y)
         Displacement(-10y,-5y)
         PenUp
@@ -11363,9 +11358,6 @@ let chunk = [
     // 枵
     59605us, [
         PenUp
-        Displacement(0y,1y)
-        PenDown
-        PenUp
         Displacement(27y,120y)
         PenDown
         Displacement(0y,-117y)
@@ -11406,10 +11398,7 @@ let chunk = [
     // 柚
     59606us, [
         PenUp
-        Displacement(0y,1y)
-        PenDown
-        PenUp
-        Displacement(4y,89y)
+        Displacement(4y,90y)
         PenDown
         Displacement(47y,0y)
         PenUp
@@ -16510,8 +16499,7 @@ let chunk = [
         PenUp
         Displacement(25y,36y)
         PenDown
-        Displacement(0y,-25y)
-        Displacement(0y,-3y)
+        Displacement(0y,-28y)
         Displacement(5y,-3y)
         Displacement(10y,0y)
         PenUp

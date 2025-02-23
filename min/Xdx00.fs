@@ -1,4 +1,4 @@
-﻿module XdxTestProject.Xdx00
+﻿module XdxHeirTestProject.Xdx00
 open shpParser
 let chunk = [
     // 啊

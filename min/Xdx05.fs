@@ -1,4 +1,4 @@
-﻿module XdxTestProject.Xdx05
+﻿module XdxHeirTestProject.Xdx05
 open shpParser
 let chunk = [
     // 陇

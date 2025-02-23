@@ -1,4 +1,4 @@
-﻿module XdxTestProject.Xdx06
+﻿module XdxHeirTestProject.Xdx06
 open shpParser
 let chunk = [
     // 泡

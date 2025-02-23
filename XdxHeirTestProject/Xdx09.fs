@@ -634,8 +634,7 @@ let chunk = [
         PenUp
         Displacement(-34y,-36y)
         PenDown
-        Displacement(0y,-28y)
-        Displacement(0y,-3y)
+        Displacement(0y,-31y)
         Displacement(4y,-5y)
         Displacement(18y,-3y)
         Displacement(13y,0y)
@@ -2504,9 +2503,6 @@ let chunk = [
     // 雪
     53673us, [
         PenUp
-        Displacement(0y,1y)
-        PenDown
-        PenUp
         Displacement(17y,120y)
         PenDown
         Displacement(94y,0y)
@@ -2551,7 +2547,7 @@ let chunk = [
         PenUp
         Displacement(-19y,-82y)
         PenDown
-        yield! Radical.皿 124y (82y,82y)
+        yield! Radical.皿 [82y;124y] 82y
     ]
     // 勋
     53675us, [
@@ -3323,7 +3319,7 @@ let chunk = [
         PenUp
         Displacement(19y,116y)
         PenDown
-        yield! Radical.山 35y (89y,20y)
+        yield! Radical.山 89y [20y;35y]
         PenUp
         Displacement(54y,-18y)
         PenDown
@@ -3986,7 +3982,7 @@ let chunk = [
         PenUp
         Displacement(20y,121y)
         PenDown
-        yield! Radical.山 43y (86y,28y)
+        yield! Radical.山 86y [28y;43y]
         PenUp
         Displacement(-59y,-20y)
         PenDown
@@ -8338,7 +8334,7 @@ let chunk = [
         PenUp
         Displacement(6y,91y)
         PenDown
-        yield! Radical.山 84y (37y,69y)
+        yield! Radical.山 37y [69y;84y]
         PenUp
         Displacement(52y,102y)
         PenDown
@@ -8416,8 +8412,7 @@ let chunk = [
         Displacement(5y,8y)
         Displacement(0y,25y)
         Displacement(33y,0y)
-        Displacement(0y,-31y)
-        Displacement(0y,-3y)
+        Displacement(0y,-34y)
         Displacement(3y,-3y)
         Displacement(24y,0y)
         PenUp
@@ -13090,7 +13085,7 @@ let chunk = [
         PenUp
         Displacement(14y,101y)
         PenDown
-        yield! Radical.山 86y (37y,71y)
+        yield! Radical.山 37y [71y;86y]
         PenUp
         Displacement(42y,69y)
         PenDown
@@ -13518,7 +13513,7 @@ let chunk = [
         PenUp
         Displacement(10y,96y)
         PenDown
-        yield! Radical.山 94y (33y,69y)
+        yield! Radical.山 33y [69y;94y]
 
         PenUp
         Displacement(28y,66y)
