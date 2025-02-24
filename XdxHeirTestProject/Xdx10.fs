@@ -8781,19 +8781,6 @@ let chunk = [
         PenDown
         yield! Radical.止 [121y;36y;42y] [110y;76y;64y]
 
-        //Displacement(0y,-76y)
-        //PenUp
-        //Displacement(36y,110y)
-        //PenDown
-        //Displacement(0y,-110y)
-        //PenUp
-        //Displacement(3y,61y)
-        //PenDown
-        //Displacement(42y,0y)
-        //PenUp
-        //Displacement(-107y,-64y)
-        //PenDown
-        //Displacement(121y,0y)
     ]
     // 趾
     54970us, [

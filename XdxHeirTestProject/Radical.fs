@@ -1,4 +1,5 @@
 ﻿module XdxHeirTestProject.Radical
+
 open shpParser
 open System
 
@@ -490,7 +491,6 @@ let 上(x, y) =
         Displacement(0y,-y)
     ]
 
-
 /// 首笔右下
 /// 末笔中下
 let 臣(x, y) =
@@ -516,7 +516,6 @@ let 臣(x, y) =
         PenDown
         Displacement(0y,-y/3y)
     ]
-
 
 /// 乚
 let 竖弯勾(x, y) =
@@ -567,7 +566,6 @@ let 酉(x, y) =
         PenDown
         yield! 口(x,y2)
     ]
-
 
 /// 首笔上横左端
 /// 末笔左下角
@@ -780,28 +778,6 @@ let 亚无八 xs y =
             Displacement(x,0y)
         ]
     | _ -> failwith ""
-
-/// 首笔左下角
-/// 末笔右竖下端
-let 共头(x,y)=
-    let x1 = x/3y
-    let y1 = SByte.multiply 0.4 y
-    let y2 = SByte.multiply 0.6 y
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,y2)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x1-x1,y1)
-        PenDown
-        Displacement(0y,-y)
-        PenUp
-        Displacement(x1,y)
-        PenDown
-        Displacement(0y,-y)
-    ]
 
 ///首笔左竖上端
 ///末笔右竖下端
@@ -1179,3 +1155,20 @@ let 正 xs ys =
 
 
 
+/// 首笔上横左端
+/// 末笔右竖下端
+/// [x0 两竖间距.4; x1 上横长度.8; x2 下横长度]
+/// [y0 两横间距.5; y1 竖长度]
+let 共头 xs ys =
+    match xs,ys with
+    | [x0;x1;x2],[y0;y1] ->
+        [
+            yield! 艹 (x0,y1-y0) (x1,y1)
+            PenUp
+            Displacement(-x0/2y-x2/2y,0y)
+            PenDown
+            Displacement(x2,0y)
+        ]
+    | _ -> failwith ""
+
+// 冓　gòu

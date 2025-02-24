@@ -35,6 +35,7 @@
     <Compile Include="SHP.fs" />
     <Compile Include="XdxTest.fs" />
     <Compile Include="ShapeOutputTest.fs" />
+    <Compile Include="GetInfoTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
