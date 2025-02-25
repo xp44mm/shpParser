@@ -1028,7 +1028,7 @@ let 土(x, y) =
 
 ///首笔第一个横线
 ///末笔中竖下端
-// 冃
+// 龶
 let 青头(x,y) =
     let x1 = x/2y
     let y1 = SByte.multiply (3./8.) y
@@ -1172,3 +1172,122 @@ let 共头 xs ys =
     | _ -> failwith ""
 
 // 冓　gòu
+
+
+/// 首笔日左上点
+/// 末笔底横右点
+/// [x1 日; x2 土上横; x 底横]
+/// [y1 日; y 里总高]
+let 里 xs ys =
+    match xs,ys with
+    | [x1;x2;x],[y1;y] ->
+        let y2 = (y-y1)/2y // 间距等分
+        [
+            yield! 日(x1,y1)
+            PenUp
+            Displacement(x1/2y,y1/2y)
+            PenDown
+            Displacement(0y,-y)
+            PenUp
+            Displacement(-x2/2y,y2)
+            PenDown
+            yield! 中心对齐等距横 [x2;x] y2
+        ]
+    | _ -> failwith ""
+
+/// 首笔左上点
+/// 末笔口右下点
+/// (x, y) 总体尺寸
+/// (x0, y0) 口的尺寸
+let 西 (x, y) (x0, y0) =
+    let x1 = x0/3y // 两竖间距
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1/2y-x/2y,-y)
+        PenDown
+        Displacement(0y,y)
+        PenUp
+        Displacement(x1,-y)
+        PenDown
+        Displacement(0y,y)
+        PenUp
+        Displacement(x1,-y)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
+
+/// 首笔左上点
+/// 末笔下长横右端
+/// [x1 日; x2 土上横; x 底横]
+/// [y1 左竖; y2右竖]
+let 耳 xs ys =
+    match xs,ys with
+    | [x1;x2;x3],[y1;y2] ->
+        [
+            yield! 中心对齐等距横 [x1;x2;x2] (y1/3y)            
+            PenUp
+            Displacement(-x2, y1/3y+y1/3y)
+            PenDown
+            Displacement(0y,-y1)
+            PenUp
+            Displacement(x2,y1)
+            PenDown
+            Displacement(0y,-y2)
+            PenUp
+            Displacement(-x2/2y-x3/2y,y2-y1)
+            PenDown
+            Displacement(x3,0y)
+        ]
+    | _ -> failwith ""
+
+
+
+/// 首笔左上点
+/// 末笔下长横右端
+/// 录字上半部分碌
+let 彐2 xs y =
+    match xs with
+    | [x1;x2] ->
+    let x11 = SByte.multiply 0.9 x1
+    let x21 = x2/3y+x1/3y*2y
+    [
+        Displacement(x1,0y)
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x11,y/2y)
+        PenDown
+        Displacement(x11,0y)
+        PenUp
+        Displacement(-x21,-y/2y)
+        PenDown
+        Displacement(x2,0y)
+    ]
+    | _ -> failwith ""
+
+/// 首笔上横左点
+/// 末笔凵右上端
+/// [       x1 上横; x2 中横; x3 凵]
+/// [y 总长; y1 上段; y2 中段; y3 凵;]
+let 击 xs ys =
+    match xs,ys with
+    | [x1;x2;x3],[y;y1;y2;y3] ->
+        [
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1/2y-x2/2y,-y2)
+        PenDown
+        Displacement(x2,0y)
+        PenUp
+        Displacement(-x2/2y,y1+y2)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x3/2y,y3)
+        PenDown
+        yield! 凵(x3,y3)
+        ]
+    | _ -> failwith ""
+
+//肀
+//丷罒匸覀罒
