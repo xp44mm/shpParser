@@ -3066,13 +3066,13 @@ let chunk = [
         PenDown
         Displacement(0y,-33y)
         PenUp
-        Displacement(-34y,-13y)
+        Displacement(-34y,-10y)
         PenDown
         yield! Radical.口(70y,18y)
         PenUp
         Displacement(-16y,-36y)
         PenDown
-        yield! Radical.非(103y,59y)
+        yield! Radical.非 [34y;34y;34y;35y;] [15y;14y;59y]
     ]
     // 坷
     49088us, [
