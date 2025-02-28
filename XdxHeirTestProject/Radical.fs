@@ -529,37 +529,6 @@ let 弓(x, y) =
     Displacement(-20y,14y)
     ]
 
-/// 首笔上横左端
-/// 末笔左下角
-let 而(x, y) =
-    let x1 = x/3y
-    let x2 = x/6y
-    let y1 = SByte.multiply (2./7.) y
-    let y2 = SByte.multiply (5./7.) y
-    
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x1,-y)
-        PenDown
-        Displacement(0y,y2)
-        PenUp
-        Displacement(-x1,-y2)
-        PenDown
-        Displacement(0y,y2)
-        PenUp
-        Displacement(x2,y1)
-        PenDown
-        Displacement(-x1,-y1)
-        PenUp
-        Displacement(x-x2-10y,-y2+7y)
-        PenDown
-        Displacement(10y,-7y)
-        Displacement(0y,y2)
-        Displacement(-x,0y)
-        Displacement(0y,-y2)
-    ]
-
 /// 首笔左竖的中点
 /// 末笔右竖的中点
 let 臼 (x,y) =
@@ -772,18 +741,18 @@ let 巾 x ys =
 
 ///首笔口左上端
 ///末笔中竖下端
-/// [y0口; y1上头长度; y2竖总长度]
+/// [y0口; y1上头长度; y竖总长度]
 let 中 x ys =
     match ys with
-    | [y0;y1;y2] ->
+    | [y0;y1;y] ->
         [
             yield! 口(x,y0)
             PenUp
             Displacement(x/2y,y1)
             PenDown
-            Displacement(0y,-y2)
+            Displacement(0y,-y)
         ]
-    | _ -> failwith $"ys[y0;y1;y2]列表元素数量不对"
+    | _ -> failwith $"ys[y0;y1;y]列表元素数量不对"
 
 ///首笔日左上端
 ///末笔中竖下端
@@ -1041,7 +1010,6 @@ let 青头(x,y) =
         Displacement(0y,-y)
     ]
 
-
 ///首笔上沿左端
 ///末笔右竖下点
 let 多横中竖干 (xs: _ list) ys =
@@ -1116,24 +1084,6 @@ let 正 xs ys =
         yield! 止 tail ys
     ]
     | _ -> failwith ""
-
-/// 首笔上横左端
-/// 末笔右竖下端
-/// [x0 两竖间距.4; x1 上横长度.8; x2 下横长度]
-/// [y0 两横间距.5; y1 竖长度]
-let 共头 xs ys =
-    match xs,ys with
-    | [x0;x1;x2],[y0;y1] ->
-        [
-            yield! 艹 (x0,y1-y0) (x1,y1)
-            PenUp
-            Displacement(-x0/2y-x2/2y,0y)
-            PenDown
-            Displacement(x2,0y)
-        ]
-    | _ -> failwith ""
-
-// 冓　gòu
 
 
 /// 首笔日左上点
@@ -1367,7 +1317,6 @@ let 甘 xs ys =
 ///末笔右竖下端
 /// [x0 两竖间距;x1 上横;x2 中横;x3 底横]
 /// [y0 横间距;y1 横上部分;y 总长]
-
 let 非 xs ys =
     match xs, ys with
     | [x0;x1;x2;x3],[y0;y1;y] ->
@@ -1404,34 +1353,123 @@ let 非 xs ys =
         ]
     | _ -> failwith "参数错误"
 
-//    let x1 = x/3y
-//    let y1 = y/4y
-//    let 三横 =
-//        [
-//        Displacement(x1,0y)
-//        PenUp
-//        Displacement(-x1,-y1)
-//        PenDown
-//        Displacement(x1,0y)
-//        PenUp
-//        Displacement(-x1,-y1)
-//        PenDown
-//        Displacement(x1,0y)
-//        ]
+/// 首笔顶横左端
+/// 末笔口右下
+/// (x0,y0) 口尺寸
+/// (x,y) 总尺寸
+let 面 (x0,y0) (x, y) =
+    let x1 = x0/3y
+    let y1 = y0/3y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x/2y,0y)
+        PenDown
+        Displacement(-x1/2y,-y+y0)
+        Displacement(0y,-y0)
+        PenUp
+        Displacement(x1,y0)
+        PenDown
+        Displacement(0y,-y0)
+        PenUp
+        Displacement(-x1,y1+y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(-x1,-y1)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(x1,-y1)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
 
-//    [
-//        yield! 三横
-//        PenUp
-//        Displacement(x1,y/2y)
-//        PenDown
-//        yield! 三横
-//        PenUp
-//        Displacement(-x1,y-y1)
-//        PenDown
-//        Displacement(0y,-y)
-//        PenUp
-//        Displacement(-x1,y)
-//        PenDown
-//        Displacement(0y,-y)
-//    ]
+/// 首笔顶横左端
+/// 末笔口右下
+/// (x,y) 横撇
+/// (x0,y0) 口尺寸
+let 百 (x0, y0) (x1,y1) =
+    [
+        Displacement(x0,0y)
+        PenUp
+        Displacement(-x0/2y,0y)
+        PenDown
+        Displacement(-y0/2y,-y0)
+        PenUp
+        Displacement(-x1/2y+y0/2y,-y1/2y)
+        PenDown
+        Displacement(x1,0y)
+        PenUp
+        Displacement(0y,-y1+y1/2y)
+        PenDown
+        yield! 口(-x1,-y1)
+    ]
+
+/// 首笔上横左端
+/// 末笔左下角
+
+/// 首笔顶横左端
+/// 末笔冂左下端
+/// (x0,y0) 横撇
+/// (x1,y1) 冂
+
+let 而 (x0, y0) (x1, y1) =
+    let y2 = SByte.multiply 0.88 y1
+    
+    [
+        Displacement(x0,0y)
+        PenUp
+        Displacement(-x0/2y,0y)
+        PenDown
+        Displacement(-x1/6y,-y0)
+
+        Displacement(0y,-y2)
+        PenUp
+        Displacement(x1/3y,y2)
+        PenDown
+        Displacement(0y,-y2)
+
+        PenUp
+        Displacement(x1/3y-10y,y2-y1+7y)
+        PenDown
+        Displacement(10y,-7y)
+        Displacement(0y,y1)
+        Displacement(-x1,0y)
+        Displacement(0y,-y1)
+    ]
+
+// 冓　gòu
+/// 首笔上横左端
+/// 末笔右竖下端
+/// [x0 两竖间距.4; x1 上横长度.8; x 下横长度]
+/// [y0 两横间距.5; y 竖长度]
+let 共头 xs ys =
+    match xs,ys with
+    | [x0;x1;x],[y0;y] ->
+        [
+            yield! 艹 (x0,y-y0) (x1,y)
+            PenUp
+            Displacement(-x0/2y-x/2y,0y)
+            PenDown
+            Displacement(x,0y)
+        ]
+    | _ -> failwith ""
+
+// 冓　gòu
+/// 首笔上横左端
+/// 末笔右竖下端
+/// [x0 两竖间距.4; x1 上横中横长度.8; x2 下横长度]
+/// [y0 两横间距.5; y1 竖长度]
+let 冓头 xs ys =
+    match xs,ys with
+    | [x0;x1;x],[y0;y] ->
+        [
+            Displacement(x1,0y)
+            PenUp
+            Displacement(-x1,-y0)
+            PenDown
+            yield! 共头 [x0;x1;x] [y0;y]
+        ]
+    | _ -> failwith ""
 

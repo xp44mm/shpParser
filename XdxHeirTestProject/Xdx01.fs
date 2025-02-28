@@ -1723,7 +1723,7 @@ let chunk = [
         PenUp
         Displacement(-32y,-15y)
         PenDown
-        yield! Radical.而(63y,63y)
+        yield! Radical.而(63y,17y) (60y,46y)
     ]
     // 川
     46248us, [
@@ -1944,7 +1944,7 @@ let chunk = [
         PenUp
         Displacement(-30y,-21y)
         PenDown
-        yield! Radical.而(63y,66y)
+        yield! Radical.而(63y,19y)(60y,47y)
     ]
     // 串
     46254us, [
@@ -10641,7 +10641,7 @@ let chunk = [
         PenUp
         Displacement(-33y,-20y)
         PenDown
-        yield! Radical.而(70y,68y)
+        yield! Radical.而(70y,18y)(66y,47y)
     ]
     // 短
     46796us, [
