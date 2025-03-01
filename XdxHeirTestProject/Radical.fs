@@ -19,8 +19,9 @@ let 竖撇 (x, y) =
     //(0,rest)(2,5)(3,3)
     let x1 = SByte.multiply 0.6 x
     let x2 = x - x1
-    let y1 = x1
-    let y2 = x
+    let sn =  sbyte (sign y)
+    let y1 = sn * abs x1
+    let y2 = sn * abs x
     let y0 = y - y1 - y2
     [
         Displacement(0y,-y0)
@@ -529,8 +530,8 @@ let 弓(x, y) =
     Displacement(-20y,14y)
     ]
 
-/// 首笔左竖的中点
-/// 末笔右竖的中点
+/// 首笔左短横的左点
+/// 末笔右短横的右点
 let 臼 (x,y) =
     let x1 = SByte.multiply 0.4 x
     let y1 = y/2y
@@ -956,9 +957,31 @@ let 土(x, y) =
         Displacement(0y,-y)
     ]
 
+///首笔第一个横线
+///末笔中竖下端
+// 龶
+let 青头(x,y) =
+    let x1 = x/2y
+    let y1 = SByte.multiply (3./8.) y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,-y1)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x,-y1)
+        PenDown
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1,y)
+        PenDown
+        Displacement(0y,-y)
+    ]
 
-///首笔上沿左端
-///末笔右竖下点
+
+///首笔上横左端
+///末笔竖下点
 /// y0 横间距
 let 多横中竖工 (xs: _ list) y0 =
     let xn = xs |> List.last
@@ -987,28 +1010,6 @@ let 多横中竖士 (xs: _ list) ys =
             Displacement(0y,-y)
         ]
     | _ -> failwith ""
-
-///首笔第一个横线
-///末笔中竖下端
-// 龶
-let 青头(x,y) =
-    let x1 = x/2y
-    let y1 = SByte.multiply (3./8.) y
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,-y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,-y1)
-        PenDown
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x1,y)
-        PenDown
-        Displacement(0y,-y)
-    ]
 
 ///首笔上沿左端
 ///末笔右竖下点
