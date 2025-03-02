@@ -668,7 +668,7 @@ let 册(x, y) =
         PenDown
         Displacement(0y,-y1)
         PenUp
-        Displacement(2y*x1-x,y/2y)
+        Displacement(2y*x1-x,y1/2y)
         PenDown
         Displacement(x,0y)
     ]
@@ -688,7 +688,7 @@ let 由 y0 (x, y) = 甲 -y0 (x,-y)
 
 /// 首笔左上角
 /// 末笔右下点
-/// x0 上横长度，x 下横长度
+/// [x0 上横长度，x1 两竖间距; x 下横长度]
 let 亚无八 xs y =
     match xs with
     | [x0;x1;x] ->
@@ -883,17 +883,23 @@ let 中心对齐等距横 (xs: _ list) y =
     ]
     
 ///首笔上沿左端
-///末笔右竖下点
+///末笔下横右端
+/// [x 上横;x1 内横;x2 下横]
+/// [y0 顶横之上;y]
 let 其无八 xs ys =
     match xs,ys with
     | [x;x1;x2],[y0;y] ->
         let y1 = (y-y0)/3y
         [
-            yield! 中心对齐等距横 [x;x1;x1;x2] y1
+            yield! 中心对齐等距横 [x;x1;x1] y1
             PenUp
-            Displacement(-x1/2y-x2/2y,y)
+            Displacement(-x1,y1*2y+y0)
             PenDown
             yield! 等长双竖(x1,y)
+            PenUp
+            Displacement(-x2/2y-x1/2y,0y)
+            PenDown
+            Displacement(x2,0y)
         ]
     | _ -> failwith ""
 
@@ -996,7 +1002,7 @@ let 多横中竖工 (xs: _ list) y0 =
     ]
 
 ///首笔上沿左端
-///末笔右竖下点
+///末笔竖下点
 /// [y0 横间距; y 总竖长]
 let 多横中竖士 (xs: _ list) ys =
     match ys with
@@ -1012,7 +1018,7 @@ let 多横中竖士 (xs: _ list) ys =
     | _ -> failwith ""
 
 ///首笔上沿左端
-///末笔右竖下点
+///末笔竖下点
 let 多横中竖干 (xs: _ list) ys =
     match ys with
     | [y0;y] ->
@@ -1028,7 +1034,7 @@ let 多横中竖干 (xs: _ list) ys =
     | _ -> failwith ""
 
 ///首笔上沿左端
-///末笔右竖下点
+///末笔竖下点
 /// xs 每个横长度
 /// ys (y0 横间距,y1 底横到竖顶高度,y竖总高度)
 let 多横中竖丰 (xs: _ list) ys =
@@ -1473,4 +1479,29 @@ let 冓头 xs ys =
             yield! 共头 [x0;x1;x] [y0;y]
         ]
     | _ -> failwith ""
+
+/// 首笔左上点
+/// 末笔口右下点
+/// (x, y) 总体尺寸
+/// (x0, y0) 口的尺寸
+let 西字 (x, y) (x0, y0) =
+    let x1 = SByte.multiply 0.3 x0 // 两竖间距
+    let x2 = SByte.multiply 0.4 x0 // 两竖外侧，口内侧
+
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x1/2y-x/2y,0y)
+        PenDown
+        yield! 竖撇(x2/2y, y-y0/2y)
+        PenUp
+        Displacement(x1+x2/2y,y-y0/2y)
+        PenDown
+        Displacement(0y,-y+y0/2y)
+        Displacement(x2/2y,0y)
+        PenUp
+        Displacement(x2/2y,-y0/2y)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
 
