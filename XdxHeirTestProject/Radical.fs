@@ -201,6 +201,7 @@ let 廿 xs ys = // (x,y) (x1,y1)
         ]
     | _ -> failwith "参数错误"
 
+
 ///首笔外口左上
 ///末笔内口左上
 let 回 (x,y) (x1,y1) =
@@ -985,7 +986,6 @@ let 青头(x,y) =
         Displacement(0y,-y)
     ]
 
-
 ///首笔上横左端
 ///末笔竖下点
 /// y0 横间距
@@ -1091,7 +1091,6 @@ let 正 xs ys =
         yield! 止 tail ys
     ]
     | _ -> failwith ""
-
 
 /// 首笔日左上点
 /// 末笔底横右点
@@ -1308,6 +1307,8 @@ let 酉 (x0,y0) (x, y) =
 //(x,y) 外接矩形尺寸
 ///首笔上横左端
 ///末笔右竖顶端
+/// [x0 两竖间距; x]
+/// [y0 横上高度; y]
 let 甘 xs ys =
     match xs, ys with
     | [x0;x],[y0;y] ->
@@ -1504,4 +1505,61 @@ let 西字 (x, y) (x0, y0) =
         PenDown
         yield! 口(-x0,-y0)
     ]
+
+///首笔口左上端
+///末笔中竖下端
+/// [x0 口; x1 底横]
+/// [y0 口; y1 上头长度; y竖总长度]
+let 虫无点 xs ys =
+    match xs,ys with
+    | [x0;x1],[y0;y1;y] ->
+        [
+            yield! 口(x0,y0)
+            PenUp
+            Displacement(x0/2y,y1)
+            PenDown
+            Displacement(0y,-y)
+            PenUp
+            Displacement(-x1/2y,0y)
+            PenDown
+            Displacement(x1,0y)
+        ]
+    | _ -> failwith $"ys[y0;y1;y]列表元素数量不对"
+
+///首笔冂左下点
+///末笔口右下端
+/// [x0 口; x1 底横]
+/// [y0 口; y1 上头长度; y竖总长度]
+let 冋 (x, y) (x0, y0) =
+    let x1 = (x-x0)/2y
+    let y1 = SByte.multiply 0.6 (y-y0)
+    [
+        Displacement(0y,y)
+        Displacement(x,0y)
+        Displacement(0y,-y)
+        Displacement(-15y,9y) // 勾
+        PenUp
+        Displacement(-x1+15y,y1-9y)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
+
+/// 首笔日左上角
+/// 末笔右长竖下点
+let 曲 x ys =
+    match ys with
+    | [y0;y] ->
+        let x1 = x/3y
+        [
+            yield! 日(x, y0)
+            PenUp
+            Displacement(x1,y-y0/2y)
+            PenDown
+            Displacement(0y,-y)
+            PenUp
+            Displacement(x1,y)
+            PenDown
+            Displacement(0y,-y)
+        ]
+    | _ -> failwith $""
 
