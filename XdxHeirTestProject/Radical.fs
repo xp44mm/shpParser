@@ -468,18 +468,24 @@ let 玉(x,y) =
 
 ///首笔长横左端
 ///末笔中竖下端
-let 上(x, y) =
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x/2y,y/2y)
-        PenDown
-        Displacement(x/3y,0y) //短横
-        PenUp
-        Displacement(-x/3y,y/2y)
-        PenDown
-        Displacement(0y,-y)
-    ]
+/// [x1 短横.5;x2 中竖.3;x 长横]
+/// [y1 短横;y 长竖]
+let 上 xs ys =
+    match xs,ys with
+    | [x1;x2;x],[y1;y] ->
+        [
+            Displacement(0y,-y)
+            PenUp
+            Displacement(x1,y1)
+            PenDown
+            Displacement(-x1,0y) //短横
+            PenUp
+            Displacement(-x2,-y1)
+            PenDown
+            Displacement(x,0y)
+        ]
+
+    | _ -> failwith ""
 
 /// 首笔右下
 /// 末笔中下
@@ -1447,7 +1453,6 @@ let 而 (x0, y0) (x1, y1) =
         Displacement(0y,-y1)
     ]
 
-// 冓　gòu
 /// 首笔上横左端
 /// 末笔右竖下端
 /// [x0 两竖间距.4; x1 上横长度.8; x 下横长度]

@@ -8027,14 +8027,19 @@ let chunk = [
     // 蚁
     53967us, [
         PenUp
-        Displacement(11y,56y-38y+40y)
+        Displacement(11y,96y)
         PenDown
-        yield! Radical.口(56y,18y)
+        yield! Radical.中 40y [38y;28y;92y]
 
-        PenUp
-        Displacement(19y,66y)
-        PenDown
-        Displacement(0y,-92y)
+        //PenUp
+        //Displacement(11y,56y-38y+40y)
+        //PenDown
+        //yield! Radical.口(56y,-18y)
+
+        //PenUp
+        //Displacement(19y,66y)
+        //PenDown
+        //Displacement(0y,-92y)
         PenUp
         Displacement(-27y,-13y)
         PenDown
@@ -8109,7 +8114,7 @@ let chunk = [
         PenUp
         Displacement(18y,116y)
         PenDown
-        yield! Radical.口(87y,49y)
+        yield! Radical.匚(-87y,49y)
 
         PenUp
         Displacement(0y,24y)
