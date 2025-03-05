@@ -606,7 +606,7 @@ let 且 xs y =
     | _ -> failwith ""
 
 ///具去掉八
-/// 首笔左下角
+/// 首笔长横左点
 /// 末笔右竖下端
 /// x0 短横长度
 /// x 长横长度
@@ -731,7 +731,7 @@ let 等长双竖 (x, y) =
 
 ///首笔左竖下端
 ///末笔中竖下端
-/// y0左竖长; y1出头长度; y2中竖总长 
+/// y0左竖长; y1出头长度; y2中竖总长
 let 巾 x ys =
     match ys with
     | [y0;y1;y2] ->
@@ -1533,8 +1533,7 @@ let 虫无点 xs ys =
 
 ///首笔冂左下点
 ///末笔口右下端
-/// [x0 口; x1 底横]
-/// [y0 口; y1 上头长度; y竖总长度]
+/// (x, y) 冂 (x0, y0) 口
 let 冋 (x, y) (x0, y0) =
     let x1 = (x-x0)/2y
     let y1 = SByte.multiply 0.6 (y-y0)
@@ -1567,4 +1566,31 @@ let 曲 x ys =
             Displacement(0y,-y)
         ]
     | _ -> failwith $""
+
+///首笔冂左下点
+///末笔口右下端
+/// (x, y) 冂 yy 八 (x0, y0) 口
+let 冏 (x, y) yy (x0, y0) =
+    let x81 = x0/2y
+    let x82 = x0/2y+x/2y
+    let y8 = SByte.multiply 0.8 yy
+    let y81 = SByte.multiply 0.1 yy
+
+    [
+        Displacement(0y,y)
+        Displacement(x,0y)
+        Displacement(0y,-y)
+        Displacement(-15y,9y) // 勾
+
+        PenUp
+        Displacement(-x81/2y-x/2y+15y,y-y81-9y)
+        PenDown
+
+        yield! 点八 [x81;x82] y8
+
+        PenUp
+        Displacement((x0-x82)/2y,-y81-y0)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
 
