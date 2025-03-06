@@ -141,7 +141,7 @@ let 躺日(x, y) =
 
 ///首笔左上
 ///末笔第二竖下端
-let 四(x, y) =
+let 四部(x, y) =
     let x1= x / 3y
     [
         yield! 口(x, y)
@@ -657,7 +657,7 @@ let 门(x, y) =
 
 /// 扁无户，册的另一种写法
 /// 首笔左下角
-/// 末笔勾顶
+/// 末笔中横右端
 let 册(x, y) =
     let x1 = x/3y
     let y1 = y-10y
@@ -892,15 +892,15 @@ let 中心对齐等距横 (xs: _ list) y =
 ///首笔上沿左端
 ///末笔下横右端
 /// [x 上横;x1 内横;x2 下横]
-/// [y0 顶横之上;y]
+/// [y0 两长横间巨;y]
 let 其无八 xs ys =
     match xs,ys with
     | [x;x1;x2],[y0;y] ->
-        let y1 = (y-y0)/3y
+        let y1 = y0/3y        
         [
             yield! 中心对齐等距横 [x;x1;x1] y1
             PenUp
-            Displacement(-x1,y1*2y+y0)
+            Displacement(-x1,y-y1)
             PenDown
             yield! 等长双竖(x1,y)
             PenUp
@@ -1042,7 +1042,7 @@ let 多横中竖干 (xs: _ list) ys =
 ///首笔上沿左端
 ///末笔竖下点
 /// xs 每个横长度
-/// ys (y0 横间距,y1 底横到竖顶高度,y竖总高度)
+/// ys (y0 横间距, y1 底横到竖顶高度, y竖总高度)
 let 多横中竖丰 (xs: _ list) ys =
     match ys with
     | [y0;y1;y] -> 
@@ -1123,7 +1123,7 @@ let 里 xs ys =
 /// 末笔口右下点
 /// (x, y) 总体尺寸
 /// (x0, y0) 口的尺寸
-let 西 (x, y) (x0, y0) =
+let 西部 (x, y) (x0, y0) =
     let x1 = x0/3y // 两竖间距
     [
         Displacement(x,0y)
@@ -1246,22 +1246,22 @@ let 聿 xs ys =
         ]
     | _ -> failwith "" 
 
-/// 首笔横左点
-/// 末笔右竖下端
+/// 首笔左竖顶端
+/// 末笔横右点
 /// [x; x1 两竖间距]
-let π xs y =
+let 业无八 xs y =
     match xs with
     | [x;x1] ->
         [
-            Displacement(x,0y)
-            PenUp
-            Displacement(-x/2y-x1/2y,0y)
-            PenDown
             Displacement(0y,-y)
             PenUp
             Displacement(x1,y)
             PenDown
             Displacement(0y,-y)
+            PenUp
+            Displacement(-x1/2y-x/2y,0y)
+            PenDown
+            Displacement(x,0y)
         ]
     | _ -> failwith ""
 
@@ -1403,21 +1403,21 @@ let 面 (x0,y0) (x, y) =
 /// 末笔口右下
 /// (x,y) 横撇
 /// (x0,y0) 口尺寸
-let 百 (x0, y0) (x1,y1) =
+let 百 (x, y) (x0,y0) =
     [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x/2y,0y)
+        PenDown
+        Displacement(-y/2y,-y)
+        PenUp
+        Displacement(-x0/2y+y/2y,-y0/2y)
+        PenDown
         Displacement(x0,0y)
         PenUp
-        Displacement(-x0/2y,0y)
+        Displacement(0y,-y0+y0/2y)
         PenDown
-        Displacement(-y0/2y,-y0)
-        PenUp
-        Displacement(-x1/2y+y0/2y,-y1/2y)
-        PenDown
-        Displacement(x1,0y)
-        PenUp
-        Displacement(0y,-y1+y1/2y)
-        PenDown
-        yield! 口(-x1,-y1)
+        yield! 口(-x0,-y0)
     ]
 
 /// 首笔上横左端
@@ -1592,5 +1592,57 @@ let 冏 (x, y) yy (x0, y0) =
         Displacement((x0-x82)/2y,-y81-y0)
         PenDown
         yield! 口(-x0,-y0)
+    ]
+///首笔顶横左点
+///末笔底横右点
+/// x1 顶横长度;x2 底横长度;y 长竖高度
+let 垂无撇 xs y =
+    match xs with
+    | [x1;x2] ->
+        let x0 = SByte.multiply (5./9.) x1
+        let y2 = y/2y
+        let y4 = y/4y
+        [
+            Displacement(x1,0y)
+            PenUp
+            Displacement(-x1,-y4)
+            PenDown
+            yield! 艹 (x0,y4-6y) (x1,y2-12y)
+            PenUp
+            Displacement(-x0/2y-x1/2y,-6y)
+            PenDown
+            yield! 十 x1 [y-y4;y]
+            PenUp
+            Displacement(-x2/2y,0y)
+            PenDown
+            Displacement(x2,0y)
+        ]
+    | _ -> failwith $""
+    
+///首笔顶横左点
+///末笔中横右点
+/// x1 顶横; x2 中横
+let 躺巾 xs y =
+    match xs with
+    | [x1;x2] ->
+        [
+            yield! 匚 (-x1,y)
+            PenUp
+            Displacement(x1/2y-x2/2y,y/2y)
+            PenDown
+            Displacement(x2,0y)
+        ]
+    | _ -> failwith $""
+    
+///首笔左下角
+///末笔顶横中点
+let 用部(x,y) =
+    let y1 = SByte.multiply 0.6 y
+    [
+        yield! 青月(x,y)
+        PenUp
+        Displacement(-x/2y,y1-y+7y)
+        PenDown
+        Displacement(0y,y-7y)
     ]
 
