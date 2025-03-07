@@ -422,12 +422,10 @@ let chunk = [
         PenDown
         yield! Radical.凵(100y,-18y)
         PenUp
-        //Displacement(-111y,-40y)
         Displacement(-65y,8y)
         PenDown
         yield! Radical.业无八 [116y;24y] 54y
         PenUp
-        //Displacement(-50y,-18y)
         Displacement(-95y,36y)
         PenDown
         yield! Radical.点八 [80y;50y] 23y
@@ -7278,24 +7276,8 @@ let chunk = [
         Displacement(-79y,-20y)
         PenDown
 
-        //Displacement(110y,0y)
-        //PenUp
-        //Displacement(-101y,-20y)
-        //PenDown
-        //yield! Radical.等长双竖(27y,99y)
 
-        //yield! Radical.匚(-84y,38y)
-        //PenUp
-        //Displacement(-15y,20y)
-        //PenDown
-        //Displacement(120y,0y)
-        //PenUp
-        //Displacement(-75y,36y)
-        //PenDown
 
-        //PenUp
-        //Displacement(-31y,43y)
-        //PenDown
         Displacement(-8y,-10y)
         Displacement(-11y,-8y)
         Displacement(-13y,-10y)
@@ -8661,12 +8643,7 @@ let chunk = [
         PenUp
         Displacement(50y,108y)
         PenDown
-        //yield! Radical.匚(-59y,38y)
 
-        //PenUp
-        //Displacement(-8y,20y)
-        //PenDown
-        //Displacement(82y,0y)
         yield! Radical.躺巾 [60y;82y] 38y
 
         PenUp
@@ -10417,27 +10394,6 @@ let chunk = [
         PenUp
         Displacement(6y,111y)
         PenDown
-        //Displacement(54y,0y)
-        //PenUp
-        //Displacement(-47y,-20y)
-        //PenDown
-        //yield! Radical.口(42y,76y)
-        //PenUp
-        //Displacement(15y,18y)
-        //PenDown
-        //Displacement(0y,-25y)
-        //Displacement(-1y,-13y)
-        //Displacement(-9y,-18y)
-        //PenUp
-        //Displacement(24y,56y)
-        //PenDown
-        //Displacement(0y,-48y)
-        //Displacement(1y,-5y)
-        //Displacement(10y,0y)
-        //PenUp
-        //Displacement(-38y,-18y)
-        //PenDown
-        //Displacement(37y,0y)
         yield! Radical.酉(42y,76y)(54y,96y)
 
         PenUp
@@ -11111,12 +11067,7 @@ let chunk = [
         PenUp
         Displacement(-65y,-18y)
         PenDown
-        //yield! Radical.匚(-54y,36y)
 
-        //PenUp
-        //Displacement(-6y,20y)
-        //PenDown
-        //Displacement(78y,0y)
         yield! Radical.躺巾 [54y;78y] 36y
 
         PenUp
@@ -11153,12 +11104,7 @@ let chunk = [
         PenUp
         Displacement(-65y,-18y)
         PenDown
-        //yield! Radical.匚(-56y,36y)
 
-        //PenUp
-        //Displacement(-6y,18y)
-        //PenDown
-        //Displacement(79y,0y)
         yield! Radical.躺巾 [56y;78y] 36y
 
         PenUp
@@ -11892,13 +11838,6 @@ let chunk = [
         PenUp
         Displacement(34y,97y)
         PenDown
-        //Displacement(65y,0y)
-        //Displacement(0y,-41y)
-        //Displacement(-64y,0y)
-        //PenUp
-        //Displacement(-9y,20y)
-        //PenDown
-        //Displacement(90y,0y)
         yield! Radical.躺巾 [64y;90y] 42y
 
         PenUp
@@ -12997,14 +12936,17 @@ let chunk = [
         PenUp
         Displacement(-48y,-13y)
         PenDown
-        yield! Radical.丄(44y,-33y)
-
+        Displacement(44y,0y)
         PenUp
-        Displacement(-24y,-8y)
+        Displacement(-22y,0y)
         PenDown
-        Displacement(48y,13y)
+        Displacement(0y,-33y)
         PenUp
-        Displacement(1y,87y)
+        Displacement(-24y,-7y)
+        PenDown
+        Displacement(48y,14y)
+        PenUp
+        Displacement(1y,86y)
         PenDown
         Displacement(68y,0y)
         PenUp
@@ -13059,12 +13001,7 @@ let chunk = [
         PenUp
         Displacement(-28y,-3y)
         PenDown
-        //yield! Radical.匚(-48y,42y)
 
-        //PenUp
-        //Displacement(-9y,21y)
-        //PenDown
-        //Displacement(66y,0y)
         yield! Radical.躺巾 [48y;66y] 42y
 
         PenUp
@@ -13456,12 +13393,7 @@ let chunk = [
         PenUp
         Displacement(-40y,-5y)
         PenDown
-        //yield! Radical.匚(-66y,41y)
 
-        //PenUp
-        //Displacement(-4y,20y)
-        //PenDown
-        //Displacement(84y,0y)
         yield! Radical.躺巾 [66y;84y] 42y
 
         PenUp

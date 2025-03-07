@@ -791,17 +791,21 @@ let 十 x ys =
         ]
     | _ -> failwith $"ys[y0;y]列表元素数量不对"
 
-///首笔横左端
-///末笔竖顶点
-let 丄 (x, y) =
-    //“上”字少一横得到的字是“丄”，读音和“上”字一样，都读作shàng。
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x/2y,0y)
-        PenDown
-        Displacement(0y,y)
-    ]
+/// 读作shàng
+///首笔竖顶点
+///竖笔横右端
+/// [x1 竖坐标;x 横长]
+let 丄 xs y =
+    match xs with
+    | [x1;x] ->
+        [
+            Displacement(0y,-y)
+            PenUp
+            Displacement(-x1,0y)
+            PenDown
+            Displacement(x,0y)
+        ]
+    | _ -> failwith $"ys[y0;y]列表元素数量不对"
 
 ///首笔竖上端
 ///末笔竖中点
@@ -1646,3 +1650,42 @@ let 用部(x,y) =
         Displacement(0y,y-7y)
     ]
 
+///guǎ
+///首笔左下角
+///末笔顶横中点
+/// (x0,y0)上部 (x1,y1)下部
+let 冎 (x0,y0) (x1,y1) =
+    [
+        Displacement(0y,y0)
+        Displacement(x0,0y)
+        Displacement(0y,-y0)
+        PenUp
+        Displacement(-x0,y0/2y)
+        PenDown
+        Displacement(x0/2y,0y)
+        Displacement(0y,-y0/2y)
+
+        PenUp
+        Displacement(-x1/2y,-y1)
+        PenDown
+        Displacement(0y,y1)
+        Displacement(x1,0y)
+        Displacement(0y,-y1)
+    ]
+///首笔顶横左点
+///末笔中横右点
+/// x0 顶横; x 中横
+let 躺中 xs y =
+    match xs with
+    | [x0;x] ->
+        [
+            yield! 口 (x0,y)
+            PenUp
+            Displacement(x0/2y-x/2y,-y/2y)
+            PenDown
+            Displacement(x,0y)
+        ]
+    | _ -> failwith $""
+
+//cháng镸
+//聿（yù）

@@ -9539,28 +9539,6 @@ let chunk = [
         Displacement(-66y,-19y)
         PenDown
 
-        //Displacement(92y,0y)
-        //PenUp
-        //Displacement(-85y,-18y)
-        //PenDown
-        //Displacement(73y,0y)
-        //Displacement(0y,-33y)
-        //Displacement(-74y,0y)
-        //PenUp
-        //Displacement(-13y,18y)
-        //PenDown
-        //Displacement(103y,0y)
-        //PenUp
-        //Displacement(-69y,31y)
-        //PenDown
-        //Displacement(0y,-84y)
-        //PenUp
-        //Displacement(25y,84y)
-        //PenDown
-        //Displacement(0y,-87y)
-        //PenUp
-        //Displacement(-25y,38y)
-        //PenDown
         Displacement(-33y,-31y)
         PenUp
         Displacement(60y,33y)
@@ -9875,11 +9853,6 @@ let chunk = [
         PenUp
         Displacement(-68y,-3y)
         PenDown
-        //Displacement(107y,0y)
-        //PenUp
-        //Displacement(-66y,0y)
-        //PenDown
-        //yield! Radical.等长双竖(25y,48y)
         yield! Radical.业无八 [106y;24y] 48y
 
         PenUp

@@ -1760,19 +1760,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [98y;88y;120y] [28y;82y;122y]
 
-        //Displacement(98y,0y)
-        //PenUp
-        //Displacement(-92y,-28y)
-        //PenDown
-        //Displacement(88y,0y)
-        //PenUp
-        //Displacement(-103y,-28y)
-        //PenDown
-        //Displacement(119y,0y)
-        //PenUp
-        //Displacement(-61y,82y)
-        //PenDown
-        //Displacement(0y,-122y)
     ]
     // 封
     47074us, [
@@ -1895,19 +1882,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [58y;50y;62y] [18y;51y;74y]
 
-        //Displacement(59y,0y)
-        //PenUp
-        //Displacement(-55y,-18y)
-        //PenDown
-        //Displacement(50y,0y)
-        //PenUp
-        //Displacement(-52y,-18y)
-        //PenDown
-        //Displacement(61y,0y)
-        //PenUp
-        //Displacement(-33y,51y)
-        //PenDown
-        //Displacement(0y,-74y)
     ]
     // 峰
     47077us, [
@@ -1941,19 +1915,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [58y;50y;68y] [18y;51y;74y]
 
-        //Displacement(57y,0y)
-        //PenUp
-        //Displacement(-54y,-18y)
-        //PenDown
-        //Displacement(51y,0y)
-        //PenUp
-        //Displacement(-60y,-18y)
-        //PenDown
-        //Displacement(69y,0y)
-        //PenUp
-        //Displacement(-34y,51y)
-        //PenDown
-        //Displacement(0y,-74y)
     ]
     // 锋
     47078us, [
@@ -2009,19 +1970,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [60y;52y;68y] [18y;51y;74y]
 
-        //Displacement(0y,-74y)
-        //PenUp
-        //Displacement(-32y,59y)
-        //PenDown
-        //Displacement(61y,0y)
-        //PenUp
-        //Displacement(-56y,-18y)
-        //PenDown
-        //Displacement(52y,0y)
-        //PenUp
-        //Displacement(-59y,-15y)
-        //PenDown
-        //Displacement(69y,0y)
     ]
     // 风
     47079us, [
@@ -2142,19 +2090,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [60y;52y;72y] [18y;51y;76y]
 
-        //Displacement(60y,0y)
-        //PenUp
-        //Displacement(-56y,-15y)
-        //PenDown
-        //Displacement(52y,0y)
-        //PenUp
-        //Displacement(-62y,-18y)
-        //PenDown
-        //Displacement(73y,0y)
-        //PenUp
-        //Displacement(-36y,51y)
-        //PenDown
-        //Displacement(0y,-76y)
     ]
     // 逢
     47082us, [
@@ -2184,19 +2119,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [64y;64y;76y] [15y;46y;64y]
 
-        //Displacement(64y,0y)
-        //PenUp
-        //Displacement(-64y,-15y)
-        //PenDown
-        //Displacement(64y,0y)
-        //PenUp
-        //Displacement(-70y,-15y)
-        //PenDown
-        //Displacement(76y,0y)
-        //PenUp
-        //Displacement(-38y,46y)
-        //PenDown
-        //Displacement(0y,-64y)
     ]
     // 冯
     47083us, [
@@ -2281,19 +2203,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [46y;42y;54y] [15y;46y;64y]
 
-        //Displacement(45y,0y)
-        //PenUp
-        //Displacement(-45y,-15y)
-        //PenDown
-        //Displacement(43y,0y)
-        //PenUp
-        //Displacement(-50y,-18y)
-        //PenDown
-        //Displacement(54y,0y)
-        //PenUp
-        //Displacement(-28y,46y)
-        //PenDown
-        //Displacement(0y,-64y)
     ]
     // 讽
     47085us, [
@@ -2370,15 +2279,6 @@ let chunk = [
         PenDown
         yield! Radical.多横中竖丰 [68y;98y] [20y;43y;66y]
 
-        //Displacement(68y,0y)
-        //PenUp
-        //Displacement(-82y,-20y)
-        //PenDown
-        //Displacement(98y,0y)
-        //PenUp
-        //Displacement(-50y,43y)
-        //PenDown
-        //Displacement(0y,-66y)
     ]
     // 凤
     47087us, [
