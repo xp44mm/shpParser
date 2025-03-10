@@ -1,5 +1,7 @@
 ﻿module XdxHeirTestProject.Xdx10
 open shpParser
+open XdxHeirTestProject.Composite
+
 let chunk = [
     // 鸳
     54439us, [
@@ -23,8 +25,7 @@ let chunk = [
         PenUp
         Displacement(46y,5y)
         PenDown
-        Displacement(6y,3y)
-        Displacement(6y,3y)
+        Displacement(12y,6y)
         Displacement(4y,5y)
         Displacement(0y,13y)
         Displacement(-34y,0y)
@@ -51,8 +52,7 @@ let chunk = [
         Displacement(78y,0y)
         Displacement(-1y,-18y)
         Displacement(-4y,-8y)
-        Displacement(-6y,-3y)
-        Displacement(-6y,-3y)
+        Displacement(-12y,-6y)
         Displacement(-4y,0y)
         PenUp
         Displacement(-38y,51y)
@@ -112,8 +112,7 @@ let chunk = [
         PenUp
         Displacement(4y,-3y)
         PenDown
-        Displacement(8y,-10y)
-        Displacement(8y,-10y)
+        Displacement(16y,-20y)
         Displacement(5y,-13y)
         PenUp
         Displacement(11y,87y)
@@ -7623,13 +7622,6 @@ let chunk = [
         PenUp
         Displacement(-48y,-8y)
         PenDown
-        //Displacement(78y,0y)
-        //Displacement(0y,-48y)
-        //Displacement(-84y,0y)
-        //PenUp
-        //Displacement(-15y,25y)
-        //PenDown
-        //Displacement(121y,0y)
         yield! Radical.躺巾 [78y;120y] 48y
 
         PenUp
@@ -8781,7 +8773,11 @@ let chunk = [
         PenUp
         Displacement(63y,9y+110y)
         PenDown
-        yield! Radical.止 [121y;36y;42y] [110y;76y;64y]
+        yield! (id<止> {
+                丄 = 121y,110y
+                短竖 = 36y,76y
+                短横 = 42y,64y
+            }).toYield()
 
     ]
     // 趾
@@ -11920,28 +11916,6 @@ let chunk = [
         PenUp
         Displacement(-40y+72y/2y-10y,-5y-102y)
         PenDown
-        //Displacement(71y,0y)
-        //PenUp
-        //Displacement(-69y,-18y)
-        //PenDown
-        //Displacement(57y,0y)
-        //Displacement(0y,-38y)
-        //Displacement(-57y,0y)
-        //PenUp
-        //Displacement(-4y,20y)
-        //PenDown
-        //Displacement(76y,0y)
-        //PenUp
-        //Displacement(-55y,36y)
-        //PenDown
-        //Displacement(0y,-102y)
-        //PenUp
-        //Displacement(20y,102y)
-        //PenDown
-        //Displacement(0y,-102y)
-        //PenUp
-        //Displacement(-27y,43y)
-        //PenDown
         yield! Radical.业无八 [72y;20y] -102y
         PenUp
         Displacement(-65y,-19y)

@@ -1,5 +1,7 @@
 ﻿module XdxHeirTestProject.Xdx19
 open shpParser
+open XdxHeirTestProject.Composite
+
 let chunk = [
     // 糇
     62679us, [
@@ -15383,30 +15385,14 @@ let chunk = [
         PenUp
         Displacement(6y,106y)
         PenDown
-        Displacement(59y,0y)
+        yield! (id<革> {
+                横 = 60y,20y
+                凵 = 28y,36y
+                口 = 40y,23y
+                十 = 60y,87y
+            }).toYield()
         PenUp
-        Displacement(-43y,20y)
-        PenDown
-        Displacement(0y,-36y)
-        Displacement(28y,0y)
-        Displacement(0y,33y)
-        PenUp
-        Displacement(-36y,-51y)
-        PenDown
-        Displacement(41y,0y)
-        Displacement(0y,-23y)
-        Displacement(-41y,0y)
-        Displacement(0y,23y)
-        PenUp
-        Displacement(19y,15y)
-        PenDown
-        Displacement(0y,-87y)
-        PenUp
-        Displacement(-31y,28y)
-        PenDown
-        Displacement(61y,0y)
-        PenUp
-        Displacement(9y,0y)
+        Displacement(39y,32y)
         PenDown
         Displacement(0y,82y)
         Displacement(42y,0y)
@@ -15429,28 +15415,12 @@ let chunk = [
         PenUp
         Displacement(0y,113y)
         PenDown
-        Displacement(60y,0y)
-        PenUp
-        Displacement(-43y,13y)
-        PenDown
-        Displacement(0y,-31y)
-        Displacement(25y,0y)
-        Displacement(0y,31y)
-        PenUp
-        Displacement(-32y,-71y)
-        PenDown
-        Displacement(0y,25y)
-        Displacement(38y,0y)
-        Displacement(0y,-25y)
-        Displacement(-38y,0y)
-        PenUp
-        Displacement(-9y,-20y)
-        PenDown
-        Displacement(57y,0y)
-        PenUp
-        Displacement(-29y,59y)
-        PenDown
-        Displacement(0y,-89y)
+        yield! (id<革> {
+                横 = 60y,13y
+                凵 = 25y,31y
+                口 = 38y,25y
+                十 = 57y,89y
+            }).toYield()
         PenUp
         Displacement(27y,59y)
         PenDown
@@ -15481,28 +15451,12 @@ let chunk = [
         PenUp
         Displacement(1y,106y)
         PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-37y,20y)
-        PenDown
-        Displacement(0y,-38y)
-        Displacement(25y,0y)
-        Displacement(0y,38y)
-        PenUp
-        Displacement(-32y,-76y)
-        PenDown
-        Displacement(0y,20y)
-        Displacement(37y,0y)
-        Displacement(0y,-20y)
-        Displacement(-37y,0y)
-        PenUp
-        Displacement(-9y,-18y)
-        PenDown
-        Displacement(54y,0y)
-        PenUp
-        Displacement(-25y,54y)
-        PenDown
-        Displacement(0y,-82y)
+        yield! (id<革> {
+                横 = 51y,20y
+                凵 = 25y,38y
+                口 = 37y,20y
+                十 = 54y,82y
+            }).toYield()
         PenUp
         Displacement(29y,102y)
         PenDown
@@ -15542,28 +15496,13 @@ let chunk = [
         PenUp
         Displacement(10y,103y)
         PenDown
-        Displacement(59y,0y)
-        PenUp
-        Displacement(-42y,15y)
-        PenDown
-        Displacement(0y,-33y)
-        Displacement(28y,0y)
-        Displacement(-1y,33y)
-        PenUp
-        Displacement(-34y,-71y)
-        PenDown
-        Displacement(0y,25y)
-        Displacement(43y,0y)
-        Displacement(0y,-25y)
-        Displacement(-43y,0y)
-        PenUp
-        Displacement(-13y,-15y)
-        PenDown
-        Displacement(61y,0y)
-        PenUp
-        Displacement(-28y,54y)
-        PenDown
-        Displacement(0y,-79y)
+        yield! (id<革> {
+                横 = 60y,15y
+                凵 = 28y,33y
+                口 = 43y,25y
+                十 = 60y,80y
+            }).toYield()
+
         PenUp
         Displacement(75y,110y)
         PenDown
@@ -15599,28 +15538,13 @@ let chunk = [
         PenUp
         Displacement(14y,103y)
         PenDown
-        Displacement(52y,0y)
-        PenUp
-        Displacement(-38y,15y)
-        PenDown
-        Displacement(1y,-33y)
-        Displacement(24y,0y)
-        Displacement(0y,33y)
-        PenUp
-        Displacement(-31y,-71y)
-        PenDown
-        Displacement(-1y,25y)
-        Displacement(38y,0y)
-        Displacement(0y,-25y)
-        Displacement(-37y,0y)
-        PenUp
-        Displacement(-8y,-15y)
-        PenDown
-        Displacement(47y,0y)
-        PenUp
-        Displacement(-20y,54y)
-        PenDown
-        Displacement(0y,-79y)
+        yield! (id<革> {
+                横 = 52y,15y
+                凵 = 25y,33y
+                口 = 38y,25y
+                十 = 47y,79y
+            }).toYield()
+
         PenUp
         Displacement(38y,112y)
         PenDown
@@ -15657,28 +15581,13 @@ let chunk = [
         PenUp
         Displacement(11y,103y)
         PenDown
-        Displacement(45y,0y)
-        PenUp
-        Displacement(-34y,10y)
-        PenDown
-        Displacement(0y,-33y)
-        Displacement(24y,0y)
-        Displacement(0y,33y)
-        PenUp
-        Displacement(-31y,-66y)
-        PenDown
-        Displacement(0y,20y)
-        Displacement(40y,0y)
-        Displacement(0y,-20y)
-        Displacement(-40y,0y)
-        PenUp
-        Displacement(-8y,-13y)
-        PenDown
-        Displacement(52y,-3y)
-        PenUp
-        Displacement(-25y,48y)
-        PenDown
-        Displacement(0y,-76y)
+        yield! (id<革> {
+                横 = 45y,10y
+                凵 = 24y,33y
+                口 = 40y,20y
+                十 = 52y,76y
+            }).toYield()
+
         PenUp
         Displacement(27y,97y)
         PenDown
@@ -15719,30 +15628,15 @@ let chunk = [
     // 鞫
     63414us, [
         PenUp
-        Displacement(18y,101y)
+        Displacement(9y,101y)
         PenDown
-        Displacement(48y,0y)
-        PenUp
-        Displacement(-37y,15y)
-        PenDown
-        Displacement(0y,-33y)
-        Displacement(24y,0y)
-        Displacement(0y,33y)
-        PenUp
-        Displacement(-31y,-71y)
-        PenDown
-        Displacement(0y,23y)
-        Displacement(37y,0y)
-        Displacement(0y,-23y)
-        Displacement(-37y,0y)
-        PenUp
-        Displacement(-8y,-13y)
-        PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-25y,51y)
-        PenDown
-        Displacement(1y,-79y)
+        yield! (id<革> {
+                横 = 48y,15y
+                凵 = 24y,33y
+                口 = 37y,23y
+                十 = 52y,79y
+            }).toYield()
+
         PenUp
         Displacement(42y,112y)
         PenDown
@@ -15781,30 +15675,15 @@ let chunk = [
     // 鞣
     63415us, [
         PenUp
-        Displacement(19y,126y)
+        Displacement(5y,105y)
         PenDown
-        Displacement(0y,-38y)
-        Displacement(27y,0y)
-        Displacement(0y,38y)
-        PenUp
-        Displacement(-42y,-20y)
-        PenDown
-        Displacement(55y,0y)
-        PenUp
-        Displacement(-48y,-56y)
-        PenDown
-        Displacement(0y,23y)
-        Displacement(42y,0y)
-        Displacement(0y,-23y)
-        Displacement(-42y,0y)
-        PenUp
-        Displacement(-9y,-20y)
-        PenDown
-        Displacement(59y,0y)
-        PenUp
-        Displacement(-29y,56y)
-        PenDown
-        Displacement(0y,-82y)
+        yield! (id<革> {
+                横 = 55y,20y
+                凵 = 27y,38y
+                口 = 42y,23y
+                十 = 59y,82y
+            }).toYield()
+
         PenUp
         Displacement(33y,115y)
         PenDown
@@ -15858,28 +15737,13 @@ let chunk = [
         PenUp
         Displacement(1y,106y)
         PenDown
-        Displacement(52y,0y)
-        PenUp
-        Displacement(-38y,20y)
-        PenDown
-        Displacement(0y,-38y)
-        Displacement(27y,0y)
-        Displacement(0y,38y)
-        PenUp
-        Displacement(-33y,-51y)
-        PenDown
-        Displacement(38y,0y)
-        Displacement(0y,-25y)
-        Displacement(-38y,0y)
-        Displacement(0y,25y)
-        PenUp
-        Displacement(-9y,-43y)
-        PenDown
-        Displacement(51y,0y)
-        PenUp
-        Displacement(-22y,56y)
-        PenDown
-        Displacement(0y,-84y)
+        yield! (id<革> {
+                横 = 52y,20y
+                凵 = 27y,38y
+                口 = 38y,25y
+                十 = 52y,84y
+            }).toYield()
+
         PenUp
         Displacement(27y,107y)
         PenDown
@@ -15926,28 +15790,13 @@ let chunk = [
         PenUp
         Displacement(4y,106y)
         PenDown
-        Displacement(54y,0y)
-        PenUp
-        Displacement(-38y,18y)
-        PenDown
-        Displacement(0y,-38y)
-        Displacement(24y,0y)
-        Displacement(0y,36y)
-        PenUp
-        Displacement(-31y,-76y)
-        PenDown
-        Displacement(0y,25y)
-        Displacement(36y,0y)
-        Displacement(0y,-25y)
-        Displacement(-36y,0y)
-        PenUp
-        Displacement(-9y,-15y)
-        PenDown
-        Displacement(55y,0y)
-        PenUp
-        Displacement(-28y,56y)
-        PenDown
-        Displacement(0y,-84y)
+        yield! (id<革> {
+                横 = 54y,18y
+                凵 = 24y,38y
+                口 = 36y,25y
+                十 = 55y,84y
+            }).toYield()
+
         PenUp
         Displacement(29y,104y)
         PenDown

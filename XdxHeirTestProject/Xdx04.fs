@@ -1,5 +1,7 @@
 ﻿module XdxHeirTestProject.Xdx04
 open shpParser
+open XdxHeirTestProject.Composite
+
 let chunk = [
     // 旧
     48841us, [
@@ -179,17 +181,13 @@ let chunk = [
         PenUp
         Displacement(8y,108y)
         PenDown
-        yield! Radical.廿 (26y,15y)(54y,33y)
-
-        PenUp
-        Displacement(-31y,-51y)
-        PenDown
-        yield! Radical.口 (36y,25y)
-
-        PenUp
-        Displacement(-10y,-46y)
-        PenDown
-        yield! Radical.十 50y [59y;84y]
+        yield!
+            (id<革> {
+                横 = 54y,15y
+                凵 = 26y,33y
+                口 = 36y,25y
+                十 = 50y,84y
+            }).toYield()
 
         PenUp
         Displacement(46y,120y)
@@ -668,7 +666,6 @@ let chunk = [
         PenUp
         Displacement(4y,-23y)
         PenDown
-        //yield! Radical.古 [62y;46y] [23y;43y;31y]
         yield! Radical.十 62y [23y;43y]
         PenUp
         Displacement(-23y,0y)
@@ -765,7 +762,6 @@ let chunk = [
         PenUp
         Displacement(5y,-25y)
         PenDown
-        //yield! Radical.古 [62y;46y] [23y;43y;29y]
         yield! Radical.十 62y [23y;43y]
         PenUp
         Displacement(-23y,0y)
@@ -811,7 +807,6 @@ let chunk = [
         PenUp
         Displacement(-2y,-23y)
         PenDown
-        //yield! Radical.古 [65y;46y] [23y;46y;29y]
         yield! Radical.十 64y [23y;46y]
         PenUp
         Displacement(-23y,0y)
@@ -937,7 +932,6 @@ let chunk = [
         PenUp
         Displacement(3y,-22y)
         PenDown
-        //yield! Radical.古 [70y;43y] [24y;48y;30y]
         yield! Radical.十 70y [24y;48y]
         PenUp
         Displacement(-22y,0y)
@@ -3464,7 +3458,6 @@ let chunk = [
         PenUp
         Displacement(8y,106y)
         PenDown
-        //yield! Radical.古 [112y;70y] [20y;46y;33y]
         yield! Radical.十 112y [20y;46y]
         PenUp
         Displacement(-35y,0y)
@@ -3601,7 +3594,12 @@ let chunk = [
         PenUp
         Displacement(63y,125y)
         PenDown
-        yield! Radical.止 [122y;34y;43y] [38y;28y;20y]
+        yield! (id<止> {
+                丄 = 122y,38y
+                短竖 = 34y,28y
+                短横 = 43y,20y
+            }).toYield()
+
         PenUp
         Displacement(-97y,-82y)
         PenDown
@@ -3616,7 +3614,12 @@ let chunk = [
         PenUp
         Displacement(71y,16y)
         PenDown
-        yield! Radical.止 [84y;25y;29y] [36y;28y;25y]
+        yield! (id<止> {
+                丄 = 84y,36y
+                短竖 = 25y,28y
+                短横 = 29y,25y
+            }).toYield()
+
         PenUp
         Displacement(-69y,-79y)
         PenDown
@@ -4020,7 +4023,6 @@ let chunk = [
         PenUp
         Displacement(2y,33y)
         PenDown
-        //yield! Radical.古 [72y;56y] [33y;66y;41y]
         yield! Radical.十 72y [33y;66y]
         PenUp
         Displacement(-28y,0y)
@@ -12060,10 +12062,11 @@ let chunk = [
         PenUp
         Displacement(36y,124y)
         PenDown
-
-
-
-        yield! Radical.止 [60y;18y;24y] [41y;28y;23y]
+        yield! (id<止> {
+                丄 = 60y,41y
+                短竖 = 18y,28y
+                短横 = 24y,23y
+            }).toYield()
         PenUp
         Displacement(-29y,-8y)
         PenDown

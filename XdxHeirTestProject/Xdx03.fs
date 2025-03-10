@@ -1,5 +1,7 @@
 ﻿module XdxHeirTestProject.Xdx03
 open shpParser
+open XdxHeirTestProject.Composite
+
 let chunk = [
     // 侯
     47854us, [
@@ -12133,15 +12135,12 @@ let chunk = [
         PenUp
         Displacement(6y,106y)
         PenDown
-        yield! Radical.廿 (29y,15y) (61y,36y)
-        PenUp
-        Displacement(-38y,-74y)
-        PenDown
-        yield! Radical.口(46y,-23y)
-        PenUp
-        Displacement(-8y,-18y)
-        PenDown
-        yield! Radical.十 62y [56y;87y]
+        yield! (id<革> {
+                横 = 60y,15y
+                凵 = 29y,36y
+                口 = 46y,23y
+                十 = 62y,87y
+            }).toYield()
 
         PenUp
         Displacement(82y,115y)

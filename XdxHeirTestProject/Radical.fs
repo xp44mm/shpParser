@@ -401,27 +401,6 @@ let 玉(x,y) =
         Displacement(0y,-y)
     ]
 
-///首笔长横左端
-///末笔中竖下端
-/// [x1 短横.5;x2 中竖.3;x 长横]
-/// [y1 短横;y 长竖]
-let 上 xs ys =
-    match xs,ys with
-    | [x1;x2;x],[y1;y] ->
-        [
-            Displacement(0y,-y)
-            PenUp
-            Displacement(x1,y1)
-            PenDown
-            Displacement(-x1,0y) //短横
-            PenUp
-            Displacement(-x2,-y1)
-            PenDown
-            Displacement(x,0y)
-        ]
-
-    | _ -> failwith ""
-
 /// 首笔右下
 /// 末笔中下
 let 臣(x, y) =
@@ -559,23 +538,10 @@ let 册(x, y) =
         PenDown
         Displacement(0y,-y1)
         PenUp
-        Displacement(2y*x1-x,y1/2y)
+        Displacement(2y*x1-x, y1/2y)
         PenDown
         Displacement(x,0y)
     ]
-
-/// 首笔左上角
-/// 末笔顶横中点
-let 甲 y0 (x, y) =
-    [
-        yield! 日(x, y)
-        yield! move (x/2y) (-y0+y/2y)
-        Displacement(0y,y0) // y0中竖长度
-    ]
-
-/// 首笔左下角
-/// 末笔底横中点
-let 由 y0 (x, y) = 甲 -y0 (x,-y)
 
 /// 首笔左上角
 /// 末笔右下点
@@ -612,6 +578,19 @@ let 等长双竖 (x, y) =
         PenDown
         Displacement(0y,-y)
     ]
+
+/// 首笔左上角
+/// 末笔顶横中点
+let 甲 y0 (x, y) =
+    [
+        yield! 日(x, y)
+        yield! move (x/2y) (-y0+y/2y)
+        Displacement(0y,y0) // y0中竖长度
+    ]
+
+/// 首笔左下角
+/// 末笔底横中点
+let 由 y0 (x, y) = 甲 -y0 (x,-y)
 
 ///首笔左竖下端
 ///末笔中竖下端
@@ -712,7 +691,7 @@ let 巨 (x0,y0) (x1,y1) =
     [
         yield! 匚(x0,y0)
         PenUp
-        Displacement(-x0,y0/2y+y1/2y)
+        Displacement(-x0, SByte.average [y0;y1])
         PenDown
         yield! 匚(-x1,y1)
     ]
@@ -742,7 +721,7 @@ let 出 xs ys =
         [
             yield! 凵(x1,y1)
             PenUp
-            Displacement(-x1/2y-x2/2y,-dy)
+            Displacement(SByte.average [-x1;-x2],-dy)
             PenDown
             yield! 凵(x2,y2)
             PenUp
@@ -761,7 +740,7 @@ let 中心对齐等距横 (xs: _ list) y =
             xs
             |> List.pairwise
         ) do
-            let xx = x1/2y+x2/2y
+            let xx = SByte.average [x1;x2]
             PenUp
             Displacement(-xx,-y)
             PenDown
@@ -897,48 +876,6 @@ let 多横中竖丰 (xs: _ list) ys =
         ]
     | _ -> failwith ""
 
-///首笔中竖顶端
-///末笔长横左端
-/// xs(x 长横,x1 两竖间距[.3],x2 短横长度[.4])
-/// ys(y 中竖,y1 短竖长度[.7],y2 两横间距[.6])
-let 止 xs ys =
-    match xs,ys with
-    | [x;x1;x2],[y;y1;y2] ->
-        [
-            Displacement(0y,-y) // 中竖
-            PenUp
-            Displacement(-x1,y1) // y1 短竖长度
-            PenDown
-
-            Displacement(0y,-y1) // 短竖
-            PenUp
-            Displacement(x1,y2) // y2 两横间距
-            PenDown
-            Displacement(x2,0y) // x2 短横长度
-
-            PenUp
-            Displacement(-x2-x/2y,-y2)
-            PenDown
-            Displacement(x,0y)
-        ]
-    | _ -> failwith ""
-
-///首笔顶横左端
-///末笔底横右端
-/// xs(x0 顶横长度, x 底横长度,x1 两竖间距[.3],x2 短横长度[.4])
-/// ys(y 中竖,y1 短竖长度[.7],y2 两横间距[.6])
-let 正 xs ys =
-    match xs with
-    | x0 :: tail ->
-    [
-        Displacement(x0,0y)
-        PenUp
-        Displacement(-x0/2y,0y)
-        PenDown
-        yield! 止 tail ys
-    ]
-    | _ -> failwith ""
-
 /// 首笔日左上点
 /// 末笔底横右点
 /// [x1 日; x2 土上横; x 底横]
@@ -985,7 +922,7 @@ let 西部 (x, y) (x0, y0) =
 /// 首笔左上点
 /// 末笔下长横右端
 /// [x1 日; x2 土上横; x 底横]
-/// [y1 左竖; y2右竖]
+/// [y1 左竖; y2 右竖]
 let 耳 xs ys =
     match xs,ys with
     | [x1;x2;x3],[y1;y2] ->
@@ -1000,7 +937,7 @@ let 耳 xs ys =
             PenDown
             Displacement(0y,-y2)
             PenUp
-            Displacement(-x2/2y-x3/2y,y2-y1)
+            Displacement(-SByte.average [x2;x3],y2-y1)
             PenDown
             Displacement(x3,0y)
         ]
@@ -1086,7 +1023,6 @@ let 点八 xs y =
             Displacement(-dx,-y)
         ]
     | _ -> failwith ""
-
 
 /// 首笔顶横左端
 /// 末笔大口左上
@@ -1261,26 +1197,6 @@ let 西字 (x, y) (x0, y0) =
         PenDown
         yield! 口(-x0,-y0)
     ]
-
-///首笔口左上端
-///末笔中竖下端
-/// [x0 口; x1 底横]
-/// [y0 口; y1 上头长度; y竖总长度]
-let 虫无点 xs ys =
-    match xs,ys with
-    | [x0;x1],[y0;y1;y] ->
-        [
-            yield! 口(x0,y0)
-            PenUp
-            Displacement(x0/2y,y1)
-            PenDown
-            Displacement(0y,-y)
-            PenUp
-            Displacement(-x1/2y,0y)
-            PenDown
-            Displacement(x1,0y)
-        ]
-    | _ -> failwith $"ys[y0;y1;y]列表元素数量不对"
 
 ///首笔冂左下点
 ///末笔口右下端
@@ -1473,33 +1389,6 @@ let 甘 (x0,y0) (x,y) =
         yield! 凵(x0,y)
     ]
 
-/// 首笔是上横左端
-/// 末笔是下横右端
-let 革 (x,y) =
-    //let x1 = x/4y // 廿横出头的长度
-    let x2 = SByte.multiply 0.75 x // 口
-
-    //4廿34口3十4
-    let y1 = SByte.multiply (4./18.) y
-
-    let y2 = SByte.multiply 0.4 y1 //廿竖出头的长度
-
-    let l = (y-y1) //中竖高度
-
-    //口顶标高
-    let y4 = SByte.multiply (11./18.) y
-
-    [
-        yield! 廿(x/2y,y2)(x,y1)
-        yield! move (-x/4y) -y1
-        Displacement(0y,-l) //中竖
-        yield! move -(x2/2y) y4
-        yield! 口 (x2, y1)
-        yield! move -(x/8y) (SByte.multiply (7./18.) -y)
-        Displacement(x,0y)
-
-    ]
-
 /// 首笔上横左端
 /// 末笔底长横右点
 /// [x0 两竖间距.4; x1 上横长度.8; x 下横长度]
@@ -1559,8 +1448,6 @@ let 垂无撇 xs y =
         ]
     | _ -> failwith $""
 
-//cháng镸
-
 /// 首笔冂左竖下端
 /// 末笔底长横右点
 //(x0,y0) 冂尺寸
@@ -1578,8 +1465,8 @@ let 典无八 (x0,y0) (x,y) =
 ///末笔口右下端
 /// (x, y) 冂 (x0, y0) 口
 let 同 (x, y) (x0, y0) =
-    let x1 = x/2y+x0/2y
-    let y1 = SByte.multiply 0.6 y0
+    let x1 = (SByte.multiply 0.4 x) + (SByte.multiply 0.6 x0)
+    let y1 = SByte.multiply 0.7 y0
     [
         Displacement(0y,y)
         Displacement(x,0y)
@@ -1596,3 +1483,17 @@ let 同 (x, y) (x0, y0) =
         yield! 口(x0,y0)
     ]
 
+/// 贯去掉贝
+/// 首笔口左上
+/// 末笔中横右端
+/// (x, y) 口; x1 中横
+let 躺申 (x, y) x1 =
+    [
+        yield! 躺日(x, y)
+        PenUp
+        Displacement(-x1/2y,y/2y)
+        PenDown
+        Displacement(x1,0y)
+    ]
+
+//cháng镸

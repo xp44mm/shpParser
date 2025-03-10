@@ -10,3 +10,10 @@ let fromFloat (x:float) =
 let multiply (x:float) (y:sbyte) =
     let yy = float y
     fromFloat (x*yy)
+
+let average (xs:list<sbyte>) =
+    let ls =
+        xs
+        |> List.map(int)
+    List.sum ls / ls.Length
+    |> sbyte

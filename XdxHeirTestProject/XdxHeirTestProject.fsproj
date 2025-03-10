@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Radical.fs" />
     <Compile Include="全尺寸.fs" />
+    <Compile Include="Composite.fs" />
     <Compile Include="Xdx00.fs" />
     <Compile Include="Xdx01.fs" />
     <Compile Include="Xdx02.fs" />
