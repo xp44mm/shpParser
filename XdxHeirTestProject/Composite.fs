@@ -138,3 +138,35 @@ type 正 =
                 }).toYield()
         ]
 
+type 十早 = // (x,y) =
+    {
+        十: sbyte*sbyte
+        日: sbyte*sbyte
+        横: sbyte*sbyte // 横上高度
+        竖: sbyte
+    }
+    ///首笔顶十横左端
+    ///末笔底十竖下端
+    member this.toYield() =
+        let x1,y1 = this.十
+        let x2,y2 = this.日
+        let x3,y3 = this.横
+        [
+            yield! Radical.十 x1 [y1/2y;y1]
+            PenUp
+            Displacement(-x2/2y, 0y)
+            PenDown
+            yield! Radical.日 (x2, y2)
+            PenUp
+            Displacement((x2-x1)/2y, -y2/2y-y3)
+            PenDown
+            yield! Radical.十 x3 [y3;this.竖]
+        ]
+
+//type 西 = 
+//    {
+//        总尺寸:sbyte*sbyte
+//        竖撇:sbyte*sbyte
+
+//    }
+

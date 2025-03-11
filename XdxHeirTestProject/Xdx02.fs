@@ -9997,14 +9997,9 @@ let chunk = [
         PenUp
         Displacement(-94y,-13y)
         PenDown
-        yield! Radical.甲 54y (76y,25y)
-
+        yield! Radical.单无八 (76y,25y) (114y,54y) 
         PenUp
-        Displacement(-57y,-25y-13y)
-        PenDown
-        Displacement(114y,0y)
-        PenUp
-        Displacement(-64y,0y)
+        Displacement(-2y,19y)
         PenDown
         Displacement(-48y,-20y)
         PenUp
@@ -12758,9 +12753,9 @@ let chunk = [
         PenDown
         Displacement(0y,-38y)
         PenUp
-        Displacement(-41y,-18y-32y)
+        Displacement(-41y,-18y)
         PenDown
-        yield! Radical.由 46y (57y,32y)
+        yield! Radical.由 (57y,32y) 46y
         PenUp
         Displacement(-13y,-7y)
         PenDown

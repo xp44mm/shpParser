@@ -3,8 +3,6 @@
 open shpParser
 open System
 
-let disp (x:int) (y:int) = Displacement(sbyte x,sbyte y)
-
 let move x y =
     [
         PenUp
@@ -176,42 +174,6 @@ let 回 (x,y) (x1,y1) =
         Displacement(dx,-dy)
         PenDown
         yield! 口(x1, y1)
-    ]
-
-//首笔左上点
-//末笔中竖下端
-let 雨 (x,y) =
-    let y1= y/3y // 间距
-    let x1 = x/6y //点长
-    let y2 = y-y1 //竖长
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x,-y)
-        PenDown
-        Displacement(0y,y2)
-        Displacement(x,0y)
-        Displacement(0y,-y2)
-        PenUp
-        Displacement(-x1,y1)
-        PenDown
-        Displacement(-x1,0y)
-        PenUp
-        Displacement(x1,-y1)
-        PenDown
-        Displacement(-x1,0y)
-        PenUp
-        Displacement(-x/3y,y1)
-        PenDown
-        Displacement(-x1,0y)
-        PenUp
-        Displacement(x1,-y1)
-        PenDown
-        Displacement(-x1,0y)
-        PenUp
-        Displacement(x/3y,y)
-        PenDown
-        Displacement(0y,-y)
     ]
 
 ///首笔左下角
@@ -401,32 +363,6 @@ let 玉(x,y) =
         Displacement(0y,-y)
     ]
 
-/// 首笔右下
-/// 末笔中下
-let 臣(x, y) =
-    //todo:中间的小口短一点
-    //x两等分
-    //y三等分
-    [
-        Displacement(-x,0y)
-        Displacement(0y,y)
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x/2y,0y)
-        PenDown
-        Displacement(0y,-y/3y)
-        PenUp
-        Displacement(-x/2y,0y)
-        PenDown
-        Displacement(x,0y)
-        Displacement(0y,-y/3y)
-        Displacement(-x,0y)
-        PenUp
-        Displacement(x/2y,0y)
-        PenDown
-        Displacement(0y,-y/3y)
-    ]
-
 /// 乚
 let 竖弯勾(x, y) =
     let d = 7y
@@ -579,18 +515,25 @@ let 等长双竖 (x, y) =
         Displacement(0y,-y)
     ]
 
-/// 首笔左上角
-/// 末笔顶横中点
-let 甲 y0 (x, y) =
+/// 首笔日左上角
+/// 末笔中竖下点
+/// y0 中竖长度
+let 甲 (x, y) y0 =
     [
         yield! 日(x, y)
-        yield! move (x/2y) (-y0+y/2y)
-        Displacement(0y,y0) // y0中竖长度
+        yield! move (x/2y) (y/2y)
+        Displacement(0y,-y0)
     ]
 
-/// 首笔左下角
-/// 末笔底横中点
-let 由 y0 (x, y) = 甲 -y0 (x,-y)
+/// 首笔日左上角
+/// 末笔中竖下点
+/// y0 中竖长度
+let 由 (x, y) y0 =
+    [
+        yield! 日(x, y)
+        yield! move (x/2y) (y0-y/2y)
+        Displacement(0y,-y0)
+    ]
 
 ///首笔左竖下端
 ///末笔中竖下端
@@ -683,18 +626,6 @@ let 卜 x ys =
             Displacement(x,0y)
         ]
     | _ -> failwith ""
-
-///首笔外框上横右端
-///末笔中间框左下点
-/// (x0,y0) 大框尺寸 (x1,y1) 中间框尺寸
-let 巨 (x0,y0) (x1,y1) =
-    [
-        yield! 匚(x0,y0)
-        PenUp
-        Displacement(-x0, SByte.average [y0;y1])
-        PenDown
-        yield! 匚(-x1,y1)
-    ]
 
 ///首笔左竖高点
 ///末笔中竖下点
@@ -1347,8 +1278,8 @@ let 目一 xs y =
 
 /// 首笔横左端
 /// 末笔右竖下端
-/// (x0, y0)顶部中间的尺寸
-/// (x, y) 总体尺寸
+/// (x0,y0)顶部中间的尺寸
+/// (x,y) 总体尺寸
 let 艹 (x0, y0) (x, y) =
     let x1 = (x-x0)/2y //两端长度
     [
@@ -1497,3 +1428,112 @@ let 躺申 (x, y) x1 =
     ]
 
 //cháng镸
+
+///首笔外框上横右端
+///末笔中间框左下点
+/// (x0,y0)大框尺寸; (x1,y1)中间框尺寸
+let 巨 (x0,y0) (x1,y1) =
+    [
+        yield! 匚(x0,y0)
+        PenUp
+        Displacement(-x0, SByte.average [y0;y1])
+        PenDown
+        yield! 匚(-x1,y1)
+    ]
+
+///首笔外框上横右端
+///末笔下小竖下点
+/// (x,y) 大框尺寸;
+/// (x1,y1) 中间框尺寸
+let 臣(x, y) (x1,y1) =
+    //todo:中间的小口短一点
+    //x两等分
+    //y三等分
+    [
+        yield! 巨 (x,y) (x1,y1)
+
+        PenUp
+        Displacement(x1/2y,SByte.average [y;y1])
+        PenDown
+        let yy = (y-y1)/2y
+        Displacement(0y,-yy)
+        PenUp
+        Displacement(0y,-y1)
+        PenDown
+        Displacement(0y,-yy)
+    ]
+
+///首笔顶横左点
+///末笔冖右竖下端
+///(x,y)丁; (x0,y0)冖
+let 雨字头 (x,y) (x0,y0) =
+    let x3 = SByte.multiply 0.3 x0 //横点长度
+    let yy = 4y // 中竖下伸出长度
+    let yd = 2y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x/2y,0y)
+        PenDown
+        Displacement(0y,-y)
+
+        //下行两点
+        PenUp
+        Displacement(-x0/2y+x0/10y,yy+yd)
+        PenDown
+        Displacement(x3,0y)
+        PenUp
+        Displacement(x0/5y,0y)
+        PenDown
+        Displacement(x3,0y)
+
+        //上行两点
+        PenUp
+        Displacement(0y,y0/2y)
+        PenDown
+        Displacement(-x3,0y)
+        PenUp
+        Displacement(-x0/5y,0y)
+        PenDown
+        Displacement(-x3,0y)
+
+        PenUp
+        Displacement(-x0/10y,-y0/2y-yd)
+        PenDown
+        yield! 冖 (x0,y0)
+
+
+    ]
+
+///首笔外框上横右端
+///末笔下小竖下点
+/// (x,y) 大框尺寸;
+/// (x1,y1) 中间框尺寸
+let 颐无页 (x,y) (x0,y0) =
+    let x2 = SByte.multiply 0.6 x + SByte.multiply 0.4 x0
+    [
+        yield! 匚(x,y)
+        PenUp
+        Displacement(-x2, SByte.average [y;y0])
+        PenDown
+        yield! 口(x0,y0)
+
+        let yy = (y-y0)/2y
+        PenUp
+        Displacement(x0/2y,yy)
+        PenDown
+        Displacement(0y,-yy)
+        PenUp
+        Displacement(0y,-y0)
+        PenDown
+        Displacement(0y,-yy)
+    ]
+
+let 单无八(x0,y0) (x1,y1)  =
+    [
+        yield! 日(x0,y0)
+        PenUp
+        Displacement((x0-x1)/2y,-SByte.multiply 0.9 y0)
+        PenDown
+        yield! 十 x1 [SByte.multiply 1.4 y0;y1]
+    ]
