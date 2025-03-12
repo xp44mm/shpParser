@@ -10391,7 +10391,7 @@ let chunk = [
         PenUp
         Displacement(6y,111y)
         PenDown
-        yield! Radical.酉(42y,76y)(54y,96y)
+        yield! Radical.酉(54y,96y)(42y,76y)
 
         PenUp
         Displacement(20y,66y+23y)

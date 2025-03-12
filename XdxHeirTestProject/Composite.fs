@@ -163,10 +163,27 @@ type 十早 = // (x,y) =
             yield! Radical.十 x3 [y3;this.竖]
         ]
 
-//type 西 = 
-//    {
-//        总尺寸:sbyte*sbyte
-//        竖撇:sbyte*sbyte
-
-//    }
+type 世 = 
+    {
+        凵:sbyte*sbyte
+        七:sbyte*sbyte
+    }
+    ///首笔长横左端
+    ///末笔㇄的右端
+    member this.toYield() =
+        let x1,y1 = this.凵
+        let x2,y2 = this.七
+        let x0 = x2/2y-x1
+        [
+            Displacement(x2, 0y)
+            PenUp
+            Displacement(-x2/2y, y1/2y)
+            PenDown
+            yield! Radical.凵(x1, y1)
+            PenUp
+            Displacement(-x1-x1, -5y)
+            PenDown
+            Displacement(0y,5y-y2)
+            Displacement(x2-x0, 0y)
+        ]
 
