@@ -229,30 +229,6 @@ let 㠯 (x, y) =
         Displacement(-x,0y)
     ]
 
-///首笔上横左端
-///末笔日字中横左端
-let 曹头 (x, y) =
-    let x2 = SByte.multiply 0.8 x
-    let x3 = SByte.multiply (0.8/3.0) x
-    let x4 = SByte.multiply (0.8/3.0+0.1) x
-    let y2 = y/2y
-    let y3 = SByte.multiply 0.75 y
-    [
-        Displacement(x,0y)
-        PenUp
-        Displacement(-x4,-y3)
-        PenDown
-        Displacement(0y,y)
-        PenUp
-        Displacement(-x3,-y)
-        PenDown
-        Displacement(0y,y)
-        PenUp
-        Displacement(-x3,-y2)
-        PenDown
-        yield! 日(x2,y2)
-    ]
-
 let 丌 (x, y) =
     let x1 = x/3y
     let x2 = x/6y
@@ -1537,3 +1513,30 @@ let 单无八(x0,y0) (x1,y1)  =
         PenDown
         yield! 十 x1 [SByte.multiply 1.4 y0;y1]
     ]
+///首笔上横左端
+///末笔日字中横左端
+/// (x, y) 总体尺寸; (x0,y0) 日字尺寸
+let 曹头 (x,y) (x0,y0) =
+    let x1 = x0/3y
+    let y1 = (y-y0)/2y
+    let x2 = SByte.average [x1;x]
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x2,y1)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x1,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(-x1-x1,y0/2y)
+        PenDown
+        Displacement(x0,0y)
+        PenUp
+        Displacement(0y,-y0/2y)
+        PenDown
+        yield! 口(-x0,-y0)
+    ]
+

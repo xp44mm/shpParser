@@ -701,7 +701,6 @@ let chunk = [
         Displacement(-41y,-79y)
         PenDown
         yield! Radical.冏 (64y,76y) 32y (27y,20y)
-
     ]
     // 伤
     51659us, [
@@ -7612,7 +7611,6 @@ let chunk = [
         Displacement(-41y,-82y)
         PenDown
         yield! Radical.用部(60y,76y)
-
     ]
     // 搜
     52177us, [
