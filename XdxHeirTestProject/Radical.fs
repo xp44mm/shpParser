@@ -561,6 +561,7 @@ let 申 x ys =
 
 ///首笔横左端
 ///末笔竖下端
+/// y0横上高度; y总高度
 let 十 x ys =
     match ys with
     | [y0;y] ->
@@ -1540,3 +1541,26 @@ let 曹头 (x,y) (x0,y0) =
         yield! 口(-x0,-y0)
     ]
 
+///首笔顶横左点
+///末笔口右下
+///(x1,y1)十(x0,y0)口
+let 古 (x1,y1) (x0,y0) =
+    [
+        yield! 十 x1 [y1/2y;y1]
+        PenUp
+        Displacement(-x0/2y,-y0)
+        PenDown
+        yield! 口(x0,y0)
+    ]
+
+///首笔日左上点
+///末笔中竖
+///(x0,y0)日(x1,y1)十
+let 早 (x0,y0) (x1,y1) =
+    [
+        yield! 日(x0,y0)
+        PenUp
+        Displacement((x0-x1)/2y,-y0)
+        PenDown
+        yield! 十 x1 [y0/2y;y1]
+    ]

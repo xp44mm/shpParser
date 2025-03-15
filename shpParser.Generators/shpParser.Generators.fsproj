@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Include="shapes.fsyacc" />
     <Compile Include="ShapesParseTableTest.fs" />
+    <Compile Include="DisplacementTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

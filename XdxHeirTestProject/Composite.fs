@@ -187,3 +187,21 @@ type 世 =
             Displacement(x2-x0, 0y)
         ]
 
+type 直 =
+    {
+        十: sbyte*sbyte
+        目: sbyte*sbyte
+        一: sbyte
+    }
+    ///首笔顶十横左端
+    ///末笔底十竖下端
+    member this.toYield() =
+        let x1,y1 = this.十
+        let x2,y2 = this.目
+        [
+            yield! Radical.十 x1 [y1/2y;y1]
+            PenUp
+            Displacement(-x2/2y, -y2)
+            PenDown
+            yield! Radical.目一 [x2;this.一] y2
+        ]
