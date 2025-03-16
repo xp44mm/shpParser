@@ -214,11 +214,13 @@ let 目 (x, y) =
     ]
 
 ///例如:追去掉走之，去掉撇，剩余的部分
-///入口第二横左端
-///末笔第三横左端
+///首笔上口左下端
+///末笔下口左上端
 /// yi 以，繁体字
 let 㠯 (x, y) =
-    let y1 = y/3y
+    let y1 = SByte.multiply (3./8.) y
+    //let y2 = SByte.multiply 0.25 y
+
     [
         Displacement(x,0y)
         Displacement(0y,y1)
@@ -1563,4 +1565,26 @@ let 早 (x0,y0) (x1,y1) =
         Displacement((x0-x1)/2y,-y0)
         PenDown
         yield! 十 x1 [y0/2y;y1]
+    ]
+
+/// 带字顶头
+///首笔横左点
+///末笔右竖下点
+let 卅头 (x,y) =
+    let x0 = x/4y
+    let y0 = y/2y
+    [
+        Displacement(x,0y)
+        PenUp
+        Displacement(-x+x0,y0)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x0,y)
+        PenDown
+        Displacement(0y,-y)
+        PenUp
+        Displacement(x0,y)
+        PenDown
+        Displacement(0y,-y)
     ]
