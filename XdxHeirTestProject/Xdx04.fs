@@ -12894,33 +12894,28 @@ let chunk = [
         Displacement(-47y,-3y)
         PenDown
         Displacement(78y,0y)
+
         PenUp
-        Displacement(-43y,0y)
+        Displacement(-55y,0y)
         PenDown
-        Displacement(-28y,-38y)
-        Displacement(59y,8y)
+        Displacement(-13y,-34y)
+        Displacement(59y,0y)
         PenUp
-        Displacement(-17y,15y)
+        Displacement(-15y,17y)
         PenDown
-        Displacement(24y,-28y)
+        Displacement(22y,-25y)
         PenUp
-        Displacement(-56y,-8y)
+        Displacement(-61y,0y)
         PenDown
-        Displacement(3y,-15y)
-        Displacement(0y,-15y)
-        Displacement(-11y,-8y)
-        Displacement(-13y,-13y)
+        yield! Radical.竖撇(17y,58y)
         PenUp
-        Displacement(43y,51y)
+        Displacement(38y,58y)
         PenDown
-        Displacement(0y,-48y)
+        Displacement(0y,-54y)
         PenUp
-        Displacement(18y,51y)
+        Displacement(21y,54y)
         PenDown
-        Displacement(0y,-41y)
-        Displacement(4y,-13y)
-        Displacement(17y,5y)
-        Displacement(5y,15y)
+        yield! Radical.竖弯勾(25y,58y)
     ]
     // 柳
     49656us, [
