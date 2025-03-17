@@ -534,6 +534,7 @@ let 巾 x ys =
 ///首笔口左上端
 ///末笔中竖下端
 /// [y0口; y1上头长度; y竖总长度]
+[<Obsolete("中2")>]
 let 中 x ys =
     match ys with
     | [y0;y1;y] ->
@@ -625,6 +626,7 @@ let 山 x ys =
 
 /// 首笔上凵左竖上端
 /// 末笔中竖下端
+[<Obsolete("type 出")>]
 let 出 xs ys =
     match xs,ys with
     | [x1;x2],[y1;dy;y2;y] ->
@@ -1550,9 +1552,9 @@ let 古 (x1,y1) (x0,y0) =
     [
         yield! 十 x1 [y1/2y;y1]
         PenUp
-        Displacement(-x0/2y,-y0)
+        Displacement(x0/2y,-y0)
         PenDown
-        yield! 口(x0,y0)
+        yield! 口(-x0,-y0)
     ]
 
 ///首笔日左上点
@@ -1588,3 +1590,17 @@ let 卅头 (x,y) =
         PenDown
         Displacement(0y,-y)
     ]
+///首笔口左上端
+///末笔中竖下端
+/// (x0,y0) 口; [y1上头长度; y竖总长度]
+let 中2 (x0,y0) ys =
+    match ys with
+    | [y1;y] ->
+        [
+            yield! 口(x0,y0)
+            PenUp
+            Displacement(x0/2y,y1)
+            PenDown
+            Displacement(0y,-y)
+        ]
+    | _ -> failwith $""

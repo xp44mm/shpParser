@@ -205,3 +205,32 @@ type 直 =
             PenDown
             yield! Radical.目一 [x2;this.一] y2
         ]
+
+type 出 =
+    {
+        上凵: sbyte*sbyte
+        下凵: sbyte*sbyte
+        /// dy 两凵顶间距，y 中竖总长
+        竖: sbyte*sbyte
+    }
+
+    /// 首笔上凵左竖上端
+    /// 末笔中竖下端
+    member this.toYield() =
+    //match xs,ys with
+    //| [x1;x2],[y1;dy;y2;y] ->
+        let x1,y1 = this.上凵
+        let x2,y2 = this.下凵
+        let dy,y = this.竖
+        [
+            yield! Radical.凵(x1,y1)
+            PenUp
+            Displacement(SByte.average [-x1;-x2],-dy)
+            PenDown
+            yield! Radical.凵(x2,y2)
+            PenUp
+            Displacement(-x2/2y,y-y2)
+            PenDown
+            Displacement(0y,-y)
+        ]
+    //| _ -> failwith ""

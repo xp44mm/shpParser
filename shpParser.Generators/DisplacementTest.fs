@@ -14,22 +14,21 @@ open Xunit.Abstractions
 
 type DisplacementTest(output:ITestOutputHelper) =
     let ls = [
-        Displacement(14y,-13y)
-        Displacement(8y,-13y)
-        Displacement(13y,-5y)
-        Displacement(20y,-10y)
+        Displacement(-8y,-36y)
+        Displacement(-10y,-20y)
+        Displacement(-10y,-18y)
+        Displacement(-18y,-20y)
+        Displacement(-6y,-8y)
         ]
 
     [<Fact>]
     member _.``order``() =
         ls
         |> List.sortBy(function 
-            | Displacement(x,y) ->
-                if x = 0y then
-                    System.Double.MaxValue
-                else
-                     float y / float x
-                     |> abs
+            | Displacement(x,y) when x <> 0y ->
+                float y / float x
+                |> abs
+                |> (~-)
             | _ -> 0.0
         )
         |> List.iter(fun x ->
